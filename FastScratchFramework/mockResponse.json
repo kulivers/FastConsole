@@ -1,0 +1,128 @@
+{
+  "Version": {
+    "Major": 1,
+    "Minor": 1,
+    "Build": -1,
+    "Revision": -1,
+    "MajorRevision": -1,
+    "MinorRevision": -1
+  },
+  "Content": {
+    "ObjectType": "System.Web.Http.HttpError, System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
+    "Formatter": {
+      "UseXmlSerializer": false,
+      "Indent": false,
+      "WriterSettings": {
+        "Async": false,
+        "Encoding": {
+          "BodyName": "utf-8",
+          "EncodingName": "Unicode (UTF-8)",
+          "HeaderName": "utf-8",
+          "WebName": "utf-8",
+          "WindowsCodePage": 1200,
+          "IsBrowserDisplay": true,
+          "IsBrowserSave": true,
+          "IsMailNewsDisplay": true,
+          "IsMailNewsSave": true,
+          "IsSingleByte": false,
+          "EncoderFallback": {
+            "DefaultString": "?",
+            "MaxCharCount": 1
+          },
+          "DecoderFallback": {
+            "DefaultString": "?",
+            "MaxCharCount": 1
+          },
+          "IsReadOnly": true,
+          "CodePage": 65001
+        },
+        "OmitXmlDeclaration": true,
+        "NewLineHandling": 0,
+        "NewLineChars": "\r\n",
+        "Indent": false,
+        "IndentChars": "  ",
+        "NewLineOnAttributes": false,
+        "CloseOutput": false,
+        "ConformanceLevel": 2,
+        "CheckCharacters": false,
+        "NamespaceHandling": 0,
+        "WriteEndDocumentOnClose": true,
+        "OutputMethod": 0,
+        "DoNotEscapeUriAttributes": false
+      },
+      "MaxDepth": 256,
+      "SupportedMediaTypes": [
+        {
+          "CharSet": null,
+          "Parameters": [],
+          "MediaType": "application/xml"
+        },
+        {
+          "CharSet": null,
+          "Parameters": [],
+          "MediaType": "text/xml"
+        }
+      ],
+      "SupportedEncodings": [
+        {
+          "BodyName": "utf-8",
+          "EncodingName": "Unicode (UTF-8)",
+          "HeaderName": "utf-8",
+          "WebName": "utf-8",
+          "WindowsCodePage": 1200,
+          "IsBrowserDisplay": true,
+          "IsBrowserSave": true,
+          "IsMailNewsDisplay": true,
+          "IsMailNewsSave": true,
+          "IsSingleByte": false,
+          "EncoderFallback": {
+            "MaxCharCount": 0
+          },
+          "DecoderFallback": {
+            "MaxCharCount": 0
+          },
+          "IsReadOnly": true,
+          "CodePage": 65001
+        },
+        {
+          "BodyName": "utf-16",
+          "EncodingName": "Unicode",
+          "HeaderName": "utf-16",
+          "WebName": "utf-16",
+          "WindowsCodePage": 1200,
+          "IsBrowserDisplay": false,
+          "IsBrowserSave": true,
+          "IsMailNewsDisplay": false,
+          "IsMailNewsSave": false,
+          "IsSingleByte": false,
+          "EncoderFallback": {
+            "MaxCharCount": 0
+          },
+          "DecoderFallback": {
+            "MaxCharCount": 0
+          },
+          "IsReadOnly": true,
+          "CodePage": 1200
+        }
+      ],
+      "MediaTypeMappings": [],
+      "RequiredMemberSelector": {}
+    },
+    "Value": {
+      "Message": "No HTTP resource was found that matches the request URI 'http://localhost:5267/'."
+    },
+    "Headers": [
+      {
+        "Key": "Content-Type",
+        "Value": [
+          "application/xml; charset=utf-8"
+        ]
+      }
+    ]
+  },
+  "StatusCode": 404,
+  "ReasonPhrase": "Not Found",
+  "Headers": [],
+  "RequestMessage": null,
+  "IsSuccessStatusCode": false
+}

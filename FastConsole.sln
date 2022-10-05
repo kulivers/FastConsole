@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastConsole", "FastConsole\FastConsole.csproj", "{305D0D28-620A-4679-88DC-FD15BCCEC39F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastScratchFramework", "FastScratchFramework\FastScratchFramework.csproj", "{BC1A497E-2C06-4B9C-B466-98810D0C4F57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaAdmin", "KafkaAdmin\KafkaAdmin.csproj", "{63FAB476-6780-4013-8907-B5227A854DC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kafka", "Kafka", "{6BDC5429-4736-4E42-A99C-84AAB2080703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaConsumerProducer", "KafkaConsumerProducer\KafkaConsumerProducer.csproj", "{2F787133-2F00-413E-93C7-C05624A7F0D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{0378BADB-85B3-4318-9C1E-EA56961961D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastApi", "FastApi\FastApi.csproj", "{072D201D-20AA-413F-878A-E9D7E586588F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{305D0D28-620A-4679-88DC-FD15BCCEC39F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305D0D28-620A-4679-88DC-FD15BCCEC39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305D0D28-620A-4679-88DC-FD15BCCEC39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305D0D28-620A-4679-88DC-FD15BCCEC39F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC1A497E-2C06-4B9C-B466-98810D0C4F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1A497E-2C06-4B9C-B466-98810D0C4F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1A497E-2C06-4B9C-B466-98810D0C4F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1A497E-2C06-4B9C-B466-98810D0C4F57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63FAB476-6780-4013-8907-B5227A854DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63FAB476-6780-4013-8907-B5227A854DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63FAB476-6780-4013-8907-B5227A854DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63FAB476-6780-4013-8907-B5227A854DC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F787133-2F00-413E-93C7-C05624A7F0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F787133-2F00-413E-93C7-C05624A7F0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F787133-2F00-413E-93C7-C05624A7F0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F787133-2F00-413E-93C7-C05624A7F0D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{072D201D-20AA-413F-878A-E9D7E586588F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072D201D-20AA-413F-878A-E9D7E586588F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072D201D-20AA-413F-878A-E9D7E586588F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072D201D-20AA-413F-878A-E9D7E586588F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{63FAB476-6780-4013-8907-B5227A854DC0} = {6BDC5429-4736-4E42-A99C-84AAB2080703}
+		{2F787133-2F00-413E-93C7-C05624A7F0D0} = {6BDC5429-4736-4E42-A99C-84AAB2080703}
+		{072D201D-20AA-413F-878A-E9D7E586588F} = {0378BADB-85B3-4318-9C1E-EA56961961D4}
+	EndGlobalSection
+EndGlobal
