@@ -27,7 +27,6 @@ public class Program
 
                 consumer1.Subscribe(strings.First(s => s == "requestTopic"));
                 while (true)
-                {
                     try
                     {
                         var result = consumer1.Consume(CancellationToken.None);
@@ -44,7 +43,6 @@ public class Program
                         Console.WriteLine(e);
                         throw;
                     }
-                }
             }
         }
     }

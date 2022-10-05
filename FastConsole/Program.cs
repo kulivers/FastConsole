@@ -1,65 +1,83 @@
-﻿using Avro;
+﻿using System.Runtime.Serialization;
+using System.Xml;
+using Avro;
 using Avro.Generic;
 using Avro.IO;
 using Avro.Reflect;
-using Avro.Specific;
 using FastConsole;
+using Microsoft.Hadoop.Avro.Container;
 using SolTechnology.Avro;
-
 
 internal class Program2
 {
     public void LocalMain2()
     {
         var serDemo = new SerializationDemo();
-        serDemo.Run();
+        serDemo.RunHadoopDemo();
     }
+
     public void LocalMain()
     {
-        var person = new Person(323212, "ega");
-        var json = AvroConvert.GenerateSchema(typeof(Person));
-        var schema = Schema.Parse(json);
-        
+        var fileName = @"D:\Playground\Garbage\FastConsole\FastConsole\writtenSchema.json";
 
-        DatumWriter<Person> writer = new ReflectWriter<Person>(schema);
-        DatumReader<Person> reader = new GenericReader<Person>(schema, schema);
-        
-        var span = new Span<byte>();
-        using (var ms = new MemoryStream())
+        using (Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
         {
-            
-            writer.Write(person, new BinaryEncoder(ms));
-            span = ms.ToArray();
+            using (var reader = AvroContainer.CreateReader<EmployeeDTO>(stream))
+            {
+                using (var streamReader = new SequentialReader<EmployeeDTO>(reader))
+                {
+                    var record = streamReader.Objects.FirstOrDefault();
+                }
+            }
         }
 
-      
-        
-        using (var ms = new MemoryStream(span.ToArray()))
-        {
-            var person1 = new Person();
-            var read = reader.Read(person1, new BinaryDecoder(ms));
-
-            Console.WriteLine(person.Equals(person1) ? "Success!!!!" : "Failture");
-        }
     }
+
+    public static void WriteObject(string path)
+    {
+        // Create a new instance of the Person class and
+        // serialize it to an XML file.
+        var p1 = Helper.CreateEmployee();
+        // Create a new instance of a StreamWriter
+        // to read and write the data.
+        var fs = new FileStream(path, FileMode.Create);
+        var writer = XmlDictionaryWriter.CreateTextWriter(fs);
+        var ser = new DataContractSerializer(typeof(EmployeeDTO));
+        ser.WriteObject(writer, p1);
+        Console.WriteLine("Finished writing object.");
+        writer.Close();
+        fs.Close();
+    }
+    public static void ReadObject(string path)
+    {
+        // Deserialize an instance of the Person class
+        // from an XML file. First create an instance of the
+        // XmlDictionaryReader.
+        FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+        XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+
+        // Create the DataContractSerializer instance.
+        DataContractSerializer ser = new DataContractSerializer(typeof(EmployeeDTO));
+        // Deserialize the data and read it from the instance.
+        EmployeeDTO newPerson = (EmployeeDTO)ser.ReadObject(reader);
+        fs.Close();
+    }
+
 
     public static byte[] ReadFully(Stream input)
     {
-        byte[] buffer = new byte[16 * 1024];
-        using (MemoryStream ms = new MemoryStream())
+        var buffer = new byte[16 * 1024];
+        using (var ms = new MemoryStream())
         {
             int read;
-            while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
-            {
-                ms.Write(buffer, 0, read);
-            }
+            while ((read = input.Read(buffer, 0, buffer.Length)) > 0) ms.Write(buffer, 0, read);
 
             return ms.ToArray();
         }
     }
 }
 
-class Program
+internal class Program
 {
     public static async Task Main(string[] args)
     {

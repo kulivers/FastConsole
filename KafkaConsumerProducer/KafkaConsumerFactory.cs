@@ -10,10 +10,14 @@ public class KafkaConsumerFactory
         _config = config;
     }
 
-    public IConsumer<Null, HttpRequestMessage> GetHttpRequestConsumer() =>
-        new ConsumerBuilder<Null, HttpRequestMessage>(_config.DefaultConsumerConfig).Build();
+    public IConsumer<Null, HttpRequestMessage> GetHttpRequestConsumer()
+    {
+        return new ConsumerBuilder<Null, HttpRequestMessage>(_config.DefaultConsumerConfig).Build();
+    }
 
-    public IConsumer<Ignore, HttpRequestMessageWrapper> GetHttpRequestWrapperConsumer() =>
-        new ConsumerBuilder<Ignore, HttpRequestMessageWrapper>(_config.DefaultConsumerConfig)
+    public IConsumer<Ignore, HttpRequestMessageWrapper> GetHttpRequestWrapperConsumer()
+    {
+        return new ConsumerBuilder<Ignore, HttpRequestMessageWrapper>(_config.DefaultConsumerConfig)
             .SetValueDeserializer(new HttpRequestMessageDeserializer()).Build();
+    }
 }

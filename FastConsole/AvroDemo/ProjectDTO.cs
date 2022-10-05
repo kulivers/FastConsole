@@ -1,55 +1,43 @@
-﻿using Avro;
+﻿using System.Runtime.Serialization;
+using Avro;
 using Avro.Specific;
 
 namespace FastConsole;
 
-public partial class ProjectDTO : ISpecificRecord
+public struct ProjectDTO : ISpecificRecord
 {
-    public static Schema _SCHEMA = Avro.Schema.Parse(
+    public static Schema _SCHEMA = Schema.Parse(
         "{\"type\":\"record\",\"name\":\"ProjectDTO\",\"namespace\":\"FastConsole\",\"fields\":[{\"name" +
         "\":\"ProjectId\",\"type\":\"int\"},{\"name\":\"ProjectName\",\"type\":\"string\"}]}");
 
-    private int _ProjectId;
-    private string _ProjectName;
+    
+    public int ProjectId { get; set; }
+    
 
-    public virtual Schema Schema
-    {
-        get { return ProjectDTO._SCHEMA; }
-    }
+    public string ProjectName { get; set; }
 
-    public int ProjectId
-    {
-        get { return this._ProjectId; }
-        set { this._ProjectId = value; }
-    }
+    public Schema Schema => _SCHEMA;
 
-    public string ProjectName
-    {
-        get { return this._ProjectName; }
-        set { this._ProjectName = value; }
-    }
-
-    public virtual object Get(int fieldPos)
+    
+    public object Get(int fieldPos)
     {
         switch (fieldPos)
         {
-            case 0: return this.ProjectId;
-            case 1: return this.ProjectName;
+            case 0: return ProjectId;
+            case 1: return ProjectName;
             default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
         }
-
-        ;
     }
 
-    public virtual void Put(int fieldPos, object fieldValue)
+    public void Put(int fieldPos, object fieldValue)
     {
         switch (fieldPos)
         {
             case 0:
-                this.ProjectId = (System.Int32)fieldValue;
+                ProjectId = (int)fieldValue;
                 break;
             case 1:
-                this.ProjectName = (System.String)fieldValue;
+                ProjectName = (string)fieldValue;
                 break;
             default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
         }

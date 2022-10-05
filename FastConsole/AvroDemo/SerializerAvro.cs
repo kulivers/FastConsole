@@ -1,5 +1,4 @@
 using Avro.IO;
-using Avro.Reflect;
 using Avro.Specific;
 
 namespace FastConsole;
@@ -31,9 +30,9 @@ public static class SerializerAvro
     }
 
     /// <summary>
-    /// Same as the deserialize method above but we allow called to provider an existing
-    /// Avro DTO object that can be reused across calls to avoid new'ing an object
-    /// for each call (for high performance situations)
+    ///     Same as the deserialize method above but we allow called to provider an existing
+    ///     Avro DTO object that can be reused across calls to avoid new'ing an object
+    ///     for each call (for high performance situations)
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="bytes"></param>

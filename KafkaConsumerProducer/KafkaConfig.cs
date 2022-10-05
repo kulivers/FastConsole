@@ -12,7 +12,7 @@ public class KafkaConfig
             BootstrapServers = BootstrapServers,
             ClientId = Dns.GetHostName(),
             Partitioner = Partitioner.Consistent,
-            Acks = Acks.All,
+            Acks = Acks.All
         };
 
     public ConsumerConfig DefaultConsumerConfig =>
@@ -20,6 +20,6 @@ public class KafkaConfig
         {
             BootstrapServers = BootstrapServers,
             GroupId = DefaultGroupId,
-            AutoOffsetReset = AutoOffsetReset.Latest,
+            AutoOffsetReset = AutoOffsetReset.Latest
         };
 }

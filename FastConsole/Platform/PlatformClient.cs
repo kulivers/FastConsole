@@ -1,15 +1,8 @@
-using Gateway.Api.Platform;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using Gateway.Api.Platform;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
@@ -18,7 +11,6 @@ namespace Comindware.Gateway.Api;
 public class PlatformClient : HttpClient
 {
     private const int FileSizeLimit = 314572800;
-    private static readonly TimeSpan DefaultRequestTimeout = TimeSpan.FromMinutes(5);
 
     private const string StoreStreamsPath = "api/AttachmentApi/StoreStreams";
     private const string MarkStreamsAsRejectedPath = "api/AttachmentApi/MarkStreamsAsRejected";
@@ -30,20 +22,21 @@ public class PlatformClient : HttpClient
     private const string RequestTokenName = "request-token";
     private const string Basic = "Basic";
     private const string AuthError = "Not authenticated. Bad credentials";
+    private static readonly TimeSpan DefaultRequestTimeout = TimeSpan.FromMinutes(5);
 
     private static readonly HttpClientHandler Handler = new() { CookieContainer = new CookieContainer(), UseCookies = true };
+    private readonly Uri _authenticationUri;
+    private readonly SHA1 _hasher = SHA1.Create();
+    private readonly Uri _listStreamInfoUri;
+    private readonly Uri _markStreamsAsRejectedUri;
 
 
     private readonly Uri _storeStreamsToUri;
-    private readonly Uri _markStreamsAsRejectedUri;
-    private readonly Uri _authenticationUri;
-    private readonly Uri _listStreamInfoUri;
+
+    private bool _disposed;
 
     private IEnumerable<string> _requestToken = null!;
     private string _sessionToken = null!;
-    private readonly SHA1 _hasher = SHA1.Create();
-
-    private bool _disposed = false;
 
     public PlatformClient() : base(Handler)
     {
@@ -87,30 +80,19 @@ public class PlatformClient : HttpClient
     //TODO Add authentication middleware
     public async Task AuthenticateAsync(CancellationToken token)
     {
-        try
-        {
-            var credentialsBytes = Encoding.UTF8.GetBytes("admin:C0m1ndw4r3Pl@tf0rm");
-            var credentials = Convert.ToBase64String(credentialsBytes);
-            DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Basic, credentials);
-            var responseMessage = await GetAsync(_authenticationUri, token);
-            DefaultRequestHeaders.Remove(RequestTokenName);
-            if (responseMessage.Headers.TryGetValues(RequestTokenName, out _requestToken!))
+        var credentialsBytes = Encoding.UTF8.GetBytes("admin:C0m1ndw4r3Pl@tf0rm");
+        var credentials = Convert.ToBase64String(credentialsBytes);
+        DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Basic, credentials);
+        var responseMessage = await GetAsync(_authenticationUri, token);
+        DefaultRequestHeaders.Remove(RequestTokenName);
+        if (responseMessage.Headers.TryGetValues(RequestTokenName, out _requestToken!))
+            foreach (var tok in _requestToken)
             {
-                foreach (var tok in _requestToken)
-                {
-                    DefaultRequestHeaders.Add(RequestTokenName, tok);
-                    _sessionToken = tok;
-                }
+                DefaultRequestHeaders.Add(RequestTokenName, tok);
+                _sessionToken = tok;
             }
-            else
-            {
-                throw new Exception(AuthError);
-            }
-        }
-        catch (Exception e)
-        {
-            throw;
-        }
+        else
+            throw new Exception(AuthError);
     }
 
     private async Task<HttpResponseMessage> SendFiles(List<StreamInfo> streamInfos, List<byte[]> streams, CancellationToken token)
@@ -121,8 +103,8 @@ public class PlatformClient : HttpClient
         multiPartContent.Add(jsonContent);
         streams.ForEach(s => multiPartContent.Add(new ByteArrayContent(s)));
         var byteContent = await multiPartContent.ReadAsByteArrayAsync(token);
-        
-        var hash = this.ComputeHash(byteContent);
+
+        var hash = ComputeHash(byteContent);
         AddSignatureHeader(hash, _storeStreamsToUri);
         return await PostAsync(_storeStreamsToUri, multiPartContent, token);
     }
@@ -132,29 +114,27 @@ public class PlatformClient : HttpClient
     {
         var revisionResult = await ListRevisionsAsync(acceptedDirectory.GetFilesIds(), token);
         var streamsInfo = revisionResult.Data;
-        if (revisionResult.Type != ResultType.Success || streamsInfo == null)
-        {
-            return new ProcessedFilesResult(revisionResult);
-        }
-        
+        if (revisionResult.Type != ResultType.Success || streamsInfo == null) return new ProcessedFilesResult(revisionResult);
+
         long length = FileSizeLimit;
         var result = new ProcessedFilesResult(ResultType.Success);
         var streamsInfoToSend = new List<StreamInfo>();
         var streamsToSend = new List<byte[]>();
-        
+
         foreach (var streamInfo in streamsInfo)
         {
             token.ThrowIfCancellationRequested();
             length -= acceptedDirectory.GetLength(streamInfo.StreamId);
-            
+
             if (length < 0)
             {
                 var response = await SendFiles(streamsInfoToSend, streamsToSend, token);
-                this.ProcessSendingResponseAsync(response, result, streamsInfoToSend, token);
+                ProcessSendingResponseAsync(response, result, streamsInfoToSend, token);
                 streamsInfoToSend.Clear();
                 streamsToSend.Clear();
                 length = FileSizeLimit;
             }
+
             streamsInfoToSend.Add(streamInfo);
             streamsToSend.Add(acceptedDirectory.GetContent(streamInfo.StreamId));
         }
@@ -162,23 +142,21 @@ public class PlatformClient : HttpClient
         if (streamsToSend.Count != 0)
         {
             var responseRemaining = await SendFiles(streamsInfoToSend, streamsToSend, token);
-            this.ProcessSendingResponseAsync(responseRemaining, result, streamsInfoToSend, token);
+            ProcessSendingResponseAsync(responseRemaining, result, streamsInfoToSend, token);
             streamsInfoToSend.Clear();
             streamsToSend.Clear();
         }
-        
+
         return result;
     }
 
-    private async void ProcessSendingResponseAsync(HttpResponseMessage response, ProcessedFilesResult result, List<StreamInfo> streamsInfo, CancellationToken token)
+    private async void ProcessSendingResponseAsync(HttpResponseMessage response, ProcessedFilesResult result, List<StreamInfo> streamsInfo,
+        CancellationToken token)
     {
         token.ThrowIfCancellationRequested();
         if (response.StatusCode != HttpStatusCode.OK)
         {
-            if (response.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                await AuthenticateAsync(token);
-            }
+            if (response.StatusCode == HttpStatusCode.Unauthorized) await AuthenticateAsync(token);
             var ex = new Exception(response.ReasonPhrase);
             var processedStreams = streamsInfo.Select(s => new ProcessedStream(s, ex));
             result.UploadedWithErrorFiles.AddRange(processedStreams);
@@ -187,21 +165,12 @@ public class PlatformClient : HttpClient
         {
             var responseContent = await response.Content.ReadAsStringAsync(token);
             var processedStreams = JsonSerializer.Deserialize<List<ProcessedStream>>(responseContent);
-            if (processedStreams == null)
-            {
-                return;
-            }
+            if (processedStreams == null) return;
             foreach (var processedStream in processedStreams)
-            {
                 if (!string.IsNullOrEmpty(processedStream.ErrorMessage))
-                {
                     result.UploadedWithErrorFiles.Add(processedStream);
-                }
                 else
-                {
                     result.UploadedFiles.Add(processedStream);
-                }
-            }
         }
     }
 
@@ -210,27 +179,21 @@ public class PlatformClient : HttpClient
     {
         var revisionResult = await ListRevisionsAsync(rejectedDirectory.GetFilesIds(), token);
         var streamsInfo = revisionResult.Data;
-        if (revisionResult.Type != ResultType.Success || streamsInfo == null)
-        {
-            return new ProcessedFilesResult(revisionResult);
-        }
+        if (revisionResult.Type != ResultType.Success || streamsInfo == null) return new ProcessedFilesResult(revisionResult);
 
         var result = new ProcessedFilesResult(ResultType.Success);
-        
+
         var json = JsonConvert.SerializeObject(streamsInfo);
         var jsonContent = new StringContent(json, Encoding.UTF8, JsonContent);
-        
-        var hash = this.ComputeHash(json);
+
+        var hash = ComputeHash(json);
         AddSignatureHeader(hash, _markStreamsAsRejectedUri);
-        
+
         var responseMessage = await PostAsync(_markStreamsAsRejectedUri, jsonContent, token);
-        
+
         if (responseMessage.StatusCode != HttpStatusCode.OK)
         {
-            if (responseMessage.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                await AuthenticateAsync(token);
-            }
+            if (responseMessage.StatusCode == HttpStatusCode.Unauthorized) await AuthenticateAsync(token);
             var ex = new Exception(responseMessage.ReasonPhrase);
             var processedStreams = streamsInfo.Select(s => new ProcessedStream(s, ex));
             result.MarkedAsRejectedWithErrorFiles.AddRange(processedStreams);
@@ -240,20 +203,13 @@ public class PlatformClient : HttpClient
             var responseContent = await responseMessage.Content.ReadAsStringAsync(token);
             var processedStreams = JsonConvert.DeserializeObject<List<ProcessedStream>>(responseContent);
             if (processedStreams != null)
-            {
                 foreach (var processedStream in processedStreams)
-                {
                     if (!string.IsNullOrEmpty(processedStream.ErrorMessage))
-                    {
                         result.MarkedAsRejectedWithErrorFiles.Add(processedStream);
-                    }
                     else
-                    {
                         result.MarkedAsRejectedFiles.Add(processedStream);
-                    }
-                }
-            }
         }
+
         return result;
     }
 
@@ -262,25 +218,23 @@ public class PlatformClient : HttpClient
         var json = JsonSerializer.Serialize(streamIds);
         var body = new StringContent(json, Encoding.UTF8, JsonContent);
 
-        var hash = this.ComputeHash(json);
+        var hash = ComputeHash(json);
         AddSignatureHeader(hash, _listStreamInfoUri);
-        
+
         var responseMessage = await PostAsync(_listStreamInfoUri, body, token);
-        
+
         if (responseMessage.StatusCode != HttpStatusCode.OK)
         {
-            if (responseMessage.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                await AuthenticateAsync(token);
-            }
+            if (responseMessage.StatusCode == HttpStatusCode.Unauthorized) await AuthenticateAsync(token);
             return new Result<IList<StreamInfo>>(ResultType.Exception, new Exception(responseMessage.ReasonPhrase));
         }
+
         var responseContent = await responseMessage.Content.ReadAsStringAsync(token);
-        
+
         var streamInfo = JsonConvert.DeserializeObject<List<StreamInfo>>(responseContent);
         return new Result<IList<StreamInfo>>(ResultType.Success, streamInfo);
     }
-    
+
     private void AddSignatureHeader(byte[] dataHash, Uri uri)
     {
         DefaultRequestHeaders.Remove(RequestSignature);
@@ -288,7 +242,7 @@ public class PlatformClient : HttpClient
         var hashString = Convert.ToBase64String(dataHash);
         var urlPath = uri.LocalPath;
         var signature = string.Format(SignatureBody, urlPath, _sessionToken, hashString);
-        var hash = this.ComputeHash(signature);
+        var hash = ComputeHash(signature);
         var sb = Convert.ToBase64String(hash);
 
         DefaultRequestHeaders.TryAddWithoutValidation(RequestSignature, sb);
@@ -297,14 +251,13 @@ public class PlatformClient : HttpClient
     private byte[] ComputeHash(string data)
     {
         return _hasher.ComputeHash(Encoding.UTF8.GetBytes(data));
-
     }
-    
+
     private byte[] ComputeHash(byte[] data)
     {
         return _hasher.ComputeHash(data);
     }
-    
+
     protected override void Dispose(bool disposing)
     {
         if (disposing && !_disposed)
@@ -312,6 +265,7 @@ public class PlatformClient : HttpClient
             _disposed = true;
             _hasher.Dispose();
         }
+
         base.Dispose(disposing);
     }
 }

@@ -10,9 +10,11 @@ public class KafkaProducerFactory
         _config = config;
     }
 
-    public IProducer<Null, HttpResponseMessage> GetHttpResponseProducer() =>
-        new ProducerBuilder<Null, HttpResponseMessage>(_config.DefaultProducerConfig)
+    public IProducer<Null, HttpResponseMessage> GetHttpResponseProducer()
+    {
+        return new ProducerBuilder<Null, HttpResponseMessage>(_config.DefaultProducerConfig)
             .SetValueSerializer(new HttpResponseMessageSerializer()).Build();
+    }
 
     public IProducer<Null, HttpResponseMessageWrapper> GetHttpResponseWrapperProducer()
     {

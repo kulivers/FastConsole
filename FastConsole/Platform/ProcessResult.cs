@@ -1,24 +1,22 @@
 ﻿using Gateway.Api.Platform;
-using System;
-using System.Collections.Generic;
 
 namespace Comindware.Gateway.Api;
 
 public class Result
 {
-    public Exception Exception { get; set; }
-    
-    public ResultType Type { get; set; }
-    
     public Result(ResultType resultType)
     {
-        this.Type = resultType;
+        Type = resultType;
     }
 
     public Result(ResultType resultType, Exception exception) : this(resultType)
     {
         Exception = exception;
     }
+
+    public Exception Exception { get; set; }
+
+    public ResultType Type { get; set; }
 }
 
 public enum ResultType
@@ -30,8 +28,6 @@ public enum ResultType
 
 public class Result<T> : Result
 {
-    public T? Data { get; }
-    
     public Result(ResultType resultType, T? data) : base(resultType)
     {
         Data = data;
@@ -41,22 +37,16 @@ public class Result<T> : Result
     {
         Data = data;
     }
-    
+
     public Result(ResultType resultType, Exception e) : base(resultType, e)
     {
     }
+
+    public T? Data { get; }
 }
 
 public class ProcessedFilesResult : Result
 {
-    public List<ProcessedStream> UploadedFiles { get; set; } = new();
-    
-    public List<ProcessedStream> MarkedAsRejectedFiles { get; set;} = new();
-    
-    public List<ProcessedStream> UploadedWithErrorFiles { get; set;} = new();
-    
-    public List<ProcessedStream> MarkedAsRejectedWithErrorFiles { get; set;} = new();
-
     public ProcessedFilesResult(ResultType resultType) : base(resultType)
     {
     }
@@ -68,26 +58,34 @@ public class ProcessedFilesResult : Result
     public ProcessedFilesResult(Result other) : base(other.Type, other.Exception)
     {
     }
+
+    public List<ProcessedStream> UploadedFiles { get; set; } = new();
+
+    public List<ProcessedStream> MarkedAsRejectedFiles { get; set; } = new();
+
+    public List<ProcessedStream> UploadedWithErrorFiles { get; set; } = new();
+
+    public List<ProcessedStream> MarkedAsRejectedWithErrorFiles { get; set; } = new();
 }
 
 public class ProcessedStream
 {
-    public string? StreamId { get; set; }
-        
-    public string? RevisionId { get; set; }
-        
-    public Exception? Exception { get; set; }
-    
-    public string? ErrorMessage { get; set; }
-
     public ProcessedStream()
     {
     }
-    
+
     public ProcessedStream(StreamInfo streamInfo, Exception exception)
     {
         StreamId = streamInfo.StreamId;
         RevisionId = streamInfo.RevisionId;
         Exception = exception;
     }
+
+    public string? StreamId { get; set; }
+
+    public string? RevisionId { get; set; }
+
+    public Exception? Exception { get; set; }
+
+    public string? ErrorMessage { get; set; }
 }

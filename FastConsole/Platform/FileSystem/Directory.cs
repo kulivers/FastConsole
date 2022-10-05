@@ -1,28 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace Comindware.Gateway.Api;
+
 public class Directory : IEnumerable<FileInfo>
 {
-    public string Base { get; }
-    
     private readonly ConcurrentDictionary<string, FileInfo> _files = new();
 
     public Directory(string parent, string name)
     {
-        if (!Path.IsPathRooted(parent))
-        {
-            throw new ArgumentException(parent);
-        }
+        if (!Path.IsPathRooted(parent)) throw new ArgumentException(parent);
         Base = Path.Combine(parent, name);
-        if (!System.IO.Directory.Exists(Base))
-        {
-            System.IO.Directory.CreateDirectory(Base);
-        }
+        if (!System.IO.Directory.Exists(Base)) System.IO.Directory.CreateDirectory(Base);
+    }
+
+    public string Base { get; }
+
+    public IEnumerator<FileInfo> GetEnumerator()
+    {
+        return _files.Values.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 
     public void AddFile(FileInfo receivedFile)
@@ -36,7 +37,7 @@ public class Directory : IEnumerable<FileInfo>
     {
         try
         {
-            if(_files.TryRemove(receivedFile.StreamId, out var movedFile))
+            if (_files.TryRemove(receivedFile.StreamId, out var movedFile))
             {
                 File.Move(movedFile.Path, Path.Combine(to.Base, movedFile.StreamId));
                 to.AddFile(movedFile);
@@ -52,10 +53,7 @@ public class Directory : IEnumerable<FileInfo>
     {
         try
         {
-            if(fileName != null && _files.TryRemove(fileName, out var deletedFile))
-            {
-                File.Delete(deletedFile.Path);
-            }
+            if (fileName != null && _files.TryRemove(fileName, out var deletedFile)) File.Delete(deletedFile.Path);
         }
         catch (Exception)
         {
@@ -102,40 +100,20 @@ public class Directory : IEnumerable<FileInfo>
     public void Clean(int pivot)
     {
         foreach (var file in _files.Values)
-        {
             if ((DateTime.Now - file.CreationTime).TotalMinutes > pivot)
-            {
                 try
                 {
-                    if (_files.TryRemove(file.StreamId, out var removedFile))
-                    {
-                        File.Delete(removedFile.Path);
-                    }
+                    if (_files.TryRemove(file.StreamId, out var removedFile)) File.Delete(removedFile.Path);
                 }
                 catch (Exception)
                 {
                     //TODO: log
                 }
-            }
-        }
     }
-    
+
     public void LoadFromDisk()
     {
         var files = System.IO.Directory.EnumerateFiles(Base).Select(f => new FileInfo(this, f, Path.GetFileName(f)));
-        foreach (var file in files)
-        {
-            this.AddFile(file);
-        }
-    }
-
-    public IEnumerator<FileInfo> GetEnumerator()
-    {
-        return _files.Values.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return this.GetEnumerator();
+        foreach (var file in files) AddFile(file);
     }
 }

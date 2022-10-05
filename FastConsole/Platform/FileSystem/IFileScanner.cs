@@ -1,7 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-namespace Comindware.Gateway.Api;
+﻿namespace Comindware.Gateway.Api;
 
 public interface IFileScanner
 {

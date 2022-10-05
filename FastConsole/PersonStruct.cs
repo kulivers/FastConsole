@@ -1,4 +1,4 @@
-public struct PersonStruct  
+public struct PersonStruct
 {
     public int Age { get; set; }
     public string Name { get; set; }
@@ -8,5 +8,4 @@ public struct PersonStruct
         Age = age;
         Name = name;
     }
-
 }

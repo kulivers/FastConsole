@@ -1,61 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net;
 using System.Net.Http.Headers;
 
 public class HttpResponseMessageWrapper
 {
-    private HttpContent _content;
-    public HttpContent Content
-    {
-        get
-        {
-            if (_content == null)
-                return null;
-            if (Body == null && _content != null)
-                return _content;
-            if (_content == null && Body != null)
-                return new StringContent(Body);
-            if (_content.Headers == null && Body != null)
-                return new StringContent(Body);
-
-            var content = new StringContent(Body);
-            foreach (var headers in _content.Headers)
-            {
-                try
-                {
-                    content.Headers.Add(headers.Key, headers.Value);
-                }
-                catch (FormatException) when (headers.Key == "Content-Type")
-                {
-                    //he doesnt like  "application/json; charset=utf-8", he likes only application/json  
-                    var typeWithCharset = headers.Value.First();
-                    var onlyType = typeWithCharset.Split(';').First();
-                    content.Headers.ContentType = new MediaTypeHeaderValue(onlyType);
-                }
-            }
-
-            return content;
-        }
-        private set => _content = value;
-    }
-
-    private VersionWrapper _version;
-
-    public VersionWrapper Version
-    {
-        get => _version;
-        set => _version = value;
-    }
-
-    public IEnumerable<KeyValuePair<string, IEnumerable<string>>> Headers { get; set; }
+    public readonly string ReasonPhrase;
 
     public readonly HttpStatusCode StatusCode;
-
-    public readonly string ReasonPhrase;
-    public string Body { get; set; }
+    private HttpContent _content;
 
     public HttpResponseMessageWrapper(HttpResponseMessage message, string body)
     {
@@ -76,16 +27,53 @@ public class HttpResponseMessageWrapper
         Content = message.Content;
         Body = message.Content.ReadAsStringAsync().Result;
     }
+
+    public HttpContent Content
+    {
+        get
+        {
+            if (_content == null)
+                return null;
+            if (Body == null && _content != null)
+                return _content;
+            if (_content == null && Body != null)
+                return new StringContent(Body);
+            if (_content.Headers == null && Body != null)
+                return new StringContent(Body);
+
+            var content = new StringContent(Body);
+            foreach (var headers in _content.Headers)
+                try
+                {
+                    content.Headers.Add(headers.Key, headers.Value);
+                }
+                catch (FormatException) when (headers.Key == "Content-Type")
+                {
+                    //he doesnt like  "application/json; charset=utf-8", he likes only application/json  
+                    var typeWithCharset = headers.Value.First();
+                    var onlyType = typeWithCharset.Split(';').First();
+                    content.Headers.ContentType = new MediaTypeHeaderValue(onlyType);
+                }
+
+            return content;
+        }
+        private set => _content = value;
+    }
+
+    public VersionWrapper Version { get; set; }
+
+    public IEnumerable<KeyValuePair<string, IEnumerable<string>>> Headers { get; set; }
+    public string Body { get; set; }
 }
 
 public class VersionWrapper
 {
     public int Build;
     public int Major;
-    public int Minor;
-    public int Revision;
     public short MajorRevision;
+    public int Minor;
     public short MinorRevision;
+    public int Revision;
 
     public VersionWrapper(Version version)
     {
@@ -101,5 +89,8 @@ public class VersionWrapper
     {
     }
 
-    public Version ToVersion() => new Version(Major, Minor, Build, Revision);
+    public Version ToVersion()
+    {
+        return new(Major, Minor, Build, Revision);
+    }
 }

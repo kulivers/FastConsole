@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -19,7 +17,6 @@ namespace FastScratchMVC
             var deserialized = JsonConvert.DeserializeObject<HttpRequestMessageWrapper>(json);
             // deserialized.Version
             var version = new Version();
-            
         }
 
         public static void AddMockHeaders(HttpClient client)

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-
-public class HttpRequestMessageWrapper
+﻿public class HttpRequestMessageWrapper
 {
     private HttpContent _content;
 
@@ -45,8 +40,8 @@ public class HttpRequestMessageWrapper
 
     // public HttpRequestMessageWrapper()
     // {
-        // var message = new HttpRequestMessage();
-        // Headers = message.Headers;
+    // var message = new HttpRequestMessage();
+    // Headers = message.Headers;
     // }
 
     // public HttpRequestMessageWrapper(HttpRequestMessage message)
@@ -60,9 +55,9 @@ public class HttpRequestMessageWrapper
 
     public HttpRequestMessage ToHttpRequestMessage()
     {
-        var httpRequestMessage = new HttpRequestMessage()
+        var httpRequestMessage = new HttpRequestMessage
         {
-            Content = Content, RequestUri = RequestUri,
+            Content = Content, RequestUri = RequestUri
         };
         httpRequestMessage.Method = Method;
         foreach (var header in Headers)

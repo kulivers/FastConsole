@@ -1,0 +1,55 @@
+﻿{
+  "type": "record",
+  "name": "EmployeeDTO",
+  "namespace": "FastConsole",
+  "fields": [
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "EmployeeId",
+      "type": "int"
+    },
+    {
+      "name": "Reportees",
+      "type": {
+        "type": "array",
+        "items": "int"
+      }
+    },
+    {
+      "name": "Notes",
+      "type": "string"
+    },
+    {
+      "name": "ActiveProjects",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "ProjectDTO",
+          "namespace": "FastConsole",
+          "fields": [
+            {
+              "name": "ProjectId",
+              "type": "int"
+            },
+            {
+              "name": "ProjectName",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "RawBytes",
+      "type": "bytes"
+    },
+    {
+      "name": "StillWorksHere",
+      "type": "boolean"
+    }
+  ]
+}
