@@ -6,19 +6,18 @@ namespace FastConsole;
 
 public struct ProjectDTO : ISpecificRecord
 {
-    public static Schema _SCHEMA = Schema.Parse(
+    private static Schema _SCHEMA = Schema.Parse(
         "{\"type\":\"record\",\"name\":\"ProjectDTO\",\"namespace\":\"FastConsole\",\"fields\":[{\"name" +
         "\":\"ProjectId\",\"type\":\"int\"},{\"name\":\"ProjectName\",\"type\":\"string\"}]}");
+    [DataMember(Name = nameof(ProjectId))]
 
-    
     public int ProjectId { get; set; }
-    
-
+    [DataMember(Name = nameof(ProjectName))]
     public string ProjectName { get; set; }
 
+    [DataMember(Name = nameof(Schema))]
     public Schema Schema => _SCHEMA;
 
-    
     public object Get(int fieldPos)
     {
         switch (fieldPos)

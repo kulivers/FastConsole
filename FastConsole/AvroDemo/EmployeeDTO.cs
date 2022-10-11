@@ -7,8 +7,10 @@ namespace FastConsole;
 
 public class EmployeeDTO : ISpecificRecord
 {
-    private static Schema _SCHEMA = Schema.Parse(File.ReadAllText(@"D:\Playground\Garbage\FastConsole\FastConsole\generatedSchema.json"));
+    private static Schema _SCHEMA = Schema.Parse(File.ReadAllText(@"D:\Playground\Garbage\FastConsole\FastConsole\AvroDemo\writtenSchema.json"));
     // private static Schema _SCHEMA2 = Schema.Parse(AvroConvert.GenerateSchema(typeof(EmployeeDTO)));
+    
+    [DataMember(Name = nameof(Schema))]
     public Schema Schema => _SCHEMA;
 
     [DataMember(Name = nameof(Name))]
@@ -18,13 +20,13 @@ public class EmployeeDTO : ISpecificRecord
     public int EmployeeId { get; set; }
     [DataMember(Name = nameof(Reportees))]
 
-    public IList<int> Reportees { get; set; }
+    public List<int> Reportees { get; set; }
     [DataMember(Name = nameof(Notes))]
 
     public string Notes { get; set; }
 
     [DataMember(Name = nameof(ActiveProjects))]
-    public IList<ProjectDTO> ActiveProjects { get; set; }
+    public List<ProjectDTO> ActiveProjects { get; set; }
     [DataMember(Name = nameof(RawBytes))]
 
     public byte[] RawBytes { get; set; }
@@ -46,7 +48,6 @@ public class EmployeeDTO : ISpecificRecord
             default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
         }
     }
-
     public void Put(int fieldPos, object fieldValue)
     {
         switch (fieldPos)
@@ -58,13 +59,13 @@ public class EmployeeDTO : ISpecificRecord
                 EmployeeId = (int)fieldValue;
                 break;
             case 2:
-                Reportees = (IList<int>)fieldValue;
+                Reportees = (List<int>)fieldValue;
                 break;
             case 3:
                 Notes = (string)fieldValue;
                 break;
             case 4:
-                ActiveProjects = (IList<ProjectDTO>)fieldValue;
+                ActiveProjects = (List<ProjectDTO>)fieldValue;
                 break;
             case 5:
                 RawBytes = (byte[])fieldValue;
@@ -74,8 +75,6 @@ public class EmployeeDTO : ISpecificRecord
                 break;
             default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
         }
-
-        ;
     }
 }
 

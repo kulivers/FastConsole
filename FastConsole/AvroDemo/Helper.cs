@@ -17,7 +17,7 @@ internal class Helper
         proj2.ProjectId = 2;
         proj2.ProjectName = "Resurrect Kenny";
         e.ActiveProjects.Add(proj2);
-        e.Reportees = new[] { 2, 3 };
+        e.Reportees = new List<int>() { 2, 3 };
         e.RawBytes = new byte[] { 0x00, 0x01, 0x02, 0x03 };
         e.Notes = "Quite the animated character";
         e.StillWorksHere = true;

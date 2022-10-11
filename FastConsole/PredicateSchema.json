@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "Predicate",
+  "fields": [
+    {
+      "name": "Name",
+      "type": {
+        "type": "record",
+        "name": "CanonicalName",
+        "fields": [
+          {
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "name": "FullName",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
