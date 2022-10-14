@@ -3,15 +3,12 @@ using SolTechnology.Avro;
 
 internal class Program
 {
+    public static string JsonPath => Directory.GetCurrentDirectory() + "/abra.txt";
+
     public static async Task Main(string[] args)
     {
-        var ints1 = new List<int>() { 1, 2, 3 }.Select(i => (object)i).ToArray();
-        var ints2 = new List<int>() { 1, 2, 3 }.Select(i => (object)i).ToArray();
-        var equals = ints1.Equals(ints2);
-        var a = 1;
-        while (true)
-        {
-            a++;
-        }
+        var fileStream = File.Create(JsonPath);
+        fileStream.Dispose();
+        File.WriteAllText(JsonPath, "dtoJson");
     }
 }
