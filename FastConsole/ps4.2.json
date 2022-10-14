@@ -16,7 +16,7 @@
     "CanonicalNameDto": {
       "Id": 0,
       "Parent": 0,
-      "LocalName": null,
+      "LocalName": null, 
       "IsRoot": false,
       "IsIdentity": false
     }
