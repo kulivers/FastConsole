@@ -1,0 +1,307 @@
+[
+  {
+    "ps": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\config.tdb",
+      "Predicate": {
+        "Name": {
+          "Id": 4611686018427387906,
+          "Parent": 4611686018427387905,
+          "LocalName": "archived",
+          "IsRoot": false,
+          "IsIdentity": false
+        },
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1,
+        "CacheId": 4611686018427387906,
+        "Id": 4611686018427387906,
+        "SubjectCacheName": 4611686018427387906,
+        "ObjectCacheName": -4611686018427387906
+      },
+      "Facts": []
+    },
+    "dto": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\config.tdb",
+      "PredicateDto": {
+        "Name": [
+          "cmw",
+          "archived"
+        ],
+        "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\config.tdb",
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1
+      },
+      "FactsDto": []
+    }
+  },
+  {
+    "ps": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\conversation.tdb",
+      "Predicate": {
+        "Name": {
+          "Id": 4611686018427387906,
+          "Parent": 4611686018427387905,
+          "LocalName": "archived",
+          "IsRoot": false,
+          "IsIdentity": false
+        },
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1,
+        "CacheId": 4611686018427387906,
+        "Id": 4611686018427387906,
+        "SubjectCacheName": 4611686018427387906,
+        "ObjectCacheName": -4611686018427387906
+      },
+      "Facts": []
+    },
+    "dto": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\conversation.tdb",
+      "PredicateDto": {
+        "Name": [
+          "cmw",
+          "archived"
+        ],
+        "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\conversation.tdb",
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1
+      },
+      "FactsDto": []
+    }
+  },
+  {
+    "ps": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "Predicate": {
+        "Name": {
+          "Id": 4611686018427387906,
+          "Parent": 4611686018427387905,
+          "LocalName": "archived",
+          "IsRoot": false,
+          "IsIdentity": false
+        },
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1,
+        "CacheId": 4611686018427387906,
+        "Id": 4611686018427387906,
+        "SubjectCacheName": 4611686018427387906,
+        "ObjectCacheName": -4611686018427387906
+      },
+      "Facts": []
+    },
+    "dto": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "PredicateDto": {
+        "Name": [
+          "cmw",
+          "archived"
+        ],
+        "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1
+      },
+      "FactsDto": []
+    }
+  },
+  {
+    "ps": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "Predicate": {
+        "Name": {
+          "Id": 4611686018427391061,
+          "Parent": 4611686018427387905,
+          "LocalName": "counterPrefix",
+          "IsRoot": false,
+          "IsIdentity": false
+        },
+        "Options": 24,
+        "BackOptions": 0,
+        "ValueType": 3,
+        "SubjectType": 1,
+        "CacheId": 4611686018427391061,
+        "Id": 4611686018427391061,
+        "SubjectCacheName": 4611686018427391061,
+        "ObjectCacheName": -4611686018427391061
+      },
+      "Facts": []
+    },
+    "dto": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "PredicateDto": {
+        "Name": [
+          "cmw",
+          "counterPrefix"
+        ],
+        "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+        "Options": 24,
+        "BackOptions": 0,
+        "ValueType": 3,
+        "SubjectType": 1
+      },
+      "FactsDto": []
+    }
+  },
+  {
+    "ps": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "Predicate": {
+        "Name": {
+          "Id": 4611686018427388504,
+          "Parent": 4611686018427388503,
+          "LocalName": "domains",
+          "IsRoot": false,
+          "IsIdentity": false
+        },
+        "Options": 20,
+        "BackOptions": 0,
+        "ValueType": 3,
+        "SubjectType": 1,
+        "CacheId": 4611686018427388504,
+        "Id": 4611686018427388504,
+        "SubjectCacheName": 4611686018427388504,
+        "ObjectCacheName": -4611686018427388504
+      },
+      "Facts": [
+        {
+          "Item1": {
+            "DataType": 1,
+            "Value": {
+              "Id": 4611686018427403051,
+              "Parent": 4611686018427388503
+            }
+          },
+          "Item2": {
+            "DataType": 3,
+            "Value": {
+              "Resource": null,
+              "Value": "esqs"
+            }
+          }
+        }
+      ]
+    },
+    "dto": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "PredicateDto": {
+        "Name": [
+          "cmw",
+          "data",
+          "domains"
+        ],
+        "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+        "Options": 20,
+        "BackOptions": 0,
+        "ValueType": 3,
+        "SubjectType": 1
+      },
+      "FactsDto": [
+        {
+          "Item1": {
+            "DataType": 1,
+            "Value": {
+              "Parent": [
+                "cmw",
+                "data"
+              ],
+              "Id": 4611686018427403051,
+              "DataType": 0
+            }
+          },
+          "Item2": {
+            "DataType": 3,
+            "Value": {
+              "Resource": null,
+              "Value": "esqs"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "ps": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "Predicate": {
+        "Name": {
+          "Id": 4611686018427388475,
+          "Parent": 4611686018427387905,
+          "LocalName": "property",
+          "IsRoot": false,
+          "IsIdentity": false
+        },
+        "Options": 40,
+        "BackOptions": 40,
+        "ValueType": 1,
+        "SubjectType": 1,
+        "CacheId": 4611686018427388475,
+        "Id": 4611686018427388475,
+        "SubjectCacheName": 4611686018427388475,
+        "ObjectCacheName": -4611686018427388475
+      },
+      "Facts": []
+    },
+    "dto": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+      "PredicateDto": {
+        "Name": [
+          "cmw",
+          "property"
+        ],
+        "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\data.tdb",
+        "Options": 40,
+        "BackOptions": 40,
+        "ValueType": 1,
+        "SubjectType": 1
+      },
+      "FactsDto": []
+    }
+  },
+  {
+    "ps": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\user.tdb",
+      "Predicate": {
+        "Name": {
+          "Id": 4611686018427387906,
+          "Parent": 4611686018427387905,
+          "LocalName": "archived",
+          "IsRoot": false,
+          "IsIdentity": false
+        },
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1,
+        "CacheId": 4611686018427387906,
+        "Id": 4611686018427387906,
+        "SubjectCacheName": 4611686018427387906,
+        "ObjectCacheName": -4611686018427387906
+      },
+      "Facts": []
+    },
+    "dto": {
+      "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\user.tdb",
+      "PredicateDto": {
+        "Name": [
+          "cmw",
+          "archived"
+        ],
+        "ModelName": "D:\\Work\\CBAP_3\\Web\\data\\Database\\user.tdb",
+        "Options": 148,
+        "BackOptions": 0,
+        "ValueType": 20,
+        "SubjectType": 1
+      },
+      "FactsDto": []
+    }
+  }
+]

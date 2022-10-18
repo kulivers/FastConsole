@@ -1,14 +1,36 @@
-﻿using FastConsole;
-using SolTechnology.Avro;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public class Pers
+{
+    public int Age { get; set; }
+    public string Name { get; set; }
+    public List<int> Ints { get; set; }
+
+    public Pers()
+    {
+        var ints = new List<int>() { 1, 231, 31, 31, 31, 31, 31, -1 };
+        Ints = ints;
+    }
+}
+
+public class PredicateDto
+{
+    public string[] Name { get; set; }
+}
 
 internal class Program
 {
-    public static string JsonPath => Directory.GetCurrentDirectory() + "/abra.txt";
-
     public static async Task Main(string[] args)
     {
-        var fileStream = File.Create(JsonPath);
-        fileStream.Dispose();
-        File.WriteAllText(JsonPath, "dtoJson");
+        string test = "dadladadasajljqlnqrqwq";
+        var json = JsonConvert.SerializeObject(new {test});
+        var jObject = JObject.Parse(json);
+        var o = jObject.First.ToObject<string>();
+    }
+
+    public void dosome()
+    {
+        
     }
 }

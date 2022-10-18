@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastApi", "FastApi\FastApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastApi.Tests", "FastApi.Tests\FastApi.Tests.csproj", "{EFAEE491-6909-401F-A488-3FAA0EBA5E80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.MessageRebase", "Platform.MessageRebase\Platform.MessageRebase.csproj", "{8D1FD866-204B-477B-B57B-B2E17C8B35B7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
