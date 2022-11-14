@@ -18,7 +18,7 @@ public class PredicateDto
 {
     public string[] Name { get; set; }
 }
-asda';da'
+
 internal class Program
 {
     public static async Task Main(string[] args)
