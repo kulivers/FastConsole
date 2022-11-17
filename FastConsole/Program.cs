@@ -1,36 +1,63 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public class Pers
-{
-    public int Age { get; set; }
-    public string Name { get; set; }
-    public List<int> Ints { get; set; }
-
-    public Pers()
-    {
-        var ints = new List<int>() { 1, 231, 31, 31, 31, 31, 31, -1 };
-        Ints = ints;
-    }
-}
-
-public class PredicateDto
-{
-    public string[] Name { get; set; }
-}
+﻿using System.Reflection;
 
 internal class Program
 {
     public static async Task Main(string[] args)
     {
-        string test = "dadladadasajljqlnqrqwq";
-        var json = JsonConvert.SerializeObject(new {test});
-        var jObject = JObject.Parse(json);
-        var o = jObject.First.ToObject<string>();
-    }
+        var data = new Dictionary<string, object>();
+        var person = new Person() { Age = 1, Sex = Sex.Women, Item = new Item() { SubItem = new SubItem() { Name = "xyu" } } };
+        var propertyInfos = person.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+        foreach (var info in propertyInfos)
+        {
+            var name = info.Name;
+            var value = info.GetValue(person);
+            data.Add(name, value);
+        }
+        var fieldInfos = person.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public);
+        foreach (var info in fieldInfos)
+        {
+            var name = info.Name;
+            var value = info.GetValue(person);
+            data.Add(name, value);
+        }
 
-    public void dosome()
-    {
-        
+        var p2 = new Person();
+        var properties = p2.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+        foreach (var property in properties)
+        {
+            data.TryGetValue(property.Name, out var value);
+            property.SetValue(p2, value);
+        }
+
+        var fields = p2.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public);
+        foreach (var field in fields)
+        {
+            data.TryGetValue(field.Name, out var value);
+            field.SetValue(p2, value);
+        }
     }
+}
+
+
+public class Person
+{
+    public int Age { get; set; } 
+    public Sex Sex { get; set; }
+    public Item Item { get; set; }
+}
+
+public class Item
+{
+    public SubItem SubItem { get; set; }
+}
+
+public class SubItem
+{
+    public string Name;
+}
+
+public enum Sex
+{
+    Men,
+    Women
 }

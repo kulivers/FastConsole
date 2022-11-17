@@ -1,34 +1,15 @@
 ﻿using Confluent.Kafka;
 using Confluent.Kafka.Admin;
 
-var bootstrapServers = "192.168.0.127:9092";
+var bootstrapServers = "hldev04:9092";
+const string TopicName = "coolTopic";
 
-
-var topicNames = new[] { "requestTopic", "responseTopic" };
 var adminClient = new AdminClientBuilder(new AdminClientConfig { BootstrapServers = bootstrapServers }).Build();
-
-var meta = adminClient.GetMetadata("requestTopic", new TimeSpan(1231232131));
-
-// await adminClient.DeleteTopicsAsync(new[] { "requestTopic" });
-
-
-var topicSpecifications = new TopicSpecification[] { new() { Name = "requestTopic", ReplicationFactor = 1, NumPartitions = 3 } };
-await adminClient.CreateTopicsAsync(topicSpecifications, new CreateTopicsOptions { RequestTimeout = TimeSpan.FromSeconds(10) });
-
-
-await adminClient.DeleteTopicsAsync(new[] { "requestTopic" });
-
-try
-{
-    await adminClient.CreateTopicsAsync(new[]
-        { new TopicSpecification { Name = "requestTopic", NumPartitions = 7 } });
-}
-catch
-{
-}
-
+var group = adminClient.ListGroup("Comindware", TimeSpan.FromDays(1));
+var members = group.Members;
+;
 return;
-await RecreateTopics(bootstrapServers, topicNames);
+
 
 async Task RecreateTopics(string bootstrapServers, string[] strings)
 {
