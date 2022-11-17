@@ -1,57 +1,51 @@
 {
-  "_index": "cmw_developdev25_sln.1_event_oa.1",
-  "_id": "08dac89f-65c5-8da5-0000-000000000006",
+  "_index": "cmw_developdev25_sln.1_event_aa.3",
+  "_id": "08dac8aa-aebf-5999-0000-000000000002",
   "_version": 2,
-  "_seq_no": 167,
-  "_primary_term": 7,
+  "_seq_no": 62,
+  "_primary_term": 1,
   "found": true,
   "_source": {
-    "Id": "08dac89f-65c5-8da5-0000-000000000006",
-    "Parent_event": null,
-    "Previous_event": null,
-    "Origin_event": "08dac89f-65c5-8da5-0000-000000000006",
-    "Time": "2022-11-17T13:34:44.8203417Z",
-    "Initiator": {
-      "Abbreviation": "ad",
-      "Type": 6,
-      "Id": "account.1",
-      "Name": "admin",
-      "Alias": "admin"
+    "id": "08dac8aa-aebf-5999-0000-000000000002",
+    "previous_event": "08dac8aa-aebf-5999-0000-000000000001",
+    "origin_event": "08dac8aa-aebf-5999-0000-000000000001",
+    "time": "2022-11-17T14:48:25.724158Z",
+    "initiator": {
+      "abbreviation": "ad",
+      "type": "Account",
+      "id": "account.1",
+      "name": "admin",
+      "alias": "admin"
     },
-    "Type": 3,
-    "Status": 1,
-    "Errors": null,
-    "Solution": {
-      "Type": 22,
-      "Id": "sln.1",
-      "Name": "Первое приложение",
-      "Alias": "systemSolution"
-    },
-    "Container": {
-      "Type": 19,
-      "Id": "oa.1",
-      "Name": "rt1",
-      "Alias": "rt1"
-    },
-    "Object": {
-      "Type": 46,
-      "Id": "event.18",
-      "Name": "Сохранить",
-      "Alias": "edit"
-    },
-    "Context_objects": [
-      "1"
+    "type": "UserCommandExecuted",
+    "status": "Success",
+    "errors": [
+      {
+        "severity": "Info",
+        "message": "Форма сохранена",
+        "severityText": "Сведения"
+      }
     ],
-    "Token_data": null,
-    "Object_data": null,
-    "Message_data": null,
-    "Script_data": null,
-    "Sync_data": null,
-    "Migration_data": null,
-    "Environment_data": null,
-    "Payload": null,
-    "IsPayloadable": false,
-    "DisplayName": "Начато выполнение операции",
-    "ObjectDisplayName": "Сохранить"
+    "solution": {
+      "type": "Solution",
+      "id": "sln.1",
+      "name": "Первое приложение",
+      "alias": "systemSolution"
+    },
+    "container": {
+      "type": "Container",
+      "id": "aa.3",
+      "name": "yyyyy",
+      "alias": "yyyyy"
+    },
+    "object": {
+      "type": "UserCommand",
+      "id": "event.23",
+      "name": "Сохранить",
+      "alias": "edit"
+    },
+    "context_objects": [
+      "account.3"
+    ]
   }
 }

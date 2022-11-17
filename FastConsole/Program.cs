@@ -1,4 +1,7 @@
 ﻿using System.Reflection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 internal class Program
 {
@@ -6,6 +9,23 @@ internal class Program
     {
         var data = new Dictionary<string, object>();
         var person = new Person() { Age = 1, Sex = Sex.Women, Item = new Item() { SubItem = new SubItem() { Name = "xyu" } } };
+
+        var serializeObject = JsonConvert.SerializeObject(
+            person,
+            Formatting.Indented,
+            new JsonSerializerSettings()
+            {
+                Converters = new List<JsonConverter>
+                {
+                    new StringEnumConverter() { AllowIntegerValues = false, CamelCaseText = false },
+                },
+                NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Formatting.Indented,
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            });
+        ;
+        return;
+
         var propertyInfos = person.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
         foreach (var info in propertyInfos)
         {
@@ -13,6 +33,7 @@ internal class Program
             var value = info.GetValue(person);
             data.Add(name, value);
         }
+
         var fieldInfos = person.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public);
         foreach (var info in fieldInfos)
         {
@@ -41,7 +62,7 @@ internal class Program
 
 public class Person
 {
-    public int Age { get; set; } 
+    public int Age { get; set; }
     public Sex Sex { get; set; }
     public Item Item { get; set; }
 }
@@ -60,4 +81,10 @@ public enum Sex
 {
     Men,
     Women
+}
+
+public enum Fuck
+{
+    one,
+    two
 }
