@@ -1,43 +1,35 @@
 {
-  "_index": "cmw_developdev25_sln.1_event_oa.1",
-  "_id": "08dac89f-65c5-8da5-0000-000000000006",
-  "_version": 1,
-  "_seq_no": 165,
-  "_primary_term": 7,
-  "found": true,
-  "_source": {
-    "id": "08dac89f-65c5-8da5-0000-000000000006",
-    "origin_event": "08dac89f-65c5-8da5-0000-000000000006",
-    "time": "2022-11-17T13:34:44.8203417Z",
-    "initiator": {
-      "abbreviation": "ad",
-      "type": "Account",
-      "id": "account.1",
-      "name": "admin",
-      "alias": "admin"
-    },
-    "type": "UserCommandStarted",
-    "status": "Success",
-    "solution": {
-      "type": "Solution",
-      "id": "sln.1",
-      "name": "Первое приложение",
-      "alias": "systemSolution"
-    },
-    "container": {
-      "type": "Container",
-      "id": "oa.1",
-      "name": "rt1",
-      "alias": "rt1"
-    },
-    "object": {
-      "type": "UserCommand",
-      "id": "event.18",
-      "name": "Сохранить",
-      "alias": "edit"
-    },
-    "context_objects": [
-      "1"
-    ]
-  }
+  "id": "08dac89f-65c5-8da5-0000-000000000006",
+  "origin_event": "08dac89f-65c5-8da5-0000-000000000006",
+  "time": "2022-11-17T13:34:44.8203417Z",
+  "initiator": {
+    "abbreviation": "ad",
+    "type": "Account",
+    "id": "account.1",
+    "name": "admin",
+    "alias": "admin"
+  },
+  "type": "UserCommandStarted",
+  "status": "Success",
+  "solution": {
+    "type": "Solution",
+    "id": "sln.1",
+    "name": "Первое приложение",
+    "alias": "systemSolution"
+  },
+  "container": {
+    "type": "Container",
+    "id": "oa.1",
+    "name": "rt1",
+    "alias": "rt1"
+  },
+  "object": {
+    "type": "UserCommand",
+    "id": "event.18",
+    "name": "Сохранить",
+    "alias": "edit"
+  },
+  "context_objects": [
+    "1"
+  ]
 }
