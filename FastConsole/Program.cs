@@ -1,90 +1,77 @@
-﻿using System.Reflection;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
+﻿using System.IO.MemoryMappedFiles;
+using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 
-internal class Program
+public struct Person
+{
+    public int Age { get; set; }
+
+    public Person(int age)
+    {
+        Age = age;
+    }
+}
+class Program
 {
     public static async Task Main(string[] args)
     {
-        var data = new Dictionary<string, object>();
-        var person = new Person() { Age = 1, Sex = Sex.Women, Item = new Item() { SubItem = new SubItem() { Name = "xyu" } } };
-
-        var serializeObject = JsonConvert.SerializeObject(
-            person,
-            Formatting.Indented,
-            new JsonSerializerSettings()
-            {
-                Converters = new List<JsonConverter>
-                {
-                    new StringEnumConverter() { AllowIntegerValues = false, CamelCaseText = false },
-                },
-                NullValueHandling = NullValueHandling.Ignore,
-                Formatting = Formatting.Indented,
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
-            });
-        ;
-        return;
-
-        var propertyInfos = person.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
-        foreach (var info in propertyInfos)
+        var parentArray = new[] {"cmw","xmlns:","http://www.w3.org/1999/02/22-rdf-syntax-ns#","type"};
+        var foo = new string[2] { parentArray[0], string.Concat(parentArray.Skip(1)) };
+        var person = new Person(321);
+        var size = System.Runtime.InteropServices.Marshal.SizeOf(person);
+        long offset = 0x10000000; // 256 megabytes
+        long length = 0x20000000; // 512 megabytes
+        using var mmf = MemoryMappedFile.CreateOrOpen(@"ra", size);
+        // Create a random access view, from the 256th megabyte (the offset)
+        // to the 768th megabyte (the offset plus length).
+        using var accessor = mmf.CreateViewAccessor(offset, length);
+        // Make changes to the view.
+        for (long i = 0; i < length; i += size)
         {
-            var name = info.Name;
-            var value = info.GetValue(person);
-            data.Add(name, value);
+            accessor.Write(i, ref person);
         }
+    }
+}
+public static class Utils
+{
+    public static int SizeOf<T>(T obj)
+    {
+        return SizeOfCache<T>.SizeOf;
+    }
 
-        var fieldInfos = person.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public);
-        foreach (var info in fieldInfos)
-        {
-            var name = info.Name;
-            var value = info.GetValue(person);
-            data.Add(name, value);
-        }
+    private static class SizeOfCache<T>
+    {
+        public static readonly int SizeOf;
 
-        var p2 = new Person();
-        var properties = p2.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
-        foreach (var property in properties)
+        static SizeOfCache()
         {
-            data.TryGetValue(property.Name, out var value);
-            property.SetValue(p2, value);
-        }
+            var dm = new DynamicMethod("func", typeof(int),
+                Type.EmptyTypes, typeof(Utils));
 
-        var fields = p2.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public);
-        foreach (var field in fields)
-        {
-            data.TryGetValue(field.Name, out var value);
-            field.SetValue(p2, value);
+            ILGenerator il = dm.GetILGenerator();
+            il.Emit(OpCodes.Sizeof, typeof(T));
+            il.Emit(OpCodes.Ret);
+
+            var func = (Func<int>)dm.CreateDelegate(typeof(Func<int>));
+            SizeOf = func();
         }
     }
 }
 
 
-public class Person
+public struct MyColor
 {
-    public int Age { get; set; }
-    public Sex Sex { get; set; }
-    public Item Item { get; set; }
-}
+    public short Red;
+    public short Green;
+    public short Blue;
+    public short Alpha;
 
-public class Item
-{
-    public SubItem SubItem { get; set; }
-}
-
-public class SubItem
-{
-    public string Name;
-}
-
-public enum Sex
-{
-    Men,
-    Women
-}
-
-public enum Fuck
-{
-    one,
-    two
+    // Make the view brighter.
+    public void Brighten(short value)
+    {
+        Red = (short)Math.Min(short.MaxValue, (int)Red + value);
+        Green = (short)Math.Min(short.MaxValue, (int)Green + value);
+        Blue = (short)Math.Min(short.MaxValue, (int)Blue + value);
+        Alpha = (short)Math.Min(short.MaxValue, (int)Alpha + value);
+    }
 }

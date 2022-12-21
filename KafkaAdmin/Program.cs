@@ -3,19 +3,32 @@ using Confluent.Kafka.Admin;
 
 class Program
 {
-    public Fuck EnumProperty { get; set; }
-
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var bootstrapServers = "hldev04:9092";
-        const string TopicName = "coolTopic";
-
+        string topicName = "coolTopic";
+        // topicName = "errorsTopic";
         var adminClient = new AdminClientBuilder(new AdminClientConfig { BootstrapServers = bootstrapServers }).Build();
-        var group = adminClient.ListGroup("Comindware", TimeSpan.FromDays(1));
-        var members = group.Members;
-        ;
-        return;
+        var metadata = adminClient.GetMetadata(TimeSpan.FromDays(1));
+        var configResource = new ConfigResource() { Name = topicName, Type = ResourceType.Topic };
+        var configEntries = new List<ConfigEntry>()
+        {
+            new ConfigEntry() { Name = "retention.ms", Value = (-1).ToString() },
+            new ConfigEntry() { Name = "max.message.bytes", Value = (104857600).ToString() },//время на удаление сообщений
+            new ConfigEntry() { Name = "max.message.bytes", Value = (20971520).ToString() },
+        };
+        var dictionary = new Dictionary<ConfigResource, List<ConfigEntry>>() { { configResource, configEntries } };
+        // await adminClient.AlterConfigsAsync(dictionary);
+        await adminClient.DeleteTopicsAsync(new[] { topicName });
+        var topicSpecifications = new TopicSpecification[] { new() { Name = topicName, NumPartitions = 20 } };
 
+        await adminClient.CreateTopicsAsync(topicSpecifications);
+        ;
+        // await DeleteTopics(new[] { TopicName });
+        // var topicSpecifications = new List<TopicSpecification>() { new() { Name = "coolTopic", NumPartitions = 100 } };
+        // await adminClient.CreateTopicsAsync(topicSpecifications);
+
+        return;
 
         async Task RecreateTopics(string bootstrapServers, string[] strings)
         {
@@ -35,8 +48,10 @@ class Program
             }
         }
 
-        async Task DeleteTopics(IAdminClient adminClient1, string[] strings1)
+        async Task DeleteTopics(string[] strings1)
         {
+            var adminClient1 = new AdminClientBuilder(new AdminClientConfig { BootstrapServers = bootstrapServers }).Build();
+
             try
             {
                 foreach (var s in strings1)

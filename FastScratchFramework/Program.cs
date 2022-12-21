@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -8,15 +10,36 @@ using Newtonsoft.Json;
 
 namespace FastScratchMVC
 {
+    public static class Chunker2
+    {
+        public static IEnumerable<IEnumerable<T>> Chunk<T>(IEnumerable<T> toChunk, int chunkSize = 500)
+        {
+            if (toChunk == null)
+            {
+                yield return null;
+            }
+
+            if (toChunk.Count() > chunkSize)
+            {
+                var countOfParts = toChunk.Count() / chunkSize + 1;
+                for (var i = 0; i < countOfParts; i++)
+                {
+                    yield return toChunk.Skip(i * chunkSize).Take(chunkSize).ToList();
+                }
+            }
+            else
+            {
+                yield return toChunk;
+            }
+        }
+    }
+
     internal class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
-            var json = File.ReadAllText(
-                "D:\\Playground\\Garbage\\FastConsole\\FastScratchFramework\\mockResponse.json");
-            var deserialized = JsonConvert.DeserializeObject<HttpRequestMessageWrapper>(json);
-            // deserialized.Version
-            var version = new Version();
+            var stack = new Stack<string>(new[] { "1", "2", "3" }).Reverse().ToArray();
+            var enumerable = Chunker2.Chunk<string>(stack,2).ToArray();
         }
 
         public static void AddMockHeaders(HttpClient client)

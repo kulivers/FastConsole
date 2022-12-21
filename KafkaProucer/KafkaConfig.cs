@@ -20,7 +20,6 @@ public class KafkaConfig
         {
             BootstrapServers = BootstrapServers,
             GroupId = DefaultGroupId,
-            AutoOffsetReset = AutoOffsetReset.Latest,
-            EnableAutoCommit = false
+            AutoOffsetReset = AutoOffsetReset.Latest
         };
 }
