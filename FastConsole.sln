@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaConsumer", "KafkaConsu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elastic", "Elastic\Elastic.csproj", "{5C958870-2836-4D77-9FEF-24355035E382}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "excel", "excel\excel.csproj", "{8A43E12D-E45E-487B-87EF-B6589530A210}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{5C958870-2836-4D77-9FEF-24355035E382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C958870-2836-4D77-9FEF-24355035E382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C958870-2836-4D77-9FEF-24355035E382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A43E12D-E45E-487B-87EF-B6589530A210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A43E12D-E45E-487B-87EF-B6589530A210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A43E12D-E45E-487B-87EF-B6589530A210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A43E12D-E45E-487B-87EF-B6589530A210}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{63FAB476-6780-4013-8907-B5227A854DC0} = {6BDC5429-4736-4E42-A99C-84AAB2080703}

@@ -5,7 +5,7 @@ class Program
 {
     public static async Task Main(string[] args)
     {
-        var bootstrapServers = "hldev04:9092";
+        var bootstrapServers = "localhost:9092";
         string topicName = "coolTopic";
         // topicName = "errorsTopic";
         var adminClient = new AdminClientBuilder(new AdminClientConfig { BootstrapServers = bootstrapServers }).Build();
