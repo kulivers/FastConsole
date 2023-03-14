@@ -1,29 +1,39 @@
-﻿using System.IO.MemoryMappedFiles;
+﻿using System.Diagnostics;
+using System.IO.MemoryMappedFiles;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
-using System.Text;
+using System.Security.AccessControl;
+using Aspose.Cells;
+using FastConsole;
+using FastConsole.models;
+using Microsoft.Win32;
+using Nest;
 
-public struct Person
+public class ForcedPlatformConfigProperties
 {
-    public int Age { get; set; }
-
-    public Person(int age)
-    {
-        Age = age;
-    }
+    public string Fqdn { get; set; }
 }
 
-class Program
+public class Program
 {
-    private const int WIN_1252_CP = 1200; // Windows ANSI codepage 1252
-
-    public static async Task Main(string[] args)
+    public static async Task Main()
     {
-        var path = Directory.GetCurrentDirectory() + "1.txt";
-        
-        var encoding2 = Encoding.GetEncodings();
-        var encoding = Encoding.GetEncoding(WIN_1252_CP);
-        var encodingEncodingName = encoding.EncodingName;
-        Console.WriteLine(encodingEncodingName);
-        var _writer = new StreamWriter(path, false, encoding);
+        var pa = @"C:\ProgramData\Comindware\Configs\Instance\1.yml";
+        File.Delete(pa);
     }
+}
+public class InstanceModel
+{
+    public string Name;
+    public bool? IsWindowsAuthorization;
+    public Version Version;
+    public int? IsFederationAuthEnabled;
+    public string ConfigPath;
+    public string ElasticsearchUri;
+    public string BackupPath;
+    public string DatabasePath;
+    public string TempPath;
+    public string StreamsPath;
+    public string LogsPath;
+
 }
