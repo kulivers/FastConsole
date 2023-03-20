@@ -18,8 +18,9 @@ public class Program
 {
     public static async Task Main()
     {
-        var pa = @"C:\ProgramData\Comindware\Configs\Instance\1.yml";
-        File.Delete(pa);
+        var forcedPlatformConfigProperties = new ForcedPlatformConfigProperties(){Fqdn = "1"};
+        var save = forcedPlatformConfigProperties.Fqdn;
+        forcedPlatformConfigProperties.Fqdn = "sada";
     }
 }
 public class InstanceModel
