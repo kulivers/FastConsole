@@ -34,6 +34,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Ignite\Client\Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitlibdemo", "Gitlibdemo\Gitlibdemo.csproj", "{01287BCB-5D99-4D55-98C2-25CAD18D35C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sshConsole", "sshConsole\sshConsole.csproj", "{976C8204-79FB-429E-93CF-9E449A275906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sshWebApplicaiton", "sshWebApplicaiton\sshWebApplicaiton.csproj", "{7C950BF9-7830-4C72-AE3A-F87435055214}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +104,14 @@ Global
 		{01287BCB-5D99-4D55-98C2-25CAD18D35C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01287BCB-5D99-4D55-98C2-25CAD18D35C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01287BCB-5D99-4D55-98C2-25CAD18D35C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976C8204-79FB-429E-93CF-9E449A275906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976C8204-79FB-429E-93CF-9E449A275906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976C8204-79FB-429E-93CF-9E449A275906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976C8204-79FB-429E-93CF-9E449A275906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C950BF9-7830-4C72-AE3A-F87435055214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C950BF9-7830-4C72-AE3A-F87435055214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C950BF9-7830-4C72-AE3A-F87435055214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C950BF9-7830-4C72-AE3A-F87435055214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{63FAB476-6780-4013-8907-B5227A854DC0} = {6BDC5429-4736-4E42-A99C-84AAB2080703}
