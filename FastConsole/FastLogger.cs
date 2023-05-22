@@ -3,7 +3,7 @@ using System.Text;
 public static class FastLogger
 {
     private static bool _inited;
-    public static readonly string Path;
+    private static readonly string Path;
 
     static FastLogger()
     {
@@ -14,21 +14,23 @@ public static class FastLogger
     public static void Log(string log)
     {
         log = $"{log}\n";
-        using var file = File.Open(Path, FileMode.Open, FileAccess.ReadWrite);
-        var buffer = new byte[file.Length];
-
-        while (file.Read(buffer, 0, buffer.Length) != 0)
+        using (var file = File.Open(Path, FileMode.Open, FileAccess.ReadWrite))
         {
+            var buffer = new byte[file.Length];
+
+            while (file.Read(buffer, 0, buffer.Length) != 0)
+            {
+            }
+
+            if (!file.CanWrite)
+                throw new ArgumentException("The specified file cannot be written.", "file");
+
+            file.Position = 0;
+            var data = Encoding.Unicode.GetBytes(log);
+            file.SetLength(buffer.Length + data.Length);
+            file.Write(buffer, 0, buffer.Length);
+            file.Write(data, 0, data.Length);
         }
-
-        if (!file.CanWrite)
-            throw new ArgumentException("The specified file cannot be written.", "file");
-
-        file.Position = 0;
-        var data = Encoding.Unicode.GetBytes(log);
-        file.SetLength(buffer.Length + data.Length);
-        file.Write(buffer, 0, buffer.Length);
-        file.Write(data, 0, data.Length);
     }
 
     private static string CreateFile()
