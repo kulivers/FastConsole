@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Security;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using ExCh;
 
@@ -19,6 +20,9 @@ namespace exchRun
         }
         static bool ValidateCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
+            // var value = certificate.GetType().GetField("m_notAfter", BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(certificate);
+            
+            Console.WriteLine(certificate.ToString());
             Console.WriteLine(certificate.Subject+$": {sslPolicyErrors}");
             // Perform custom certificate validation
             if (sslPolicyErrors == SslPolicyErrors.None)
