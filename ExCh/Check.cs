@@ -8,6 +8,7 @@ namespace ExCh
     {
         public void Test()
         {
+            
             try
             {
                 var exchangeService = GetService();
@@ -15,6 +16,7 @@ namespace ExCh
                     WellKnownFolderName.Inbox,
                     new SearchFilter.IsEqualTo(EmailMessageSchema.IsRead, false),
                     new ItemView(1)).Result;
+                Console.WriteLine("success");
             }
             catch (Exception e)
             {
