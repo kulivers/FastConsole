@@ -5,29 +5,34 @@ public class Program
     public static async Task Main()
     {
         var tester = new Tester();
-        var sw = new Stopwatch();
-        sw.Start();
-        var fs = tester.FiveSec();
-        var ts = tester.ThreeSec();
-        await Task.WhenAll(fs, ts);
-        sw.Stop();
-        Console.WriteLine(sw.Elapsed.Seconds);
+        for (int i = 0; i < 1000; i++)
+        {
+            Task.Run(()=>Clg(tester));
+        }
+
+        await Task.Delay(3000);
+    }
+
+    public static void Clg(Tester tester)
+    {
+        tester.a = 1;
+        tester.a++;
+        tester.a++;
+        tester.a++;
+        tester.a++;
+        tester.a++;
+        Console.WriteLine(tester.a);
+        tester.a = default;
+    }
+    public static void Change(Tester tester)
+    {
+        tester.a = 1;
+        tester.b = "bas";
     }
 }
 
 public class Tester
 {
-    public async Task<int> ThreeSec()
-    {
-        var threeSec = 3;
-        await Task.Delay(threeSec * 1000);
-        return threeSec;
-    }
-
-    public async Task<int> FiveSec()
-    {
-        var threeSec = 5;
-        await Task.Delay(threeSec * 1000);
-        return threeSec;
-    }
+    public int a { get; set; } = 0;
+    public string b { get; set; }
 }

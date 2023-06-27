@@ -38,6 +38,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExCh", "ExCh\ExCh.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exchRun", "exchRun\exchRun.csproj", "{6029DD11-F23E-45E1-8275-10A2746C2811}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "googleOAUTH", "googleOAUTH\googleOAUTH.csproj", "{E56877E9-F171-4E42-B8AF-0A0415A9B7DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YmlConfig", "YmlConfig\YmlConfig.csproj", "{343A1A56-6BA9-46F7-9AD4-BED3DC280556}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -112,6 +116,14 @@ Global
 		{6029DD11-F23E-45E1-8275-10A2746C2811}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6029DD11-F23E-45E1-8275-10A2746C2811}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6029DD11-F23E-45E1-8275-10A2746C2811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56877E9-F171-4E42-B8AF-0A0415A9B7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56877E9-F171-4E42-B8AF-0A0415A9B7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56877E9-F171-4E42-B8AF-0A0415A9B7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56877E9-F171-4E42-B8AF-0A0415A9B7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{343A1A56-6BA9-46F7-9AD4-BED3DC280556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{343A1A56-6BA9-46F7-9AD4-BED3DC280556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{343A1A56-6BA9-46F7-9AD4-BED3DC280556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{343A1A56-6BA9-46F7-9AD4-BED3DC280556}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{63FAB476-6780-4013-8907-B5227A854DC0} = {6BDC5429-4736-4E42-A99C-84AAB2080703}
