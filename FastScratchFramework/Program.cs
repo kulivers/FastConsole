@@ -1,51 +1,29 @@
-﻿using System;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using Aspose.Cells;
-using Comindware.Bootloading.Core.Configuration.Models;
+using Avro;
 
 namespace FastScratchMVC
 {
-    public class Person
+    public interface Guy{}
+    public class Person : Guy
     {
-        private string _name;
-        public string Name
-        {
-            get
-            {
-                Console.WriteLine("Im in getter");
-                return _name;
-            }
-            set
-            {
-                Console.WriteLine("Im in setter");
-                _name = value;
-            }
-        }
+        public string Name { get; set; }
     }
+    
+    public class BigPerson : Guy
+    {
+        public string Name { get; set; }
+    }
+    
+
     internal class Program
     {
-        public static IEnumerable<string> SAA()
+        private static readonly ConcurrentDictionary<string, int> SessionTokensCache = new ConcurrentDictionary<string, int>();
+        public static void Main()
         {
-            yield break;
-        }
-        public static void Main(string[] args)
-        {
-            var obsolete = new ObsoleteInstance()
-            {
-                BackupsDir = @"/var/www/comindware/Backup",
-                ConfigPath = @"/var/www/comindware/",
-                DatabaseDir = @"/var/www/comindware/data",
-                TempDir = @"/var/www/comindware/Temp",
-                StreamsDir = @"/var/www/comindware/Streams"
-                
-            };
-            var serialize = YAMLHelper.Serialize(obsolete);
-            File.WriteAllText(@"C:\Users\ekul\Desktop\cmwdata.yml", serialize);
+            var guys = new List<Guy>(){new Person(), new BigPerson()};
+            var bigPersons = guys.Cast<BigPerson>().ToArray();
         }
     }
 }

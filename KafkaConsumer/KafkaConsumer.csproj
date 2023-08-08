@@ -13,6 +13,7 @@
 
     <ItemGroup>
       <PackageReference Include="NEST" Version="7.17.5" />
+      <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
       <PackageReference Include="YamlDotNet" Version="12.0.2" />
     </ItemGroup>
 

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("exchRun")]
+[assembly: AssemblyTitle("GoogleOAuthCheck")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("exchRun")]
+[assembly: AssemblyProduct("GoogleOAuthCheck")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6029DD11-F23E-45E1-8275-10A2746C2811")]
+[assembly: Guid("DFEAFD3D-49B1-48FE-B296-01F1E1DD63D7")]
 
 // Version information for an assembly consists of the following four values:
 //

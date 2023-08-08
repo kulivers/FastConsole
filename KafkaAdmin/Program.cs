@@ -5,9 +5,8 @@ class Program
 {
     public static async Task Main(string[] args)
     {
-        var bootstrapServers = "localhost:9092";
+        var bootstrapServers = "10.9.0.232:9092";
         string topicName = "coolTopic";
-        // topicName = "errorsTopic";
         var adminClient = new AdminClientBuilder(new AdminClientConfig { BootstrapServers = bootstrapServers }).Build();
         var metadata = adminClient.GetMetadata(TimeSpan.FromDays(1));
         var configResource = new ConfigResource() { Name = topicName, Type = ResourceType.Topic };
@@ -19,6 +18,8 @@ class Program
         };
         var dictionary = new Dictionary<ConfigResource, List<ConfigEntry>>() { { configResource, configEntries } };
         // await adminClient.AlterConfigsAsync(dictionary);
+        var listGroups = adminClient.ListGroups(TimeSpan.FromSeconds(3));
+        
         await adminClient.DeleteTopicsAsync(new[] { topicName });
         var topicSpecifications = new TopicSpecification[] { new() { Name = topicName, NumPartitions = 20 } };
 

@@ -12,6 +12,7 @@
         <PackageReference Include="Aspose.Cells" Version="9.0.0" />
         <PackageReference Include="AvroConvert" Version="3.2.9" />
         <PackageReference Include="Confluent.Kafka" Version="1.9.3" />
+        <PackageReference Include="CsvHelper" Version="30.0.1" />
         <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
         <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
         <PackageReference Include="Microsoft.Hadoop.Avro2" Version="1.2.1" />

@@ -1,0 +1,5004 @@
+{
+  "testOccurrence": [
+    {
+      "id": "build:(id:66029),id:41716",
+      "name": "Comindware.Conversation.Test.dll: Comindware.Conversation.Test.Test.AddComment",
+      "status": "SUCCESS",
+      "duration": 2128,
+      "runOrder": "1",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "2451769060553863551",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Conversation.Test",
+          "testSuite": "Comindware.Conversation.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.AddComment",
+          "testNameWithoutPrefix": ".Test.AddComment",
+          "testMethodName": "AddComment",
+          "testNameWithParameters": "AddComment"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41716"
+    },
+    {
+      "id": "build:(id:66029),id:41720",
+      "name": "Comindware.Conversation.Test.dll: Comindware.Conversation.Test.Test.FollowObject",
+      "status": "SUCCESS",
+      "duration": 1448,
+      "runOrder": "2",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "6444328223393956635",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Conversation.Test",
+          "testSuite": "Comindware.Conversation.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.FollowObject",
+          "testNameWithoutPrefix": ".Test.FollowObject",
+          "testMethodName": "FollowObject",
+          "testNameWithParameters": "FollowObject"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41720"
+    },
+    {
+      "id": "build:(id:66029),id:41724",
+      "name": "Comindware.Conversation.Test.dll: Comindware.Conversation.Test.Test.UnfollowObject",
+      "status": "SUCCESS",
+      "duration": 1079,
+      "runOrder": "3",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "5971845978514697133",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Conversation.Test",
+          "testSuite": "Comindware.Conversation.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.UnfollowObject",
+          "testNameWithoutPrefix": ".Test.UnfollowObject",
+          "testMethodName": "UnfollowObject",
+          "testNameWithParameters": "UnfollowObject"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41724"
+    },
+    {
+      "id": "build:(id:66029),id:41920",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.AccountTemplateCreationTest",
+      "status": "SUCCESS",
+      "duration": 2628,
+      "runOrder": "4",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-4212823155192162036",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.AccountTemplateCreationTest",
+          "testNameWithoutPrefix": ".Test.AccountTemplateCreationTest",
+          "testMethodName": "AccountTemplateCreationTest",
+          "testNameWithParameters": "AccountTemplateCreationTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41920"
+    },
+    {
+      "id": "build:(id:66029),id:41924",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.AccountTemplateTest",
+      "status": "SUCCESS",
+      "duration": 4291,
+      "runOrder": "5",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-2516547242464613243",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.AccountTemplateTest",
+          "testNameWithoutPrefix": ".Test.AccountTemplateTest",
+          "testMethodName": "AccountTemplateTest",
+          "testNameWithParameters": "AccountTemplateTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41924"
+    },
+    {
+      "id": "build:(id:66029),id:41928",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.CartTest",
+      "status": "SUCCESS",
+      "duration": 1468,
+      "runOrder": "6",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3357815947203124325",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.CartTest",
+          "testNameWithoutPrefix": ".Test.CartTest",
+          "testMethodName": "CartTest",
+          "testNameWithParameters": "CartTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41928"
+    },
+    {
+      "id": "build:(id:66029),id:41932",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.CaseTemplateCreationTest",
+      "status": "SUCCESS",
+      "duration": 2248,
+      "runOrder": "7",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "6335385907606815178",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.CaseTemplateCreationTest",
+          "testNameWithoutPrefix": ".Test.CaseTemplateCreationTest",
+          "testMethodName": "CaseTemplateCreationTest",
+          "testNameWithParameters": "CaseTemplateCreationTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41932"
+    },
+    {
+      "id": "build:(id:66029),id:41936",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.ClassDiagramRemove",
+      "status": "SUCCESS",
+      "duration": 1046,
+      "runOrder": "8",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "94736794146300091",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.ClassDiagramRemove",
+          "testNameWithoutPrefix": ".Test.ClassDiagramRemove",
+          "testMethodName": "ClassDiagramRemove",
+          "testNameWithParameters": "ClassDiagramRemove"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41936"
+    },
+    {
+      "id": "build:(id:66029),id:41940",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.ConcurrentSetValueTest",
+      "status": "SUCCESS",
+      "duration": 10906,
+      "runOrder": "9",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-3448127194498868315",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.ConcurrentSetValueTest",
+          "testNameWithoutPrefix": ".Test.ConcurrentSetValueTest",
+          "testMethodName": "ConcurrentSetValueTest",
+          "testNameWithParameters": "ConcurrentSetValueTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41940"
+    },
+    {
+      "id": "build:(id:66029),id:41944",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.GetRoleWorkspaceItems",
+      "status": "SUCCESS",
+      "duration": 1104,
+      "runOrder": "10",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8135472572878736860",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.GetRoleWorkspaceItems",
+          "testNameWithoutPrefix": ".Test.GetRoleWorkspaceItems",
+          "testMethodName": "GetRoleWorkspaceItems",
+          "testNameWithParameters": "GetRoleWorkspaceItems"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41944"
+    },
+    {
+      "id": "build:(id:66029),id:41948",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.GetRoleWorkspaceItemsMTThread",
+      "status": "SUCCESS",
+      "duration": 8401,
+      "runOrder": "11",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3320264207895658116",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.GetRoleWorkspaceItemsMTThread",
+          "testNameWithoutPrefix": ".Test.GetRoleWorkspaceItemsMTThread",
+          "testMethodName": "GetRoleWorkspaceItemsMTThread",
+          "testNameWithParameters": "GetRoleWorkspaceItemsMTThread"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41948"
+    },
+    {
+      "id": "build:(id:66029),id:41952",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.GetRoleWorkspaceWithManyTemplates",
+      "status": "SUCCESS",
+      "duration": 29859,
+      "runOrder": "12",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3101641931290117877",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.GetRoleWorkspaceWithManyTemplates",
+          "testNameWithoutPrefix": ".Test.GetRoleWorkspaceWithManyTemplates",
+          "testMethodName": "GetRoleWorkspaceWithManyTemplates",
+          "testNameWithParameters": "GetRoleWorkspaceWithManyTemplates"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41952"
+    },
+    {
+      "id": "build:(id:66029),id:41956",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.ProcessTemplateCreationTest",
+      "status": "SUCCESS",
+      "duration": 2490,
+      "runOrder": "13",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-5115262254224150551",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.ProcessTemplateCreationTest",
+          "testNameWithoutPrefix": ".Test.ProcessTemplateCreationTest",
+          "testMethodName": "ProcessTemplateCreationTest",
+          "testNameWithParameters": "ProcessTemplateCreationTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41956"
+    },
+    {
+      "id": "build:(id:66029),id:41960",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.RecordTemplateCreationTest",
+      "status": "SUCCESS",
+      "duration": 788,
+      "runOrder": "14",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8273212659312449682",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.RecordTemplateCreationTest",
+          "testNameWithoutPrefix": ".Test.RecordTemplateCreationTest",
+          "testMethodName": "RecordTemplateCreationTest",
+          "testNameWithParameters": "RecordTemplateCreationTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41960"
+    },
+    {
+      "id": "build:(id:66029),id:41964",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.SolutionDeletionTest",
+      "status": "SUCCESS",
+      "duration": 1317,
+      "runOrder": "15",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8068809606933928359",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.SolutionDeletionTest",
+          "testNameWithoutPrefix": ".Test.SolutionDeletionTest",
+          "testMethodName": "SolutionDeletionTest",
+          "testNameWithParameters": "SolutionDeletionTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41964"
+    },
+    {
+      "id": "build:(id:66029),id:41968",
+      "name": "Comindware.Solution.Test.dll: Comindware.Solution.Test.Test.TemplatesDeletionTest",
+      "status": "SUCCESS",
+      "duration": 1904,
+      "runOrder": "16",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-3858226231153638261",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.Solution.Test",
+          "testSuite": "Comindware.Solution.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TemplatesDeletionTest",
+          "testNameWithoutPrefix": ".Test.TemplatesDeletionTest",
+          "testMethodName": "TemplatesDeletionTest",
+          "testNameWithParameters": "TemplatesDeletionTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "41968"
+    },
+    {
+      "id": "build:(id:66029),id:42183",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.AccountAndGroupInExpressionsTest",
+      "status": "SUCCESS",
+      "duration": 2650,
+      "runOrder": "20",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-3797729933481586817",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.AccountAndGroupInExpressionsTest",
+          "testNameWithoutPrefix": ".Test.AccountAndGroupInExpressionsTest",
+          "testMethodName": "AccountAndGroupInExpressionsTest",
+          "testNameWithParameters": "AccountAndGroupInExpressionsTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42183"
+    },
+    {
+      "id": "build:(id:66029),id:42188",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.AccountAndGroupInIfExpressionsTest",
+      "status": "SUCCESS",
+      "duration": 1059,
+      "runOrder": "21",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-200739886011968756",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.AccountAndGroupInIfExpressionsTest",
+          "testNameWithoutPrefix": ".Test.AccountAndGroupInIfExpressionsTest",
+          "testMethodName": "AccountAndGroupInIfExpressionsTest",
+          "testNameWithParameters": "AccountAndGroupInIfExpressionsTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42188"
+    },
+    {
+      "id": "build:(id:66029),id:42198",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.CreateCarDocumentProperties",
+      "status": "SUCCESS",
+      "duration": 949,
+      "runOrder": "23",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-6949582992109367535",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.CreateCarDocumentProperties",
+          "testNameWithoutPrefix": ".Test.CreateCarDocumentProperties",
+          "testMethodName": "CreateCarDocumentProperties",
+          "testNameWithParameters": "CreateCarDocumentProperties"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42198"
+    },
+    {
+      "id": "build:(id:66029),id:42202",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.CreateObjectRefProperties",
+      "status": "SUCCESS",
+      "duration": 759,
+      "runOrder": "24",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "8190479947236031844",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.CreateObjectRefProperties",
+          "testNameWithoutPrefix": ".Test.CreateObjectRefProperties",
+          "testMethodName": "CreateObjectRefProperties",
+          "testNameWithParameters": "CreateObjectRefProperties"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42202"
+    },
+    {
+      "id": "build:(id:66029),id:42206",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.CreateObjectSimple",
+      "status": "SUCCESS",
+      "duration": 690,
+      "runOrder": "25",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8917046167222049609",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.CreateObjectSimple",
+          "testNameWithoutPrefix": ".Test.CreateObjectSimple",
+          "testMethodName": "CreateObjectSimple",
+          "testNameWithParameters": "CreateObjectSimple"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42206"
+    },
+    {
+      "id": "build:(id:66029),id:42215",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.FormCRUDTest",
+      "status": "SUCCESS",
+      "duration": 1951,
+      "runOrder": "27",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "5218024928908471374",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.FormCRUDTest",
+          "testNameWithoutPrefix": ".Test.FormCRUDTest",
+          "testMethodName": "FormCRUDTest",
+          "testNameWithParameters": "FormCRUDTest"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42215"
+    },
+    {
+      "id": "build:(id:66029),id:42235",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.NewObjectAppCreate_Creates_WithSameFacts",
+      "status": "SUCCESS",
+      "duration": 2394,
+      "runOrder": "31",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-7054582159413434455",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.NewObjectAppCreate_Creates_WithSameFacts",
+          "testNameWithoutPrefix": ".Test.NewObjectAppCreate_Creates_WithSameFacts",
+          "testMethodName": "NewObjectAppCreate_Creates_WithSameFacts",
+          "testNameWithParameters": "NewObjectAppCreate_Creates_WithSameFacts"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42235"
+    },
+    {
+      "id": "build:(id:66029),id:42239",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.ObjectAppEditTitlePropertyId",
+      "status": "SUCCESS",
+      "duration": 671,
+      "runOrder": "32",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "1683225152172145688",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.ObjectAppEditTitlePropertyId",
+          "testNameWithoutPrefix": ".Test.ObjectAppEditTitlePropertyId",
+          "testMethodName": "ObjectAppEditTitlePropertyId",
+          "testNameWithParameters": "ObjectAppEditTitlePropertyId"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42239"
+    },
+    {
+      "id": "build:(id:66029),id:42243",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.ObjectPropertyCreate",
+      "status": "SUCCESS",
+      "duration": 708,
+      "runOrder": "33",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-2798767302064356312",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.ObjectPropertyCreate",
+          "testNameWithoutPrefix": ".Test.ObjectPropertyCreate",
+          "testMethodName": "ObjectPropertyCreate",
+          "testNameWithParameters": "ObjectPropertyCreate"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42243"
+    },
+    {
+      "id": "build:(id:66029),id:42247",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.ObjectPropertyDelete",
+      "status": "SUCCESS",
+      "duration": 693,
+      "runOrder": "34",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "4467716796547360116",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.ObjectPropertyDelete",
+          "testNameWithoutPrefix": ".Test.ObjectPropertyDelete",
+          "testMethodName": "ObjectPropertyDelete",
+          "testNameWithParameters": "ObjectPropertyDelete"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42247"
+    },
+    {
+      "id": "build:(id:66029),id:42251",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.ObjectPropertyEdit",
+      "status": "SUCCESS",
+      "duration": 855,
+      "runOrder": "35",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "1921988025523511673",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.ObjectPropertyEdit",
+          "testNameWithoutPrefix": ".Test.ObjectPropertyEdit",
+          "testMethodName": "ObjectPropertyEdit",
+          "testNameWithParameters": "ObjectPropertyEdit"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42251"
+    },
+    {
+      "id": "build:(id:66029),id:42255",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.SDKTest_AssemblyFunctionsDiscovery",
+      "status": "SUCCESS",
+      "duration": 1024,
+      "runOrder": "36",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-5870279032679298708",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.SDKTest_AssemblyFunctionsDiscovery",
+          "testNameWithoutPrefix": ".Test.SDKTest_AssemblyFunctionsDiscovery",
+          "testMethodName": "SDKTest_AssemblyFunctionsDiscovery",
+          "testNameWithParameters": "SDKTest_AssemblyFunctionsDiscovery"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42255"
+    },
+    {
+      "id": "build:(id:66029),id:42259",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.SDKTest_AssemblyFunctionsProvision",
+      "status": "SUCCESS",
+      "duration": 1362,
+      "runOrder": "37",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "8756565360441924630",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.SDKTest_AssemblyFunctionsProvision",
+          "testNameWithoutPrefix": ".Test.SDKTest_AssemblyFunctionsProvision",
+          "testMethodName": "SDKTest_AssemblyFunctionsProvision",
+          "testNameWithParameters": "SDKTest_AssemblyFunctionsProvision"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42259"
+    },
+    {
+      "id": "build:(id:66029),id:42263",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.SDKTest_AssemblyUpload",
+      "status": "SUCCESS",
+      "duration": 871,
+      "runOrder": "38",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "6319994957974737679",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.SDKTest_AssemblyUpload",
+          "testNameWithoutPrefix": ".Test.SDKTest_AssemblyUpload",
+          "testMethodName": "SDKTest_AssemblyUpload",
+          "testNameWithParameters": "SDKTest_AssemblyUpload"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42263"
+    },
+    {
+      "id": "build:(id:66029),id:42267",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestAccountCalculatedProperty",
+      "status": "SUCCESS",
+      "duration": 1037,
+      "runOrder": "39",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-7486793390232500164",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestAccountCalculatedProperty",
+          "testNameWithoutPrefix": ".Test.TestAccountCalculatedProperty",
+          "testMethodName": "TestAccountCalculatedProperty",
+          "testNameWithParameters": "TestAccountCalculatedProperty"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42267"
+    },
+    {
+      "id": "build:(id:66029),id:42281",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_ApplyTemplateDefinition",
+      "status": "SUCCESS",
+      "duration": 737,
+      "runOrder": "42",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "2817004831221830422",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_ApplyTemplateDefinition",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_ApplyTemplateDefinition",
+          "testMethodName": "TestBusinessRuleDefinition_ApplyTemplateDefinition",
+          "testNameWithParameters": "TestBusinessRuleDefinition_ApplyTemplateDefinition"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42281"
+    },
+    {
+      "id": "build:(id:66029),id:42285",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_ApplyTemplateDefinitionNestedBrackets",
+      "status": "SUCCESS",
+      "duration": 795,
+      "runOrder": "43",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8119818407498338883",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_ApplyTemplateDefinitionNestedBrackets",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_ApplyTemplateDefinitionNestedBrackets",
+          "testMethodName": "TestBusinessRuleDefinition_ApplyTemplateDefinitionNestedBrackets",
+          "testNameWithParameters": "TestBusinessRuleDefinition_ApplyTemplateDefinitionNestedBrackets"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42285"
+    },
+    {
+      "id": "build:(id:66029),id:42289",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_Expression",
+      "status": "SUCCESS",
+      "duration": 1203,
+      "runOrder": "44",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-3258482201262838183",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_Expression",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_Expression",
+          "testMethodName": "TestBusinessRuleDefinition_Expression",
+          "testNameWithParameters": "TestBusinessRuleDefinition_Expression"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42289"
+    },
+    {
+      "id": "build:(id:66029),id:42293",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_JsonPath",
+      "status": "SUCCESS",
+      "duration": 692,
+      "runOrder": "45",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "1966625958002556598",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_JsonPath",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_JsonPath",
+          "testMethodName": "TestBusinessRuleDefinition_JsonPath",
+          "testNameWithParameters": "TestBusinessRuleDefinition_JsonPath"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42293"
+    },
+    {
+      "id": "build:(id:66029),id:42297",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_Property",
+      "status": "SUCCESS",
+      "duration": 724,
+      "runOrder": "46",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "8940836824886063635",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_Property",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_Property",
+          "testMethodName": "TestBusinessRuleDefinition_Property",
+          "testNameWithParameters": "TestBusinessRuleDefinition_Property"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42297"
+    },
+    {
+      "id": "build:(id:66029),id:42301",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_RegexCapture",
+      "status": "SUCCESS",
+      "duration": 710,
+      "runOrder": "47",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-7296329874540771230",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_RegexCapture",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_RegexCapture",
+          "testMethodName": "TestBusinessRuleDefinition_RegexCapture",
+          "testNameWithParameters": "TestBusinessRuleDefinition_RegexCapture"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42301"
+    },
+    {
+      "id": "build:(id:66029),id:42305",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_RegexMatch",
+      "status": "SUCCESS",
+      "duration": 643,
+      "runOrder": "48",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-5677245357013419869",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_RegexMatch",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_RegexMatch",
+          "testMethodName": "TestBusinessRuleDefinition_RegexMatch",
+          "testNameWithParameters": "TestBusinessRuleDefinition_RegexMatch"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42305"
+    },
+    {
+      "id": "build:(id:66029),id:42309",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_Script",
+      "status": "SUCCESS",
+      "duration": 1031,
+      "runOrder": "49",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "4933362288701793847",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_Script",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_Script",
+          "testMethodName": "TestBusinessRuleDefinition_Script",
+          "testNameWithParameters": "TestBusinessRuleDefinition_Script"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42309"
+    },
+    {
+      "id": "build:(id:66029),id:42313",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_Values",
+      "status": "SUCCESS",
+      "duration": 694,
+      "runOrder": "50",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "4173275794705790093",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_Values",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_Values",
+          "testMethodName": "TestBusinessRuleDefinition_Values",
+          "testNameWithParameters": "TestBusinessRuleDefinition_Values"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42313"
+    },
+    {
+      "id": "build:(id:66029),id:42317",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestBusinessRuleDefinition_XPath",
+      "status": "SUCCESS",
+      "duration": 751,
+      "runOrder": "51",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "5599490912767418391",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestBusinessRuleDefinition_XPath",
+          "testNameWithoutPrefix": ".Test.TestBusinessRuleDefinition_XPath",
+          "testMethodName": "TestBusinessRuleDefinition_XPath",
+          "testNameWithParameters": "TestBusinessRuleDefinition_XPath"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42317"
+    },
+    {
+      "id": "build:(id:66029),id:42321",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestCalculatedProperty",
+      "status": "SUCCESS",
+      "duration": 724,
+      "runOrder": "52",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3694223805777395205",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestCalculatedProperty",
+          "testNameWithoutPrefix": ".Test.TestCalculatedProperty",
+          "testMethodName": "TestCalculatedProperty",
+          "testNameWithParameters": "TestCalculatedProperty"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42321"
+    },
+    {
+      "id": "build:(id:66029),id:42330",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestCalculatedProperty_DateTimeMath",
+      "status": "SUCCESS",
+      "duration": 797,
+      "runOrder": "54",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "8591609699220293410",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestCalculatedProperty_DateTimeMath",
+          "testNameWithoutPrefix": ".Test.TestCalculatedProperty_DateTimeMath",
+          "testMethodName": "TestCalculatedProperty_DateTimeMath",
+          "testNameWithParameters": "TestCalculatedProperty_DateTimeMath"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42330"
+    },
+    {
+      "id": "build:(id:66029),id:42334",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestCalculatedProperty_StringBuiltins",
+      "status": "SUCCESS",
+      "duration": 767,
+      "runOrder": "55",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8321265703456940656",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestCalculatedProperty_StringBuiltins",
+          "testNameWithoutPrefix": ".Test.TestCalculatedProperty_StringBuiltins",
+          "testMethodName": "TestCalculatedProperty_StringBuiltins",
+          "testNameWithParameters": "TestCalculatedProperty_StringBuiltins"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42334"
+    },
+    {
+      "id": "build:(id:66029),id:42338",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestCaseTemplate",
+      "status": "SUCCESS",
+      "duration": 1077,
+      "runOrder": "56",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-4031548005086090028",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestCaseTemplate",
+          "testNameWithoutPrefix": ".Test.TestCaseTemplate",
+          "testMethodName": "TestCaseTemplate",
+          "testNameWithParameters": "TestCaseTemplate"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42338"
+    },
+    {
+      "id": "build:(id:66029),id:42342",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestCopyOnWriteSet",
+      "status": "SUCCESS",
+      "duration": 653,
+      "runOrder": "57",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-5304792638675729512",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestCopyOnWriteSet",
+          "testNameWithoutPrefix": ".Test.TestCopyOnWriteSet",
+          "testMethodName": "TestCopyOnWriteSet",
+          "testNameWithParameters": "TestCopyOnWriteSet"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42342"
+    },
+    {
+      "id": "build:(id:66029),id:42346",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestDisableObjectApp",
+      "status": "SUCCESS",
+      "duration": 579,
+      "runOrder": "58",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-2719563946089542623",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestDisableObjectApp",
+          "testNameWithoutPrefix": ".Test.TestDisableObjectApp",
+          "testMethodName": "TestDisableObjectApp",
+          "testNameWithParameters": "TestDisableObjectApp"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42346"
+    },
+    {
+      "id": "build:(id:66029),id:42380",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestDocumentsSharedWithObject",
+      "status": "SUCCESS",
+      "duration": 678,
+      "runOrder": "65",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8073151898180035564",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestDocumentsSharedWithObject",
+          "testNameWithoutPrefix": ".Test.TestDocumentsSharedWithObject",
+          "testMethodName": "TestDocumentsSharedWithObject",
+          "testNameWithParameters": "TestDocumentsSharedWithObject"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42380"
+    },
+    {
+      "id": "build:(id:66029),id:42389",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExportObjectToExcel_ForeachCollection_Decimal",
+      "status": "SUCCESS",
+      "duration": 1291,
+      "runOrder": "67",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "8298340793391734155",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExportObjectToExcel_ForeachCollection_Decimal",
+          "testNameWithoutPrefix": ".Test.TestExportObjectToExcel_ForeachCollection_Decimal",
+          "testMethodName": "TestExportObjectToExcel_ForeachCollection_Decimal",
+          "testNameWithParameters": "TestExportObjectToExcel_ForeachCollection_Decimal"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42389"
+    },
+    {
+      "id": "build:(id:66029),id:42393",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExportObjectToExcelMacros_ForeachCollection_Decimal",
+      "status": "SUCCESS",
+      "duration": 825,
+      "runOrder": "68",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "2328635136109366528",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExportObjectToExcelMacros_ForeachCollection_Decimal",
+          "testNameWithoutPrefix": ".Test.TestExportObjectToExcelMacros_ForeachCollection_Decimal",
+          "testMethodName": "TestExportObjectToExcelMacros_ForeachCollection_Decimal",
+          "testNameWithParameters": "TestExportObjectToExcelMacros_ForeachCollection_Decimal"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42393"
+    },
+    {
+      "id": "build:(id:66029),id:42397",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExportObjectToWord_ForeachCollection_Decimal",
+      "status": "SUCCESS",
+      "duration": 990,
+      "runOrder": "69",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-2904884137640997689",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExportObjectToWord_ForeachCollection_Decimal",
+          "testNameWithoutPrefix": ".Test.TestExportObjectToWord_ForeachCollection_Decimal",
+          "testMethodName": "TestExportObjectToWord_ForeachCollection_Decimal",
+          "testNameWithParameters": "TestExportObjectToWord_ForeachCollection_Decimal"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42397"
+    },
+    {
+      "id": "build:(id:66029),id:42401",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExportToExcelDocumentByTemplate",
+      "status": "SUCCESS",
+      "duration": 752,
+      "runOrder": "70",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8509449128087975765",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExportToExcelDocumentByTemplate",
+          "testNameWithoutPrefix": ".Test.TestExportToExcelDocumentByTemplate",
+          "testMethodName": "TestExportToExcelDocumentByTemplate",
+          "testNameWithParameters": "TestExportToExcelDocumentByTemplate"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42401"
+    },
+    {
+      "id": "build:(id:66029),id:42405",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExportToWordDocument",
+      "status": "SUCCESS",
+      "duration": 795,
+      "runOrder": "71",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "4616558243692907446",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExportToWordDocument",
+          "testNameWithoutPrefix": ".Test.TestExportToWordDocument",
+          "testMethodName": "TestExportToWordDocument",
+          "testNameWithParameters": "TestExportToWordDocument"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42405"
+    },
+    {
+      "id": "build:(id:66029),id:42409",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExportToWordDocumentByTemplate",
+      "status": "SUCCESS",
+      "duration": 780,
+      "runOrder": "72",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-6302138611529029813",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExportToWordDocumentByTemplate",
+          "testNameWithoutPrefix": ".Test.TestExportToWordDocumentByTemplate",
+          "testMethodName": "TestExportToWordDocumentByTemplate",
+          "testNameWithParameters": "TestExportToWordDocumentByTemplate"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42409"
+    },
+    {
+      "id": "build:(id:66029),id:42413",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExternalServices_RestJsonPathMapping",
+      "status": "SUCCESS",
+      "duration": 777,
+      "runOrder": "73",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-485607071757226420",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExternalServices_RestJsonPathMapping",
+          "testNameWithoutPrefix": ".Test.TestExternalServices_RestJsonPathMapping",
+          "testMethodName": "TestExternalServices_RestJsonPathMapping",
+          "testNameWithParameters": "TestExternalServices_RestJsonPathMapping"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42413"
+    },
+    {
+      "id": "build:(id:66029),id:42417",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestExternalServices_RestXPathMapping",
+      "status": "SUCCESS",
+      "duration": 827,
+      "runOrder": "74",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3897425578847978394",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestExternalServices_RestXPathMapping",
+          "testNameWithoutPrefix": ".Test.TestExternalServices_RestXPathMapping",
+          "testMethodName": "TestExternalServices_RestXPathMapping",
+          "testNameWithParameters": "TestExternalServices_RestXPathMapping"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42417"
+    },
+    {
+      "id": "build:(id:66029),id:42496",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestGlobalFunctions_CanCreateGlobalFunctionWithEmptyDefinition",
+      "status": "SUCCESS",
+      "duration": 626,
+      "runOrder": "90",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3921790916586107499",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestGlobalFunctions_CanCreateGlobalFunctionWithEmptyDefinition",
+          "testNameWithoutPrefix": ".Test.TestGlobalFunctions_CanCreateGlobalFunctionWithEmptyDefinition",
+          "testMethodName": "TestGlobalFunctions_CanCreateGlobalFunctionWithEmptyDefinition",
+          "testNameWithParameters": "TestGlobalFunctions_CanCreateGlobalFunctionWithEmptyDefinition"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42496"
+    },
+    {
+      "id": "build:(id:66029),id:42500",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestGlobalFunctions_EmptyGlobalFunctionExecutesSilently",
+      "status": "SUCCESS",
+      "duration": 626,
+      "runOrder": "91",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3125005908889562300",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestGlobalFunctions_EmptyGlobalFunctionExecutesSilently",
+          "testNameWithoutPrefix": ".Test.TestGlobalFunctions_EmptyGlobalFunctionExecutesSilently",
+          "testMethodName": "TestGlobalFunctions_EmptyGlobalFunctionExecutesSilently",
+          "testNameWithParameters": "TestGlobalFunctions_EmptyGlobalFunctionExecutesSilently"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42500"
+    },
+    {
+      "id": "build:(id:66029),id:42504",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestGlobalFunctions_ExternalService",
+      "status": "SUCCESS",
+      "duration": 1043,
+      "runOrder": "92",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "4199786490012288816",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestGlobalFunctions_ExternalService",
+          "testNameWithoutPrefix": ".Test.TestGlobalFunctions_ExternalService",
+          "testMethodName": "TestGlobalFunctions_ExternalService",
+          "testNameWithParameters": "TestGlobalFunctions_ExternalService"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42504"
+    },
+    {
+      "id": "build:(id:66029),id:42508",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestGlobalFunctions_ScriptFunction",
+      "status": "SUCCESS",
+      "duration": 1046,
+      "runOrder": "93",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-6075907185702782158",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestGlobalFunctions_ScriptFunction",
+          "testNameWithoutPrefix": ".Test.TestGlobalFunctions_ScriptFunction",
+          "testMethodName": "TestGlobalFunctions_ScriptFunction",
+          "testNameWithParameters": "TestGlobalFunctions_ScriptFunction"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42508"
+    },
+    {
+      "id": "build:(id:66029),id:42527",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestMessageType",
+      "status": "SUCCESS",
+      "duration": 616,
+      "runOrder": "97",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8086733980093261849",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestMessageType",
+          "testNameWithoutPrefix": ".Test.TestMessageType",
+          "testMethodName": "TestMessageType",
+          "testNameWithParameters": "TestMessageType"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42527"
+    },
+    {
+      "id": "build:(id:66029),id:42542",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestObjectAppExport_Templates",
+      "status": "SUCCESS",
+      "duration": 710,
+      "runOrder": "100",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "4787823525448811931",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestObjectAppExport_Templates",
+          "testNameWithoutPrefix": ".Test.TestObjectAppExport_Templates",
+          "testMethodName": "TestObjectAppExport_Templates",
+          "testNameWithParameters": "TestObjectAppExport_Templates"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42542"
+    },
+    {
+      "id": "build:(id:66029),id:42546",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestObjectPropertyDatabaseAggregate",
+      "status": "SUCCESS",
+      "duration": 1187,
+      "runOrder": "101",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "6754115434159373399",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestObjectPropertyDatabaseAggregate",
+          "testNameWithoutPrefix": ".Test.TestObjectPropertyDatabaseAggregate",
+          "testMethodName": "TestObjectPropertyDatabaseAggregate",
+          "testNameWithParameters": "TestObjectPropertyDatabaseAggregate"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42546"
+    },
+    {
+      "id": "build:(id:66029),id:42566",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_Gmail",
+      "status": "SUCCESS",
+      "duration": 618,
+      "runOrder": "105",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "2529796254315231559",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_Gmail",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_Gmail",
+          "testMethodName": "TestPlainEmailReplyParser_Gmail",
+          "testNameWithParameters": "TestPlainEmailReplyParser_Gmail"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42566"
+    },
+    {
+      "id": "build:(id:66029),id:42570",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_Outlook",
+      "status": "SUCCESS",
+      "duration": 667,
+      "runOrder": "106",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-5992048661189351477",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_Outlook",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_Outlook",
+          "testMethodName": "TestPlainEmailReplyParser_Outlook",
+          "testNameWithParameters": "TestPlainEmailReplyParser_Outlook"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42570"
+    },
+    {
+      "id": "build:(id:66029),id:42574",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_Outlook_OWA",
+      "status": "SUCCESS",
+      "duration": 592,
+      "runOrder": "107",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-7844523436344910577",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_Outlook_OWA",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_Outlook_OWA",
+          "testMethodName": "TestPlainEmailReplyParser_Outlook_OWA",
+          "testNameWithParameters": "TestPlainEmailReplyParser_Outlook_OWA"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42574"
+    },
+    {
+      "id": "build:(id:66029),id:42578",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_Outlook1",
+      "status": "SUCCESS",
+      "duration": 658,
+      "runOrder": "108",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-3028416147994208981",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_Outlook1",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_Outlook1",
+          "testMethodName": "TestPlainEmailReplyParser_Outlook1",
+          "testNameWithParameters": "TestPlainEmailReplyParser_Outlook1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42578"
+    },
+    {
+      "id": "build:(id:66029),id:42582",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_Outlook2003",
+      "status": "SUCCESS",
+      "duration": 542,
+      "runOrder": "109",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-2692501489035363763",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_Outlook2003",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_Outlook2003",
+          "testMethodName": "TestPlainEmailReplyParser_Outlook2003",
+          "testNameWithParameters": "TestPlainEmailReplyParser_Outlook2003"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42582"
+    },
+    {
+      "id": "build:(id:66029),id:42586",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_Outlook2003_1",
+      "status": "SUCCESS",
+      "duration": 633,
+      "runOrder": "110",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-5898997199804820852",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_Outlook2003_1",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_Outlook2003_1",
+          "testMethodName": "TestPlainEmailReplyParser_Outlook2003_1",
+          "testNameWithParameters": "TestPlainEmailReplyParser_Outlook2003_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42586"
+    },
+    {
+      "id": "build:(id:66029),id:42590",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_RussianOWA",
+      "status": "SUCCESS",
+      "duration": 672,
+      "runOrder": "111",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-6615154027619758176",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_RussianOWA",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_RussianOWA",
+          "testMethodName": "TestPlainEmailReplyParser_RussianOWA",
+          "testNameWithParameters": "TestPlainEmailReplyParser_RussianOWA"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42590"
+    },
+    {
+      "id": "build:(id:66029),id:42594",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPlainEmailReplyParser_Thunderbird",
+      "status": "SUCCESS",
+      "duration": 597,
+      "runOrder": "112",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-7309449082183343277",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPlainEmailReplyParser_Thunderbird",
+          "testNameWithoutPrefix": ".Test.TestPlainEmailReplyParser_Thunderbird",
+          "testMethodName": "TestPlainEmailReplyParser_Thunderbird",
+          "testNameWithParameters": "TestPlainEmailReplyParser_Thunderbird"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42594"
+    },
+    {
+      "id": "build:(id:66029),id:42598",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestPropertyCache",
+      "status": "SUCCESS",
+      "duration": 639,
+      "runOrder": "113",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-4426824000245233195",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestPropertyCache",
+          "testNameWithoutPrefix": ".Test.TestPropertyCache",
+          "testMethodName": "TestPropertyCache",
+          "testNameWithParameters": "TestPropertyCache"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42598"
+    },
+    {
+      "id": "build:(id:66029),id:42602",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Daily_1",
+      "status": "SUCCESS",
+      "duration": 604,
+      "runOrder": "114",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-82871408658704105",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Daily_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Daily_1",
+          "testMethodName": "TestRecurrentNumOccurrences_Daily_1",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Daily_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42602"
+    },
+    {
+      "id": "build:(id:66029),id:42606",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Daily_2",
+      "status": "SUCCESS",
+      "duration": 630,
+      "runOrder": "115",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "302674653577700609",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Daily_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Daily_2",
+          "testMethodName": "TestRecurrentNumOccurrences_Daily_2",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Daily_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42606"
+    },
+    {
+      "id": "build:(id:66029),id:42610",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Monthly_1",
+      "status": "SUCCESS",
+      "duration": 496,
+      "runOrder": "116",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "2368059031791886497",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Monthly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Monthly_1",
+          "testMethodName": "TestRecurrentNumOccurrences_Monthly_1",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Monthly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42610"
+    },
+    {
+      "id": "build:(id:66029),id:42614",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Monthly_2",
+      "status": "SUCCESS",
+      "duration": 594,
+      "runOrder": "117",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-2722481781792858953",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Monthly_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Monthly_2",
+          "testMethodName": "TestRecurrentNumOccurrences_Monthly_2",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Monthly_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42614"
+    },
+    {
+      "id": "build:(id:66029),id:42618",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Monthly_3",
+      "status": "SUCCESS",
+      "duration": 650,
+      "runOrder": "118",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-139306028737237012",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Monthly_3",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Monthly_3",
+          "testMethodName": "TestRecurrentNumOccurrences_Monthly_3",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Monthly_3"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42618"
+    },
+    {
+      "id": "build:(id:66029),id:42622",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Weekly_1",
+      "status": "SUCCESS",
+      "duration": 587,
+      "runOrder": "119",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-4874115333337355200",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Weekly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Weekly_1",
+          "testMethodName": "TestRecurrentNumOccurrences_Weekly_1",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Weekly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42622"
+    },
+    {
+      "id": "build:(id:66029),id:42626",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Yearly_1",
+      "status": "SUCCESS",
+      "duration": 636,
+      "runOrder": "120",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-6277928009933703887",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Yearly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Yearly_1",
+          "testMethodName": "TestRecurrentNumOccurrences_Yearly_1",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Yearly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42626"
+    },
+    {
+      "id": "build:(id:66029),id:42630",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentNumOccurrences_Yearly_2",
+      "status": "SUCCESS",
+      "duration": 594,
+      "runOrder": "121",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "5911702002679859495",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentNumOccurrences_Yearly_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentNumOccurrences_Yearly_2",
+          "testMethodName": "TestRecurrentNumOccurrences_Yearly_2",
+          "testNameWithParameters": "TestRecurrentNumOccurrences_Yearly_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42630"
+    },
+    {
+      "id": "build:(id:66029),id:42634",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Daily_1",
+      "status": "SUCCESS",
+      "duration": 631,
+      "runOrder": "122",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8629386651491837752",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Daily_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Daily_1",
+          "testMethodName": "TestRecurrentRangeCalculator_Daily_1",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Daily_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42634"
+    },
+    {
+      "id": "build:(id:66029),id:42638",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Daily_2",
+      "status": "SUCCESS",
+      "duration": 576,
+      "runOrder": "123",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "8274386391598310622",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Daily_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Daily_2",
+          "testMethodName": "TestRecurrentRangeCalculator_Daily_2",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Daily_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42638"
+    },
+    {
+      "id": "build:(id:66029),id:42642",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Monthly_1",
+      "status": "SUCCESS",
+      "duration": 491,
+      "runOrder": "124",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-341622073875142692",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Monthly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Monthly_1",
+          "testMethodName": "TestRecurrentRangeCalculator_Monthly_1",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Monthly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42642"
+    },
+    {
+      "id": "build:(id:66029),id:42646",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Monthly_2",
+      "status": "SUCCESS",
+      "duration": 656,
+      "runOrder": "125",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "119508746436254666",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Monthly_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Monthly_2",
+          "testMethodName": "TestRecurrentRangeCalculator_Monthly_2",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Monthly_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42646"
+    },
+    {
+      "id": "build:(id:66029),id:42650",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Monthly_3",
+      "status": "SUCCESS",
+      "duration": 601,
+      "runOrder": "126",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "2706184313655453841",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Monthly_3",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Monthly_3",
+          "testMethodName": "TestRecurrentRangeCalculator_Monthly_3",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Monthly_3"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42650"
+    },
+    {
+      "id": "build:(id:66029),id:42654",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_RestrictByNumOccurrences",
+      "status": "SUCCESS",
+      "duration": 636,
+      "runOrder": "127",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "242144910832857687",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_RestrictByNumOccurrences",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_RestrictByNumOccurrences",
+          "testMethodName": "TestRecurrentRangeCalculator_RestrictByNumOccurrences",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_RestrictByNumOccurrences"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42654"
+    },
+    {
+      "id": "build:(id:66029),id:42658",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Weekly_1",
+      "status": "SUCCESS",
+      "duration": 608,
+      "runOrder": "128",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "5878329167458922494",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Weekly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Weekly_1",
+          "testMethodName": "TestRecurrentRangeCalculator_Weekly_1",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Weekly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42658"
+    },
+    {
+      "id": "build:(id:66029),id:42662",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Yearly_1",
+      "status": "SUCCESS",
+      "duration": 661,
+      "runOrder": "129",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "4985481947376367247",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Yearly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Yearly_1",
+          "testMethodName": "TestRecurrentRangeCalculator_Yearly_1",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Yearly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42662"
+    },
+    {
+      "id": "build:(id:66029),id:42666",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentRangeCalculator_Yearly_2",
+      "status": "SUCCESS",
+      "duration": 632,
+      "runOrder": "130",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-4628229887669155175",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentRangeCalculator_Yearly_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentRangeCalculator_Yearly_2",
+          "testMethodName": "TestRecurrentRangeCalculator_Yearly_2",
+          "testNameWithParameters": "TestRecurrentRangeCalculator_Yearly_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42666"
+    },
+    {
+      "id": "build:(id:66029),id:42670",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Daily_1",
+      "status": "SUCCESS",
+      "duration": 633,
+      "runOrder": "131",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-1671563247249053650",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Daily_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Daily_1",
+          "testMethodName": "TestRecurrentScheduler_Daily_1",
+          "testNameWithParameters": "TestRecurrentScheduler_Daily_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42670"
+    },
+    {
+      "id": "build:(id:66029),id:42674",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Daily_2",
+      "status": "SUCCESS",
+      "duration": 598,
+      "runOrder": "132",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "1308205599472800824",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Daily_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Daily_2",
+          "testMethodName": "TestRecurrentScheduler_Daily_2",
+          "testNameWithParameters": "TestRecurrentScheduler_Daily_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42674"
+    },
+    {
+      "id": "build:(id:66029),id:42678",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Daily_3",
+      "status": "SUCCESS",
+      "duration": 600,
+      "runOrder": "133",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "3891522214570796899",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Daily_3",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Daily_3",
+          "testMethodName": "TestRecurrentScheduler_Daily_3",
+          "testNameWithParameters": "TestRecurrentScheduler_Daily_3"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42678"
+    },
+    {
+      "id": "build:(id:66029),id:42682",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Minutely_1",
+      "status": "SUCCESS",
+      "duration": 596,
+      "runOrder": "134",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8262347386597186415",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Minutely_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Minutely_1",
+          "testMethodName": "TestRecurrentScheduler_Minutely_1",
+          "testNameWithParameters": "TestRecurrentScheduler_Minutely_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42682"
+    },
+    {
+      "id": "build:(id:66029),id:42686",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Monthly_1",
+      "status": "SUCCESS",
+      "duration": 601,
+      "runOrder": "135",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "8687147784627987525",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Monthly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Monthly_1",
+          "testMethodName": "TestRecurrentScheduler_Monthly_1",
+          "testNameWithParameters": "TestRecurrentScheduler_Monthly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42686"
+    },
+    {
+      "id": "build:(id:66029),id:42690",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Monthly_2",
+      "status": "SUCCESS",
+      "duration": 627,
+      "runOrder": "136",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-9051048908908832685",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Monthly_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Monthly_2",
+          "testMethodName": "TestRecurrentScheduler_Monthly_2",
+          "testNameWithParameters": "TestRecurrentScheduler_Monthly_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42690"
+    },
+    {
+      "id": "build:(id:66029),id:42694",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Monthly_3",
+      "status": "SUCCESS",
+      "duration": 526,
+      "runOrder": "137",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-6466344289297945848",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Monthly_3",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Monthly_3",
+          "testMethodName": "TestRecurrentScheduler_Monthly_3",
+          "testNameWithParameters": "TestRecurrentScheduler_Monthly_3"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42694"
+    },
+    {
+      "id": "build:(id:66029),id:42698",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_RangeByEndDate",
+      "status": "SUCCESS",
+      "duration": 844,
+      "runOrder": "138",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-4019287238798162398",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_RangeByEndDate",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_RangeByEndDate",
+          "testMethodName": "TestRecurrentScheduler_RangeByEndDate",
+          "testNameWithParameters": "TestRecurrentScheduler_RangeByEndDate"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42698"
+    },
+    {
+      "id": "build:(id:66029),id:42702",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_RangeByOccurences",
+      "status": "SUCCESS",
+      "duration": 800,
+      "runOrder": "139",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "6002549688907686774",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_RangeByOccurences",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_RangeByOccurences",
+          "testMethodName": "TestRecurrentScheduler_RangeByOccurences",
+          "testNameWithParameters": "TestRecurrentScheduler_RangeByOccurences"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42702"
+    },
+    {
+      "id": "build:(id:66029),id:42706",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Weekly_1",
+      "status": "SUCCESS",
+      "duration": 717,
+      "runOrder": "140",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "-8038269961977524686",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Weekly_1",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Weekly_1",
+          "testMethodName": "TestRecurrentScheduler_Weekly_1",
+          "testNameWithParameters": "TestRecurrentScheduler_Weekly_1"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42706"
+    },
+    {
+      "id": "build:(id:66029),id:42710",
+      "name": "Comindware.TeamNetwork.Test.dll: Comindware.TeamNetwork.Test.Test.TestRecurrentScheduler_Weekly_2",
+      "status": "SUCCESS",
+      "duration": 693,
+      "runOrder": "141",
+      "muted": false,
+      "currentlyMuted": false,
+      "currentlyInvestigated": false,
+      "test": {
+        "id": "7681047580565631524",
+        "mutes": {
+          "mute": []
+        },
+        "investigations": {
+          "investigation": []
+        },
+        "parsedTestName": {
+          "testPackage": "Comindware.TeamNetwork.Test",
+          "testSuite": "Comindware.TeamNetwork.Test.dll: ",
+          "testClass": "Test",
+          "testShortName": "Test.TestRecurrentScheduler_Weekly_2",
+          "testNameWithoutPrefix": ".Test.TestRecurrentScheduler_Weekly_2",
+          "testMethodName": "TestRecurrentScheduler_Weekly_2",
+          "testNameWithParameters": "TestRecurrentScheduler_Weekly_2"
+        }
+      },
+      "build": {
+        "id": 66029,
+        "buildTypeId": "ComindwareProcess_DevCbap44BuildWithTests",
+        "personal": false,
+        "buildType": {
+          "internalId": "bt164",
+          "project": {
+            "id": "ComindwareProcess",
+            "parentProjectId": "_Root",
+            "virtual": false
+          }
+        },
+        "startDate": "20230622T140413+0000",
+        "agent": {
+          "id": 44,
+          "name": "buildagent-ubuntu-0"
+        }
+      },
+      "metadata": {
+        "count": 0
+      },
+      "logAnchor": "42710"
+    }
+  ]
+}
