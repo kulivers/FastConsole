@@ -24,11 +24,6 @@ namespace Gitlibdemo
                 // Delete all subdirectories within the directory
                 foreach (DirectoryInfo subdirectory in directory.GetDirectories())
                 {
-                    if (subdirectory.Name == ".git" || subdirectory.Name == "test")
-                    {
-                        continue;
-                    }
-
                     subdirectory.Delete(true);
                 }
             }
@@ -88,6 +83,7 @@ namespace Gitlibdemo
                 cloneOptions.CertificateCheck += delegate { return true; };
                 var fo = new FetchOptions();
                 fo.CertificateCheck += delegate { return true; };
+                Console.WriteLine("clonning to "+ testDir2);
                 Repository.Clone("https://gitlab.com/test8643011/testpublic.git", testDir2, cloneOptions);
             }
             catch (Exception e)
