@@ -23,17 +23,25 @@ namespace FastScratchMVC
         {
             var validator = new BackupPathValidator();
             var pathResolver = new SymbolicPathResolver();
-            var path = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx";
-            var tempDir = "/home/ekul/tempDir";
+            
+            var juncNotExist = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx321";
+            var s3 = JunctionPoint.GetJunction(juncNotExist);
+            var s2313 = JunctionPoint.GetSymbolicLink(juncNotExist);
             
             var symbNotEx = @"D:\Work\master\Tests\Platform\bin\data\Temp\aaa";
-            var juncNotExist = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx321";
-            var s3 = JunctionPoint.GetTarget(juncNotExist);
-            var s2 = JunctionPoint.GetTarget(symbNotEx);
-            var s2313 = JunctionPoint.GetTarget2(juncNotExist);
-            var s221321 = JunctionPoint.GetTarget2(symbNotEx);
-            var s21 = NativeMethods.GetFinalPathName(juncNotExist);
-            var s231 = NativeMethods.GetFinalPathName(symbNotEx);
+            var s2 = JunctionPoint.GetJunction(symbNotEx);
+            var s221321 = JunctionPoint.GetSymbolicLink(symbNotEx);
+            
+            var linktonotex = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx";
+            var s1232 = JunctionPoint.GetJunction(linktonotex);
+            var s2211321 = JunctionPoint.GetSymbolicLink(linktonotex);
+            
+            var linkToExisting = @"D:\Work\master\Tests\Platform\bin\data\Temp\existingDirLink";
+            var s1231212 = JunctionPoint.GetJunction(linkToExisting);
+            var s2211312321 = JunctionPoint.GetSymbolicLink(linkToExisting);
+            new DirectoryInfo("").Attributes.HasFlag()
+            return;
+            var tempDir = "/home/ekul/tempDir";
             var defaultBackupPath = "/home/ekul/backups";
             if (Directory.Exists(tempDir))
             {
@@ -81,55 +89,4 @@ namespace FastScratchMVC
             Console.WriteLine("5" + validator.ValidateDirectory(linkToNotExLink).Status);
         }
     }
-    public static class NativeMethods
-    {
-        private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
-
-        private const uint FILE_READ_EA = 0x0008;
-        private const uint FILE_FLAG_BACKUP_SEMANTICS = 0x2000000;
-
-        [DllImport("Kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        static extern uint GetFinalPathNameByHandle(IntPtr hFile, [MarshalAs(UnmanagedType.LPTStr)] StringBuilder lpszFilePath, uint cchFilePath, uint dwFlags);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool CloseHandle(IntPtr hObject);
-
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern IntPtr CreateFile(
-            [MarshalAs(UnmanagedType.LPTStr)] string filename,
-            [MarshalAs(UnmanagedType.U4)] uint access,
-            [MarshalAs(UnmanagedType.U4)] FileShare share,
-            IntPtr securityAttributes, // optional SECURITY_ATTRIBUTES struct or IntPtr.Zero
-            [MarshalAs(UnmanagedType.U4)] FileMode creationDisposition,
-            [MarshalAs(UnmanagedType.U4)] uint flagsAndAttributes,
-            IntPtr templateFile);
-
-        public static string GetFinalPathName(string path)
-        {
-            var h = CreateFile(path, 
-                FILE_READ_EA, 
-                FileShare.ReadWrite | FileShare.Delete, 
-                IntPtr.Zero, 
-                FileMode.Open, 
-                FILE_FLAG_BACKUP_SEMANTICS,
-                IntPtr.Zero);
-            if (h == INVALID_HANDLE_VALUE)
-                return null;
-
-            try
-            {
-                var sb = new StringBuilder(1024);
-                var res = GetFinalPathNameByHandle(h, sb, 1024, 0);
-                if (res == 0)
-                    return null;
-                return sb.ToString();
-            }
-            finally
-            {
-                CloseHandle(h);
-            }
-        }
-    }
-
 }

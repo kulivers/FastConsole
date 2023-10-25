@@ -242,7 +242,7 @@ namespace FastScratchMVC
         ///     Thrown when the specified path does not
         ///     exist, is invalid, is not a junction point, or some other error occurs
         /// </exception>
-        public static string GetTarget(string junctionPoint)
+        public static string GetJunction(string junctionPoint)
         {
             using (var handle = OpenReparsePoint(junctionPoint, EFileAccess.GenericRead))
             {
@@ -251,21 +251,22 @@ namespace FastScratchMVC
                 return target;
             }
         }
+
 // open existing
         private const uint CREATION_DISPOSITION = 3;
 
         // generic read
         private const uint DESIRED_ACCESS = 0x80000000;
 
-
         // backup semantics (needed if directory), open reparse point
         private const uint FLAGS_AND_ATTRIBUTES = 0x02000000 | 0x00200000;
 
-        private const uint IO_REPARSE_TAG_SYMLINK     = 0xA000000C;
+        private const uint IO_REPARSE_TAG_SYMLINK = 0xA000000C;
 
         // read, write, delete
         private const uint SHARE_MODE = 1 | 2 | 4;
-        public static string GetTarget2(string fileName)
+
+        public static string GetSymbolicLink(string fileName)
         {
             SafeFileHandle handle = OpenReparsePoint(fileName, EFileAccess.GenericRead);
 
