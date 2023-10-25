@@ -23,7 +23,8 @@ namespace FastScratchMVC
         {
             var validator = new BackupPathValidator();
             var pathResolver = new SymbolicPathResolver();
-            
+            pathResolver.TryGetFinalPathName(@"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotExLink", out var aaa);
+
             var juncNotExist = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx321";
             var s3 = JunctionPoint.GetJunction(juncNotExist);
             var s2313 = JunctionPoint.GetSymbolicLink(juncNotExist);
@@ -39,7 +40,6 @@ namespace FastScratchMVC
             var linkToExisting = @"D:\Work\master\Tests\Platform\bin\data\Temp\existingDirLink";
             var s1231212 = JunctionPoint.GetJunction(linkToExisting);
             var s2211312321 = JunctionPoint.GetSymbolicLink(linkToExisting);
-            new DirectoryInfo("").Attributes.HasFlag()
             return;
             var tempDir = "/home/ekul/tempDir";
             var defaultBackupPath = "/home/ekul/backups";
