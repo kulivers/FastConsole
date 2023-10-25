@@ -11,9 +11,10 @@ namespace Comindware.Bootloading.Core.Configuration.Models
         public string StreamsDir { get; set; }
         public string ConfigPath { get; set; }
         public string ElasticsearchUri { get; set; }
-        public string ElasticsearchUser { get; set; } 
-        public string ElasticsearchPassword { get; set; } 
+        public string ElasticsearchUser { get; set; }
+        public string ElasticsearchPassword { get; set; }
     }
+
     public class InstanceYmlModel : IEquatable<InstanceYmlModel>
     {
         public InstanceYmlModel()
@@ -85,12 +86,15 @@ namespace Comindware.Bootloading.Core.Configuration.Models
             {
                 return false;
             }
-            
+
             if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            
+
+
+
+
             return ConfigName == other.ConfigName && InstanceName == other.InstanceName;
         }
 
@@ -100,15 +104,20 @@ namespace Comindware.Bootloading.Core.Configuration.Models
             {
                 return false;
             }
+
             if (ReferenceEquals(this, obj))
             {
                 return true;
             }
+
             if (obj.GetType() != this.GetType())
             {
                 return false;
             }
-            
+
+
+
+
             return Equals((InstanceYmlModel)obj);
         }
     }

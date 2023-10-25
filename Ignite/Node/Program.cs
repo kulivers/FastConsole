@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Apache.Ignite.Core;
 using Apache.Ignite.Core.Cache;
 using Apache.Ignite.Core.Cache.Event;
+using Apache.Ignite.Core.Cluster;
 using Apache.Ignite.Core.Discovery.Tcp;
 using Apache.Ignite.Core.Messaging;
 using Apache.Ignite.Core.Resource;
@@ -25,16 +26,32 @@ namespace Node
 
     internal class Program
     {
+        private static void StartIgniteNode()
+        {
+            if (!string.IsNullOrEmpty(IgniteWorkingDirectory))
+            {
+                Environment.SetEnvironmentVariable("IGNITE_WORK_DIR", IgniteWorkingDirectory);
+            }
+
+            if (!string.IsNullOrEmpty(IgniteBinDirectory))
+            {
+                Environment.SetEnvironmentVariable("IGNITE_HOME", IgniteBinDirectory);
+            }
+            Environment.SetEnvironmentVariable("IGNITE_NO_ASCII", "true");
+            Environment.SetEnvironmentVariable("IGNITE_QUIET", "true");
+
+            var ignite = Ignition.TryGetIgnite() ?? Ignition.StartFromApplicationConfiguration("igniteConfiguration", IgniteConfigFileName);
+        }
+
+        public static string IgniteBinDirectory => @"D:\Work\master\Web\bin";
+
+        public static string IgniteWorkingDirectory => @"D:\Work\master\Web\data\Database";
+
+        public static string IgniteConfigFileName => @"D:\Work\master\Web\Ignite.config";
+
         public static async Task Main(string[] args)
         {
-            var cacheName = "___extensions_TeamNetwork_extension_n3.Forward.cmw_xmlns_httpwwww3org19990222-rdf-syntax-ns_type";
-            var ignite = Ignition.TryGetIgnite() ?? Ignition.Start();
-            var names = ignite.GetCacheNames();
-            foreach (var name in names)
-            {
-                var cache = ignite.GetCache<dynamic, dynamic>(name);
-            }
-            // var cache = ignite.GetCache<int, int>(cacheName);//No
+            StartIgniteNode();
         }
     }
 }
