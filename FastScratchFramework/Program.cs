@@ -1,88 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
-using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text;
 using Comindware.Platform.Core;
+using Comindware.Platform.Core.Util;
+using Monitor.Core.Utilities;
 
 namespace FastScratchMVC
 {
-    public class Person
-    {
-        private string _name;
-
-        public string Name
-        {
-            get
-            {
-                Console.WriteLine("Im in getter");
-                return _name;
-            }
-            set
-            {
-                Console.WriteLine("Im in setter");
-                _name = value;
-            }
-        }
-    }
-
-    public class SimpleAssemblyLoader : MarshalByRefObject
-    {
-        public void Load(string path)
-        {
-            ValidatePath(path);
-
-            Assembly.Load(path);
-        }
-
-        public void LoadFrom(string path)
-        {
-            ValidatePath(path);
-
-            Assembly.LoadFrom(path);
-        }
-
-        private void ValidatePath(string path)
-        {
-            if (path == null) throw new ArgumentNullException("path");
-            if (!File.Exists(path))
-                throw new ArgumentException(String.Format("path \"{0}\" does not exist", path));
-        }
-    }
-
-    [Flags]
-    public enum ResourcePermissions
-    {
-        Undefined,
-
-        ContextUserExpression = 0x01, //Разрешено применение expression
-        ContextObjectCondition = 0x02, //Разрешено применение condition
-        Read = 0x04, // Просматривать контейнер и его объекты (записи, процессы, задачи)
-        Create = 0x08, // Создавать объекты в контейнере (записи, процессы, задачи)
-        Update = 0x40, // Редактировать объекты в контейнере (записи, процессы, задачи)
-        Delete = 0x80, // Удалять объекты в контейнере (записи, процессы, задачи)
-        Execute = 0x100, // Выполнение конкретной операции
-        FullAccess = 0x200, // Все права на объекты + изменение шаблона (удалять шаблон - не дает)
-    }
-
+    
     internal class Program
     {
-        private static string bashProgramName = "/bin/bash";
+        private int FILE_NAME_NORMALIZED = 0x0;
 
         public static void Main(string[] args)
         {
+            Main2();
+        }
+
+        private static void Main2()
+        {
             var validator = new BackupPathValidator();
             var pathResolver = new SymbolicPathResolver();
+            var path = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx";
             var tempDir = "/home/ekul/tempDir";
-            var defaultBackupPath = "/home/ekul/backups";
-            if (!Directory.Exists(tempDir))
-            {
-                Directory.CreateDirectory(tempDir);
-            }
-            if (!Directory.Exists(defaultBackupPath))
-            {
-                Directory.CreateDirectory(defaultBackupPath);
-            }
             
+            var symbNotEx = @"D:\Work\master\Tests\Platform\bin\data\Temp\aaa";
+            var juncNotExist = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx321";
+            var s3 = JunctionPoint.GetTarget(juncNotExist);
+            var s2 = JunctionPoint.GetTarget(symbNotEx);
+            var s2313 = JunctionPoint.GetTarget2(juncNotExist);
+            var s221321 = JunctionPoint.GetTarget2(symbNotEx);
+            var s21 = NativeMethods.GetFinalPathName(juncNotExist);
+            var s231 = NativeMethods.GetFinalPathName(symbNotEx);
+            var defaultBackupPath = "/home/ekul/backups";
+            if (Directory.Exists(tempDir))
+            {
+                Directory.Delete(tempDir, true);
+            }
+
+            if (Directory.Exists(defaultBackupPath))
+            {
+                Directory.Delete(defaultBackupPath, true);
+            }
+
+            Directory.CreateDirectory(defaultBackupPath);
+            Directory.CreateDirectory(tempDir);
+
             //link -> existingDir
             var linkToEx = Path.Combine(tempDir, "existingDirLink");
             pathResolver.CreateSymbolicDirectoryLink(linkToEx, defaultBackupPath);
@@ -116,68 +81,55 @@ namespace FastScratchMVC
             Console.WriteLine("5" + validator.ValidateDirectory(linkToNotExLink).Status);
         }
     }
-}
-
-public class BackupConfigPathComparer : IEqualityComparer<BackupConfiguration>
-{
-    public bool Equals(BackupConfiguration x, BackupConfiguration y)
+    public static class NativeMethods
     {
-        if (x != null && y != null)
+        private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
+
+        private const uint FILE_READ_EA = 0x0008;
+        private const uint FILE_FLAG_BACKUP_SEMANTICS = 0x2000000;
+
+        [DllImport("Kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        static extern uint GetFinalPathNameByHandle(IntPtr hFile, [MarshalAs(UnmanagedType.LPTStr)] StringBuilder lpszFilePath, uint cchFilePath, uint dwFlags);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool CloseHandle(IntPtr hObject);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern IntPtr CreateFile(
+            [MarshalAs(UnmanagedType.LPTStr)] string filename,
+            [MarshalAs(UnmanagedType.U4)] uint access,
+            [MarshalAs(UnmanagedType.U4)] FileShare share,
+            IntPtr securityAttributes, // optional SECURITY_ATTRIBUTES struct or IntPtr.Zero
+            [MarshalAs(UnmanagedType.U4)] FileMode creationDisposition,
+            [MarshalAs(UnmanagedType.U4)] uint flagsAndAttributes,
+            IntPtr templateFile);
+
+        public static string GetFinalPathName(string path)
         {
-            return Path.GetFullPath(x.Path).Equals(Path.GetFullPath(y.Path));
+            var h = CreateFile(path, 
+                FILE_READ_EA, 
+                FileShare.ReadWrite | FileShare.Delete, 
+                IntPtr.Zero, 
+                FileMode.Open, 
+                FILE_FLAG_BACKUP_SEMANTICS,
+                IntPtr.Zero);
+            if (h == INVALID_HANDLE_VALUE)
+                return null;
+
+            try
+            {
+                var sb = new StringBuilder(1024);
+                var res = GetFinalPathNameByHandle(h, sb, 1024, 0);
+                if (res == 0)
+                    return null;
+                return sb.ToString();
+            }
+            finally
+            {
+                CloseHandle(h);
+            }
         }
-
-        return x == null && y == null;
     }
 
-    public int GetHashCode(BackupConfiguration obj)
-    {
-        return obj.Path.GetHashCode();
-    }
-}
-
-public class BackupConfiguration
-{
-    /// <summary>
-    /// Backup configuration identifier
-    /// </summary>
-    public string Id { get; set; }
-
-    /// <summary>
-    /// Backup folder location
-    /// </summary>
-    public string Path { get; set; }
-
-    /// <summary>
-    /// Backup file name
-    /// </summary>
-    public string FileName { get; set; }
-
-    /// <summary>
-    /// Backup contains streams
-    /// </summary>
-    public bool WithStreams { get; set; }
-
-    /// <summary>
-    /// Backup contains scripts
-    /// </summary>
-    public bool WithScripts { get; set; }
-
-    /// <summary>
-    /// Backup description
-    /// </summary>
-    public string Description { get; set; }
-
-    /// <summary>
-    /// Launch schedule
-    /// </summary>
-    /// <summary>
-    /// Number of backup archives which wouldn't be deleted automatically
-    /// </summary>
-    public uint KeepRecent { get; set; }
-
-    /// <summary>
-    /// If config is disabled then backup will not be run neither manually nor by schedule
-    /// </summary>
-    public bool IsDisabled { get; set; }
 }

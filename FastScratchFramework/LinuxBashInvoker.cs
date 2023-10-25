@@ -35,10 +35,14 @@ namespace Comindware.Platform.Core.Util
                 try
                 {
                     File.Delete(logFile);
-                } catch { }
+                }
+                catch
+                {
+                }
 
                 return result.TrimEnd(Environment.NewLine.ToCharArray());
             }
+
             return string.Empty;
         }
     }

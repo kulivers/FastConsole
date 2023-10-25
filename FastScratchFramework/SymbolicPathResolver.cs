@@ -141,6 +141,7 @@ namespace Comindware.Platform.Core
                 try
                 {
                     finalPath = _linuxBashInvoker.Bash($"realpath {path}");
+                    Console.WriteLine($"input: {path}. realpath: {finalPath}");
                     return true;
                 }
                 catch
@@ -154,7 +155,7 @@ namespace Comindware.Platform.Core
             {
                 try
                 {
-                    _linuxBashInvoker.Bash($"ln -s {lpSymlinkFileName} {lpTargetFileName}", false);
+                    _linuxBashInvoker.Bash($"ln -s {lpTargetFileName} {lpSymlinkFileName}", false);
                     return true;
                 }
                 catch
@@ -167,7 +168,7 @@ namespace Comindware.Platform.Core
             {
                 try
                 {
-                    _linuxBashInvoker.Bash($"ln -s {lpSymlinkFileName} {lpTargetFileName}", false);
+                    _linuxBashInvoker.Bash($"ln -s {lpTargetFileName} {lpSymlinkFileName}", false);
                     return true;
                 }
                 catch

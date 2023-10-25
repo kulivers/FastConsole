@@ -12,6 +12,7 @@
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -147,10 +148,14 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="a.cs" />
+        <Compile Include="BackupConfigPathComparer.cs" />
+        <Compile Include="BackupConfiguration.cs" />
         <Compile Include="BackupPathValidator.cs" />
         <Compile Include="BackupSessionStatus.cs" />
         <Compile Include="HttpRequestMessageWrapper.cs" />
         <Compile Include="InstanceYmlModel.cs" />
+        <Compile Include="jp.cs" />
+        <Compile Include="jp2.cs" />
         <Compile Include="LinuxBashInvoker.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
