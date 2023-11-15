@@ -7,11 +7,15 @@ public class Program
 {
     public static async Task Main()
     {
-        var _linuxBashInvoker = new LinuxBashInvoker();
-        var bash = _linuxBashInvoker.Bash($"ln -s /home/ekul/ /home/ekul/aaaa", true);
-        Console.WriteLine(bash);
-        Console.WriteLine("-=------------------------------------");
-        var bash2 = _linuxBashInvoker.Bash($"ln -s qweqw qqweqw qewqewqw", true);
-        Console.WriteLine(bash2);
+        try
+        {
+            var exists = Directory.Exists("/home/ekul/aaaa");
+            Console.WriteLine(exists);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }
