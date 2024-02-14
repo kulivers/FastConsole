@@ -36,6 +36,7 @@ namespace FastScratchMVC
 
         public static T ReadModel<T>(string path)
         {
+            var deserialize = Deserializer.Deserialize<T>("");
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException(path);
@@ -75,6 +76,32 @@ namespace FastScratchMVC
             }
 
             File.Create(fileInfo.FullName).Dispose();
+        }
+
+        public static void Test(string path)
+        {
+            var yamlObject  = Deserializer.Deserialize(File.OpenText(path));
+            string propertyName = "kafkaBootstrapServer";
+            if (yamlObject is IDictionary<object, object> dictionary)
+            {
+                foreach (var keyValuePair in dictionary)
+                {
+                    if (!(keyValuePair.Key is string key))
+                    {
+                        continue;
+                    }
+
+                    if (key == propertyName && keyValuePair.Value is string result)
+                    {
+                        ;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid YAML format.");
+            }
+
         }
     }
 

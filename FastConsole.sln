@@ -36,6 +36,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleOAuthCheck", "GoogleO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiskSpaceTesting", "DiskSpaceTesting\DiskSpaceTesting.csproj", "{119E44DB-8A7C-4C71-A58E-2A9F94A7E1F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchiveTestingNET7", "ArchiveTestingNET7\ArchiveTestingNET7.csproj", "{57FF2E32-D4A6-4474-A44E-37BF25A068AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiskMemoryEater", "DiskMemoryEater\DiskMemoryEater.csproj", "{54BDEC4F-0823-4C28-B8CF-E30EC4188B33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckFileExist", "CheckFileExist\CheckFileExist.csproj", "{51A14F92-221D-433F-AF00-7810EE3725EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aliasrfegex", "Aliasrfegex\Aliasrfegex.csproj", "{ECC88C41-63DD-4224-BBE6-586D49642DA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NlogTesting", "NlogTesting\NlogTesting.csproj", "{9718011A-A622-426E-B3C9-87A7C0EB4749}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerEnvPass", "DockerEnvPass\DockerEnvPass.csproj", "{C5ED2D57-15EF-4411-9529-9A9F97C11257}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +118,30 @@ Global
 		{119E44DB-8A7C-4C71-A58E-2A9F94A7E1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119E44DB-8A7C-4C71-A58E-2A9F94A7E1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119E44DB-8A7C-4C71-A58E-2A9F94A7E1F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FF2E32-D4A6-4474-A44E-37BF25A068AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FF2E32-D4A6-4474-A44E-37BF25A068AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FF2E32-D4A6-4474-A44E-37BF25A068AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FF2E32-D4A6-4474-A44E-37BF25A068AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54BDEC4F-0823-4C28-B8CF-E30EC4188B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54BDEC4F-0823-4C28-B8CF-E30EC4188B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54BDEC4F-0823-4C28-B8CF-E30EC4188B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54BDEC4F-0823-4C28-B8CF-E30EC4188B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A14F92-221D-433F-AF00-7810EE3725EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A14F92-221D-433F-AF00-7810EE3725EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A14F92-221D-433F-AF00-7810EE3725EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A14F92-221D-433F-AF00-7810EE3725EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC88C41-63DD-4224-BBE6-586D49642DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC88C41-63DD-4224-BBE6-586D49642DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC88C41-63DD-4224-BBE6-586D49642DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC88C41-63DD-4224-BBE6-586D49642DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9718011A-A622-426E-B3C9-87A7C0EB4749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9718011A-A622-426E-B3C9-87A7C0EB4749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9718011A-A622-426E-B3C9-87A7C0EB4749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9718011A-A622-426E-B3C9-87A7C0EB4749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5ED2D57-15EF-4411-9529-9A9F97C11257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5ED2D57-15EF-4411-9529-9A9F97C11257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5ED2D57-15EF-4411-9529-9A9F97C11257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5ED2D57-15EF-4411-9529-9A9F97C11257}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{63FAB476-6780-4013-8907-B5227A854DC0} = {6BDC5429-4736-4E42-A99C-84AAB2080703}

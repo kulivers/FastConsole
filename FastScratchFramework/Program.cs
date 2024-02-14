@@ -5,161 +5,292 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using Comindware.Platform.Core;
 using Comindware.Platform.Core.Util;
 using Monitor.Core.Utilities;
+using Nest;
 
 namespace FastScratchMVC
 {
+    public class User
+    {
+        public string Id { get; set; }
+        public string KafkaBootstrapServer { get; set; }
+        public User2 User2 { get; set; }
+    }
+    public class User2
+    {
+        public string Id { get; set; }
+        public User User { get; set; }
+    }
     internal class Program
     {
-        public bool GetDiskFreeSpace(string location, out ulong freeBytes)
+        private static string RandomLogFile => $"/tmp/{Guid.NewGuid().ToString()}";
+        public static void Main(string[] args)
         {
-            freeBytes = 0;
-            string[] lines = _linuxBashInvoker.Bash(string.Join(" ", getAvailableSizeDfCommand))
-                                              .Split(RowSplitter, StringSplitOptions.RemoveEmptyEntries);
-            if (lines.Length <= 1)
+            ClearFolder(@"C:\Users\ekul\Desktop\clear me");
+        }
+
+        private static void ClearFolder(string folderName)
+        {
+            var dir = new DirectoryInfo(folderName);
+            foreach(var fi in dir.GetFiles())
+            {
+                try
+                {
+                    fi.Delete();
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
+
+            foreach (var di in dir.GetDirectories())
+            {
+                ClearFolder(di.FullName);
+                di.Delete();
+            }
+        }
+        
+        private static IEnumerable<GroupedBackupConfigPathInfo> GroupConfigurationsByFilePath(IEnumerable<BackupConfiguration> configurations)
+        {
+            var gropedConfigs = new HashSet<GroupedBackupConfigPathInfo>(new GroupedBackupConfigPathInfoComparer());
+            foreach (var cfg in configurations)
+            {
+                UpdateGroups(gropedConfigs, cfg, cfg.Repository);
+                UpdateGroups(gropedConfigs, cfg, cfg.ExtraRepository);
+            }
+
+            return gropedConfigs;
+        }
+
+        public static void UpdateGroups(HashSet<GroupedBackupConfigPathInfo> groups, BackupConfiguration bc, BackupRepository repo)
+        {
+            if (repo == null || repo.Type != BackupRepositoryType.FileSystem)
+            {
+                return;
+            }
+
+            var gropedConfigToCompare = new GroupedBackupConfigPathInfo(bc.Id, bc.IsDisabled, bc.Schedule.Type, repo.FileSystemPath);
+            if (groups.TryGetValue(gropedConfigToCompare, out var gropedConfig)) //always here cuz in grouped will be instance with new id? 
+            {
+                gropedConfig.Ids.Add(bc.Id);
+            }
+            else
+            {
+                groups.Add(gropedConfigToCompare);
+            }
+        }
+    }
+
+    public class GroupedBackupConfigPathInfo
+    {
+        public HashSet<string> Ids { get; set; }
+
+        public bool IsDisabled { get; set; }
+
+        public ScheduleType ScheduleType { get; set; }
+
+        public string Path { get; set; }
+
+        public GroupedBackupConfigPathInfo()
+        {
+        }
+
+        public GroupedBackupConfigPathInfo(string id, bool isDisabled, ScheduleType scheduleType, string path)
+        {
+            Ids = new HashSet<string>() { id };
+            IsDisabled = isDisabled;
+            ScheduleType = scheduleType;
+            Path = path;
+        }
+    }
+
+    public enum ScheduleType
+    {
+        //Automatic,
+        TimeInterval,
+        Manual,
+    }
+
+    public class BackupRepository
+    {
+        /// <summary>
+        /// Backup repository identifier
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// A repository type
+        /// </summary>
+        public BackupRepositoryType Type { get; set; }
+
+        /// <summary>
+        /// Path to directory in file system
+        /// </summary>
+        public string FileSystemPath { get; set; }
+
+        /// <summary>
+        /// Bucket name in S3 storage
+        /// </summary>
+        public string S3Bucket { get; set; }
+
+        public static BackupRepository CreateForFileSystem(string path)
+        {
+            return new BackupRepository() { Type = BackupRepositoryType.FileSystem, FileSystemPath = path };
+        }
+
+        public static BackupRepository CreateForS3(string bucket)
+        {
+            return new BackupRepository() { Type = BackupRepositoryType.S3, S3Bucket = bucket };
+        }
+    }
+
+    public enum BackupRepositoryType
+    {
+        Undefined,
+        FileSystem,
+        S3
+    }
+
+    public class BackupConfiguration
+    {
+        /// <summary>
+        /// Backup configuration identifier
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Backup files repository
+        /// </summary>
+        public BackupRepository Repository { get; set; }
+
+        /// <summary>
+        /// Backup file name
+        /// </summary>
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// Backup contains streams
+        /// </summary>
+        public bool WithStreams { get; set; }
+
+        /// <summary>
+        /// Backup contains scripts
+        /// </summary>
+        public bool WithScripts { get; set; }
+
+        /// <summary>
+        /// Backup contains history data
+        /// </summary>
+        public bool WithHistory { get; set; }
+
+        /// <summary>
+        /// Backup description
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Launch schedule
+        /// </summary>
+        public ScheduleConfiguration Schedule;
+
+        /// <summary>
+        /// Number of backup archives which wouldn't be deleted automatically
+        /// </summary>
+        public uint KeepRecent { get; set; }
+
+        /// <summary>
+        /// If config is disabled then backup will not be run neither manually nor by schedule
+        /// </summary>
+        public bool IsDisabled { get; set; }
+
+        /// <summary>
+        /// Backup file can be downloaded
+        /// </summary>
+        public bool IsDownloadAllowed { get; set; }
+
+        /// <summary>
+        /// Backup configuration is readonly
+        /// </summary>
+        public bool IsReadOnly { get; set; }
+
+        /// <summary>
+        /// Backup files extra repository
+        /// </summary>
+        public BackupRepository ExtraRepository { get; set; }
+    }
+
+    public class ScheduleConfiguration
+    {
+        public ScheduleConfiguration()
+        {
+            Type = ScheduleType.Manual;
+        }
+
+        public ScheduleConfiguration(TimeSpan? period, IList<Day> daysOfWeek)
+        {
+            Type = ScheduleType.TimeInterval;
+            Period = period;
+            DaysOfWeek = daysOfWeek ?? new List<Day> { Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday };
+        }
+
+        public ScheduleConfiguration(TimeSpan? period, IList<Day> daysOfWeek, DateTime? timeFrom, DateTime? timeUpTo)
+        {
+            Type = ScheduleType.TimeInterval;
+            Period = period;
+            DaysOfWeek = daysOfWeek ?? new List<Day> { Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday };
+            TimeFrom = timeFrom;
+            TimeUpTo = timeUpTo;
+        }
+
+        public ScheduleType Type { get; set; }
+
+        public TimeSpan? Period { get; set; }
+
+        public IList<Day> DaysOfWeek { get; set; }
+
+        public DateTime? TimeFrom { get; set; }
+
+        public DateTime? TimeUpTo { get; set; }
+    }
+
+    public class GroupedBackupConfigPathInfoComparer : IEqualityComparer<GroupedBackupConfigPathInfo>
+    {
+        public bool Equals(GroupedBackupConfigPathInfo x, GroupedBackupConfigPathInfo y)
+        {
+            if (x == null && y == null)
+            {
+                return true;
+            }
+
+            if (x == null || y == null)
             {
                 return false;
             }
 
-            FileSystemRecord condidate = default;
-            for (int i = 1; i < lines.Length; i++)
-            {
-                var current = new FileSystemRecord(lines[i]);
-                if (current.IsValid && location.StartsWith(current.MountLocation) &&
-                    (string.IsNullOrEmpty(condidate.MountLocation) ||
-                     condidate.MountLocation.Length < current.MountLocation.Length))
-                {
-                    condidate = current;
-                }
-            }
-
-            freeBytes = condidate.Available * 1024;
-            return condidate.IsValid;
-        }
-
-        public static void Main(string[] args)
-        {
-            var count = Count(new List<int>(){3,1,2}, (i, i1) => ++i);
-            return;
-            var all = Enumerable.Empty<int>().All(x=>false);
+            var isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
             try
             {
-                var exists = Directory.Exists("/home/ekul/aaaa");
-                Console.WriteLine(exists);
+                return string.Equals(
+                           Path.GetFullPath(x.Path).TrimEnd(Path.DirectorySeparatorChar),
+                           Path.GetFullPath(y.Path).TrimEnd(Path.DirectorySeparatorChar),
+                           isWindows ? StringComparison.InvariantCultureIgnoreCase : StringComparison.InvariantCulture)
+                       && x.IsDisabled == y.IsDisabled && x.ScheduleType == y.ScheduleType;
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e);
-                throw;
+                return string.Equals(
+                           x.Path?.TrimEnd(Path.DirectorySeparatorChar),
+                           y.Path?.TrimEnd(Path.DirectorySeparatorChar),
+                           isWindows ? StringComparison.InvariantCultureIgnoreCase : StringComparison.InvariantCulture)
+                       && x.IsDisabled == y.IsDisabled && x.ScheduleType == y.ScheduleType;
             }
-
-            return;
-            var pathResolver = new SymbolicPathResolver();
-            var tempDir = "/home/ekul/temp";
-            var defaultBackupPath = "/home/ekul/defaultBackupPath";
-            tempDir = Directory.GetCurrentDirectory() + "temp";
-            defaultBackupPath = Directory.GetCurrentDirectory() + "defaultBackupPath";
-            if (!System.IO.Directory.Exists(tempDir))
-            {
-                System.IO.Directory.CreateDirectory(tempDir);
-            }
-            else
-            {
-                System.IO.Directory.Delete(tempDir, true);
-                System.IO.Directory.CreateDirectory(tempDir);
-            }
-
-            if (!System.IO.Directory.Exists(defaultBackupPath))
-            {
-                System.IO.Directory.CreateDirectory(defaultBackupPath);
-            }
-            else
-            {
-                System.IO.Directory.Delete(defaultBackupPath, true);
-                System.IO.Directory.CreateDirectory(defaultBackupPath);
-            }
-
-            Console.WriteLine("START");
-
-            var targetDirectory = Path.Combine(defaultBackupPath, Guid.NewGuid().ToString());
-            var linkLinkToNotEx = Path.Combine(tempDir, "linkLinkToNotEx");
-            pathResolver.CreateSymbolicDirectoryLink(linkLinkToNotEx, targetDirectory);
-            var linkToNotExLink = Path.Combine(tempDir, "linkToNotExLink");
-            pathResolver.CreateSymbolicDirectoryLink(linkToNotExLink, linkLinkToNotEx);
-            Console.WriteLine(linkLinkToNotEx);
-            File.Delete(linkLinkToNotEx);
         }
 
-        private static void Main2()
+        public int GetHashCode(GroupedBackupConfigPathInfo obj)
         {
-            var validator = new BackupPathValidator();
-            var pathResolver = new SymbolicPathResolver();
-            pathResolver.TryGetFinalPathName(@"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotExLink", out var aaa);
-
-            var juncNotExist = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx321";
-            var s3 = JunctionPoint.GetJunction(juncNotExist);
-            var s2313 = JunctionPoint.GetSymbolicLink(juncNotExist);
-
-            var symbNotEx = @"D:\Work\master\Tests\Platform\bin\data\Temp\aaa";
-            var s2 = JunctionPoint.GetJunction(symbNotEx);
-            var s221321 = JunctionPoint.GetSymbolicLink(symbNotEx);
-
-            var linktonotex = @"D:\Work\master\Tests\Platform\bin\data\Temp\linkToNotEx";
-            var s1232 = JunctionPoint.GetJunction(linktonotex);
-            var s2211321 = JunctionPoint.GetSymbolicLink(linktonotex);
-
-            var linkToExisting = @"D:\Work\master\Tests\Platform\bin\data\Temp\existingDirLink";
-            var s1231212 = JunctionPoint.GetJunction(linkToExisting);
-            var s2211312321 = JunctionPoint.GetSymbolicLink(linkToExisting);
-            return;
-            var tempDir = "/home/ekul/tempDir";
-            var defaultBackupPath = "/home/ekul/backups";
-            if (Directory.Exists(tempDir))
-            {
-                Directory.Delete(tempDir, true);
-            }
-
-            if (Directory.Exists(defaultBackupPath))
-            {
-                Directory.Delete(defaultBackupPath, true);
-            }
-
-            Directory.CreateDirectory(defaultBackupPath);
-            Directory.CreateDirectory(tempDir);
-
-            //link -> existingDir
-            var linkToEx = Path.Combine(tempDir, "existingDirLink");
-            pathResolver.CreateSymbolicDirectoryLink(linkToEx, defaultBackupPath);
-            Console.WriteLine("1" + validator.ValidateDirectory(linkToEx).Status);
-
-            //link -> NotExistingDir
-            var target = Path.Combine(defaultBackupPath, Guid.NewGuid().ToString());
-            Directory.CreateDirectory(target);
-            var linkToNotEx = Path.Combine(tempDir, "linkToNotEx");
-            pathResolver.CreateSymbolicDirectoryLink(linkToNotEx, target);
-            Directory.Delete(target, true);
-            Console.WriteLine("2" + validator.ValidateDirectory(linkToNotEx).Status);
-
-            //link -> link -> existingDir
-            target = linkToEx;
-            var linkLinkToEx = Path.Combine(tempDir, "linkLinkToEx");
-            pathResolver.CreateSymbolicDirectoryLink(linkLinkToEx, target);
-            Console.WriteLine("3" + validator.ValidateDirectory(linkLinkToEx).Status);
-
-            //link -> link -> NotExistingDir
-            target = linkToNotEx;
-            var linkLinkToNotEx = Path.Combine(tempDir, "linkLinkToNotEx");
-            pathResolver.CreateSymbolicDirectoryLink(linkLinkToNotEx, target);
-            Console.WriteLine("4" + validator.ValidateDirectory(linkLinkToNotEx).Status);
-
-            //link -> notExistingLink
-            var linkToNotExLink = Path.Combine(tempDir, "linkToNotExLink");
-            target = linkLinkToNotEx;
-            pathResolver.CreateSymbolicDirectoryLink(linkToNotExLink, target);
-            Directory.Delete(target, true);
-            Console.WriteLine("5" + validator.ValidateDirectory(linkToNotExLink).Status);
+            return obj.Path.GetHashCode();
         }
     }
 }

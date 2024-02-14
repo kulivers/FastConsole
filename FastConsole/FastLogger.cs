@@ -36,7 +36,8 @@ public static class FastLogger
     private static string CreateFile()
     {
         var name = DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + ".txt";
-        var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), name);
+        var currentDirectory = "C:\\Users\\ekul\\Desktop\\test1";
+        var path = System.IO.Path.Combine(currentDirectory, name);
         File.Create(path).Dispose();
         return path;
     }

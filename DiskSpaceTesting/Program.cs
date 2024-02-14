@@ -1,71 +1,14 @@
-﻿using System.IO.Compression;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 
 namespace DiskSpaceTesting
 {
     internal class Program
     {
-        private static string getAvailableSizeDfCommand = "df -ak --output=target,avail";
-        private static string getTotalSizeDfCommand = "df -ak --output=target,size";
-        private static char[] ColumnSplitter = new char[] { ' ', '\t' };
-        private static char[] RowSplitter = new char[] { '\r', '\n' };
-
-        public static bool GetTotalDiskSpace(string location, out ulong freeBytes)
-        {
-            var linuxBashInvoker = new LinuxBashInvoker();
-            freeBytes = 0;
-            string[] lines = linuxBashInvoker.Bash(string.Join(" ", getTotalSizeDfCommand))
-                                              .Split(RowSplitter, StringSplitOptions.RemoveEmptyEntries);
-            if (lines.Length <= 1)
-            {
-                return false;
-            }
-
-            FileSystemRecord condidate = default;
-            for (int i = 1; i < lines.Length; i++)
-            {
-                var current = new FileSystemRecord(lines[i]);
-                if (current.IsValid && location.StartsWith(current.MountLocation) &&
-                    (string.IsNullOrEmpty(condidate.MountLocation) ||
-                     condidate.MountLocation.Length < current.MountLocation.Length))
-                {
-                    condidate = current;
-                }
-            }
-
-            freeBytes = condidate.Available * 1024;
-            return condidate.IsValid;
-        }
-
-        public static bool GetDiskFreeSpace(string location, out ulong freeBytes)
-        {
-            var linuxBashInvoker = new LinuxBashInvoker();
-            freeBytes = 0;
-            string[] lines = linuxBashInvoker.Bash(string.Join(" ", getAvailableSizeDfCommand))
-                                             .Split(RowSplitter, StringSplitOptions.RemoveEmptyEntries);
-            if (lines.Length <= 1)
-            {
-                return false;
-            }
-
-            FileSystemRecord condidate = default;
-            for (int i = 1; i < lines.Length; i++)
-            {
-                var current = new FileSystemRecord(lines[i]);
-                if (current.IsValid && location.StartsWith(current.MountLocation) &&
-                    (string.IsNullOrEmpty(condidate.MountLocation) ||
-                     condidate.MountLocation.Length < current.MountLocation.Length))
-                {
-                    condidate = current;
-                }
-            }
-
-            freeBytes = condidate.Available * 1024;
-            return condidate.IsValid;
-        }
-        private static long CalculateDirSize(DirectoryInfo d) 
+        private static long CalculateDirSize(DirectoryInfo d)
         {
             // Add file sizes.
             var fileInfos = d.GetFiles();
@@ -73,118 +16,89 @@ namespace DiskSpaceTesting
             // Add subdirectory sizes.
             var dis = d.GetDirectories();
             size += dis.Sum(CalculateDirSize);
-            return size;  
+            return size;
         }
 
-        private const string _databaseDirectory = "/var/www/"; 
+        private const string DecimalWithSeparator = "#,##0.";
+        private const string DecimalWithoutSeparator = "0.";
+        private const string IntWithSeparator = "#,##0";
+        private const string IntWithoutSeparator = "0";
+        private const char ZeroNumber = '0';
+
+        public static string ResolveNumericCustomFormat(int? decimalPlaces, bool isDigitGrouping)
+        {
+            if (decimalPlaces == 0)
+            {
+                return isDigitGrouping ? IntWithSeparator : IntWithoutSeparator;
+            }
+
+            return $"{(isDigitGrouping ? DecimalWithSeparator : DecimalWithoutSeparator)}{new string(ZeroNumber, (int)decimalPlaces)}";
+        }
 
         public static void Main(string[] args)
         {
-            var path = "D:\\Playground\\Garbage\\FastConsole\\DiskSpaceTesting\\test.cdbbz";
-            
-            var dtb = "D:\\Work\\master2\\Web\\data\\Database\\db";
-            var db = "D:\\Work\\master2\\Web\\data\\Database\\db";
-            var wal = "D:\\Work\\master2\\Web\\data\\Database\\wal";
-            var dirSize = CalculateDirSize(new DirectoryInfo(db));//639652243
-            var calculateDirSize = CalculateDirSize(new DirectoryInfo(wal));//536870912
-            var dtba = CalculateDirSize(new DirectoryInfo(dtb));//639652303
-        }
-        
-        private bool TryCalculateExpectedBackupSize(string path, out long size)
-        {
-            size = default;
-            if (!File.Exists(path))
-            {
-                return false;
-            } 
-
-            if (TryGetUncompressedArchiveSize(path, out size))
-            {
-                return true;
-            }
-
-            if (TryGetDirectorySize(_databaseDirectory, out size))
-            {
-                return true;
-            }
-
-            return false;
+            var maxValue = long.MaxValue / 1024d / 1024d / 1024d;
         }
 
-        private bool TryGetDirectorySize(string dirPath, out long size)
+        public static int FindLast(byte[] haystack, byte[] needle)
         {
-            size = default;
+            // iterate backwards, stop if the rest of the array is shorter than needle (i >= needle.Length)
+            for (var i = haystack.Length - 1; i >= needle.Length - 1; i--)
+            {
+                var found = true;
+                // also iterate backwards through needle, stop if elements do not match (!found)
+                for (var j = needle.Length - 1; j >= 0 && found; j--)
+                {
+                    // compare needle's element with corresponding element of haystack
+                    found = haystack[i - (needle.Length - 1 - j)] == needle[j];
+                }
+
+                if (found)
+                    // result was found, i is now the index of the last found element, so subtract needle's length - 1
+                    return i - (needle.Length - 1);
+            }
+
+            // not found, return -1
+            return -1;
+        }
+
+        public static int FindLast(int[] haystack, int[] needle)
+        {
+            // iterate backwards, stop if the rest of the array is shorter than needle (i >= needle.Length)
+            for (var i = haystack.Length - 1; i >= needle.Length - 1; i--)
+            {
+                var found = true;
+                // also iterate backwards through needle, stop if elements do not match (!found)
+                for (var j = needle.Length - 1; j >= 0 && found; j--)
+                {
+                    // compare needle's element with corresponding element of haystack
+                    found = haystack[i - (needle.Length - 1 - j)] == needle[j];
+                }
+
+                if (found)
+                    // result was found, i is now the index of the last found element, so subtract needle's length - 1
+                    return i - (needle.Length - 1);
+            }
+
+            // not found, return -1
+            return -1;
+        }
+
+        public void ExtractFile(string sourceArchive, string destination)
+        {
+            string zPath = "7za.exe"; //add to proj and set CopyToOuputDir
             try
             {
-                size = CalculateDirectorySize(new DirectoryInfo(dirPath));
-                return true;
+                ProcessStartInfo pro = new ProcessStartInfo();
+                pro.WindowStyle = ProcessWindowStyle.Hidden;
+                pro.FileName = zPath;
+                pro.Arguments = string.Format("x \"{0}\" -y -o\"{1}\"", sourceArchive, destination);
+                Process x = Process.Start(pro);
+                x.WaitForExit();
             }
-            catch
+            catch (System.Exception Ex)
             {
-                return false;
-            }
-        }
-
-        private long CalculateDirectorySize(DirectoryInfo d) 
-        {
-            // Add file sizes.
-            var fileInfos = d.GetFiles();
-            var size = fileInfos.Sum(fi => fi.Length);
-            // Add subdirectory sizes.
-            var dis = d.GetDirectories();
-            size += dis.Sum(CalculateDirectorySize);
-            return size;
-        }
-        
-        private bool TryGetUncompressedArchiveSize(string archivePath, out long size)
-        {
-            size = default;
-            if (!File.Exists(archivePath))
-            {
-                return false;
-            }
-
-            try
-            {
-                using (var fileStream = new FileStream(archivePath, FileMode.Open))
-                {
-                    using (var zipArchive = new ZipArchive(fileStream))
-                    {
-                        size = zipArchive.Entries.Sum(entry => entry.Length);
-                        return true;
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-
-        private struct FileSystemRecord
-        {
-            public string MountLocation;
-            public ulong Available;
-            public bool IsValid;
-
-            public FileSystemRecord(string definition)
-            {
-                IsValid = false;
-                var values = definition.Split(ColumnSplitter, StringSplitOptions.RemoveEmptyEntries);
-                if (values.Length < 2)
-                {
-                    MountLocation = string.Empty;
-                    Available = 0;
-                }
-
-                MountLocation = values[0];
-                Available = 0;
-                if (ulong.TryParse(values[1], out var available))
-                {
-                    Available = available;
-                    IsValid = true;
-                }
+                //handle error
             }
         }
     }

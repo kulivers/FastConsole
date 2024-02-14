@@ -5,8 +5,8 @@ class Program
 {
     public static async Task Main(string[] args)
     {
-        var bootstrapServers = "10.9.0.232:9092";
-        string topicName = "coolTopic";
+        var bootstrapServers = "10.9.7.13:9092";
+        var topicName = "adapterhost_deploy_request_queue";
         var adminClient = new AdminClientBuilder(new AdminClientConfig { BootstrapServers = bootstrapServers }).Build();
         var metadata = adminClient.GetMetadata(TimeSpan.FromDays(1));
         var configResource = new ConfigResource() { Name = topicName, Type = ResourceType.Topic };
