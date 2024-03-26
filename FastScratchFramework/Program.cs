@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using Comindware.Platform.Core.Util;
 using Monitor.Core.Utilities;
 using Nest;
@@ -27,6 +28,14 @@ namespace FastScratchMVC
         private static string RandomLogFile => $"/tmp/{Guid.NewGuid().ToString()}";
         public static void Main(string[] args)
         {
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(2));
+            while (!cts.IsCancellationRequested)
+            {
+                ;
+            }
+            
+            
+            var user2 = (User2)null;
             ClearFolder(@"C:\Users\ekul\Desktop\clear me");
         }
 
