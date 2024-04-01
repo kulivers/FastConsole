@@ -40,6 +40,9 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Lib\Entities\Requests\GetMaterialsRequest.cs" />
+        <Compile Include="Lib\Entities\Responses\GetMaterialsResponse.cs" />
+        <Compile Include="Lib\Serializer.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
