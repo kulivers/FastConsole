@@ -19,7 +19,7 @@ namespace SoapXmlGenerator.Lib
 
         public string Serialize(ZXR_WS305_GET_MATERIALS request)
         {
-            var serializer = new XmlSerializer(typeof(Envelope));
+            var serializer = new XmlSerializer(typeof(ManualWsdl.Lib.Entities.Requests.Envelope));
             var namespaces = new XmlSerializerNamespaces();
             namespaces.Add("soapenv", "http://schemas.xmlsoap.org/soap/envelope/");
 

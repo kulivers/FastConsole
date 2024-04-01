@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -39,14 +40,16 @@ namespace SoapXmlGenerator.Lib
 
         public ZXR_WS305_GET_MATERIALSResponse GetMaterials(ZXR_WS305_GET_MATERIALS request)
         {
-            var httpRequestMessage = new HttpRequestMessage()
-            {
-                RequestUri = GetMaterialsEndpoint,
-                Content = new StringContent(_getMaterialsSerializer.Serialize(request)),
-                Method = HttpMethod.Post
-            };
-            var responseContent = _httpClient.SendAsync(httpRequestMessage).GetAwaiter().GetResult().Content;
-            var responseXml = responseContent.ReadAsStringAsync().GetAwaiter().GetResult();
+            // var serialized = _getMaterialsSerializer.Serialize(request);
+            // var httpRequestMessage = new HttpRequestMessage()
+            // {
+                // RequestUri = GetMaterialsEndpoint,
+                // Content = new StringContent(serialized),
+                // Method = HttpMethod.Post
+            // };
+            // var responseContent = _httpClient.SendAsync(httpRequestMessage).GetAwaiter().GetResult().Content;
+            // var responseXml = responseContent.ReadAsStringAsync().GetAwaiter().GetResult();
+            var responseXml = File.ReadAllText(@"D:\Playground\Garbage\FastConsole\ManualWsdl\MockResponse.xml");
             return _getMaterialsSerializer.Deserialize(responseXml);
         }
     }

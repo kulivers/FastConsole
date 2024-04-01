@@ -8,7 +8,7 @@ namespace WsdlTesting
         public static void Main(string[] args)
         {
             var soapClient = new SoapClient();
-            soapClient.GetMaterials();
+            var zxrWs305GetMaterialsResponse = soapClient.GetMaterials();
         }
     }
 }

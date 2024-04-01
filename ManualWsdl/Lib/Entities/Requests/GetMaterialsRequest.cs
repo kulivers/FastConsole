@@ -37,7 +37,8 @@ namespace ManualWsdl.Lib.Entities.Requests
     public class IT_MATNR
     {
         [XmlElement(ElementName = "item", Namespace = "")]
-        public Item Item { get; set; }
+        // [XmlArrayItem("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+        public Item[] Item { get; set; }
     }
 
     public class Item

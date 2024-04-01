@@ -34,7 +34,8 @@ namespace ManualWsdl.Lib.Entities.Responses
 
     public class ET_MATNR
     {
-        public Item item { get; set; }
+        [XmlElement(ElementName = "item", Namespace = "")]
+        public Item[] item { get; set; }
     }
 
     public class Item
