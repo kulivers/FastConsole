@@ -25,6 +25,7 @@ namespace WsdlTesting
             var binding = new BasicHttpsBinding(BasicHttpsSecurityMode.Transport) { Name = GetMaterialsBinding, Security = basicHttpsSecurity };
             var endpointAddress = new EndpointAddress(GetMaterialsEndpoint);
 
+            
             var miOutGdoWs305GetMaterialsClient = new mi_out_gdo_ws305_get_materialsClient(binding, endpointAddress)
             {
                 ClientCredentials =

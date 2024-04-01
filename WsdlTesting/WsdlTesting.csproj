@@ -50,6 +50,7 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="ManualClient.cs" />
         <Compile Include="mi_out_gdo_ws136_purch_req_create.cs" />
         <Compile Include="mi_out_gdo_ws305_get_materials.cs" />
         <Compile Include="Program.cs"/>

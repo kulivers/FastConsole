@@ -5,13 +5,14 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{A5A2C7AE-F25D-437B-9FE7-55BA3EA31765}</ProjectGuid>
-        <OutputType>Library</OutputType>
+        <ProjectGuid>{1F624A25-D27C-4BE8-AFCA-E48451B92DB4}</ProjectGuid>
+        <OutputType>Exe</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>WsdlLib</RootNamespace>
-        <AssemblyName>WsdlLib</AssemblyName>
+        <RootNamespace>ManualWsdl</RootNamespace>
+        <AssemblyName>ManualWsdl</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,8 +40,11 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Class1.cs"/>
+        <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="MockResponse.xml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
