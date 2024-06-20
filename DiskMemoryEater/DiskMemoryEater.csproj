@@ -43,16 +43,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Converters\ParsingEventsConverter.cs" />
+        <Compile Include="Converters\TimeSpanYamlConverter.cs" />
+        <Compile Include="Converters\VersionYamlConverter.cs" />
+        <Compile Include="Converters\YamlStreamConverter.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="Dockerfile" />
-      <Content Include="replace_env_vars.sh" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="packages.config" />
-      <None Include="template.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
