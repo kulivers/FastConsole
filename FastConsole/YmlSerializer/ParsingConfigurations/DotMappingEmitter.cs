@@ -11,11 +11,9 @@ namespace Comindware.Configs.Core
         private readonly List<ParsingEvent> _originEvents = new List<ParsingEvent>();
         private readonly Emitter _innerEmitter;
         private readonly StringBuilder _stringBuilder;
-        private readonly ParsingEventsConverter _converter;
 
-        public DotMappingEmitter(ParsingEventsConverter converter)
+        public DotMappingEmitter()
         {
-            _converter = converter;
             _stringBuilder = new StringBuilder();
             _innerEmitter = new Emitter(new StringWriter(_stringBuilder));
         }
@@ -25,14 +23,15 @@ namespace Comindware.Configs.Core
             _originEvents.Add(parsingEvent);
         }
 
-        internal IEnumerable<ParsingEvent> GetConvertedEvents()
+        internal IEnumerable<ParsingEvent> GetEvents()
         {
-            return _converter.ConvertToDotMapping(_originEvents);
+            return _originEvents;
         }
 
         public string GetSerializedObject()
         {
-            var convertedEvents = _converter.ConvertToDotMapping(_originEvents);
+            var converter = new ParsingEventsConverter();
+            var convertedEvents = converter.ConvertToDotMapping(_originEvents);
             foreach (var parsingEvent in convertedEvents)
             {
                 _innerEmitter.Emit(parsingEvent);

@@ -29,7 +29,7 @@ namespace Comindware.Configs.Core
 
         public static string Serialize(object obj)
         {
-            var emitter = new DotMappingEmitter(new ParsingEventsConverter());
+            var emitter = new DotMappingEmitter();
             Serializer.Serialize(emitter, obj);
             return emitter.GetSerializedObject();
         }
@@ -97,9 +97,17 @@ namespace Comindware.Configs.Core
             return Deserializer.Deserialize<T>(parser);
         }
 
-        public static string ChangeValues<T>(string content, T obj)
+        public static string ApplyModelToContent<TModel>(string content, TModel model)
         {
-            return ConfigContentChanger.ChangeValues(content, obj);
+            return ConfigContentChanger.ChangeValues(content, model);
+        }
+
+        public static void ApplyModelToFile<TModel>(string filePath, TModel model)
+        {
+            PrepareFilePath(filePath);
+            var content = File.ReadAllText(filePath);
+            var newContent = ApplyModelToContent(content, model);
+            File.WriteAllText(filePath,newContent);
         }
 
         private static void PrepareFilePath(string path)
@@ -224,9 +232,11 @@ namespace Comindware.Configs.Core
 
             private static IEnumerable<ParsingEvent> GetModelEvents<T>(T obj)
             {
-                var emitter = new DotMappingEmitter(new ParsingEventsConverter());
+                var emitter = new DotMappingEmitter();
                 Serializer.Serialize(emitter, obj);
-                var modelEvents = emitter.GetConvertedEvents();
+                var emitterEvents = emitter.GetEvents();
+                var converter = new ParsingEventsConverter();
+                var modelEvents = converter.ConvertToDotMapping(emitterEvents);
                 return modelEvents;
             }
 
