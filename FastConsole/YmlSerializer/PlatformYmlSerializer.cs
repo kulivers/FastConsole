@@ -106,7 +106,7 @@ namespace Comindware.Configs.Core
                                                 .Tupelize().ToDictionary(pair => pair.Item1, pair => pair.Item2);
 
             var changedFields = GetChangedFields(contentEvents, modelKeyValuePairs);
-            var addedFields = modelKeyValuePairs.Where(pair => !changedFields.ContainsKey(pair.Key)).ToDictionary(p=>p.Key, p=>p.Value);
+            var addedFields = modelKeyValuePairs.Where(pair => !changedFields.ContainsKey(pair.Key)).ToDictionary(p => p.Key, p => p.Value);
             content = ApplyToContent(content, changedFields, addedFields);
             return content;
         }
@@ -175,7 +175,6 @@ namespace Comindware.Configs.Core
             {
                 if (!(ev is Scalar scalar))
                 {
-                    // overridenContentEvents.Add(ev);
                     continue;
                 }
 
