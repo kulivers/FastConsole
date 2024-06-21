@@ -115,46 +115,35 @@ namespace Comindware.Configs.Core
             var keyValueModelPairs = modelEvents.Where(@event => @event is Scalar).Cast<Scalar>().Select(scalar=>scalar.Value).Tupelize().ToDictionary(pair => pair.Item1, pair => pair.Item2);
 
 
-            //override content 
-            var overridenContentEvents = new List<ParsingEvent>();
+            //getChangedFields 
+            var changedFields = new Dictionary<string, string>();
+            Scalar lastKey = null;
             foreach (var ev in contentEvents)
             {
                 if (!(ev is Scalar scalar))
                 {
-                    overridenContentEvents.Add(ev);
+                    // overridenContentEvents.Add(ev);
                     continue;
                 }
 
                 if (scalar.IsKey)
                 {
-                    overridenContentEvents.Add(scalar);
+                    lastKey = scalar;
                     continue;
                 }
 
-                
-                var key = (Scalar)overridenContentEvents.Last(); //last value is key of this value
-                var value = (Scalar)ev;
+
+                var key = lastKey;
                 if (keyValueModelPairs.TryGetValue(key.Value, out var newValue))
                 {
-                    var changedValue = new Scalar(value.Anchor, value.Tag, newValue, value.Style, value.IsPlainImplicit, value.IsQuotedImplicit, value.Start, value.End, value.IsKey);
-                    overridenContentEvents.Add(changedValue);
+                    changedFields.Add(key.Value, newValue);
                 }
-                else
-                {
-                    overridenContentEvents.Add(scalar);
-                }
-            }
-            
-            //write to file
-            var sb = new StringBuilder();
-            var resEvent = new Emitter(new StringWriter(sb));
-            foreach (var parsingEvent in overridenContentEvents)
-            {
-                resEvent.Emit(parsingEvent);
             }
 
-            var s = sb.ToString();
-            return s;
+            
+            //get added fields
+            var addedFields = keyValueModelPairs.Where(pair=>!changedFields.ContainsKey(pair.Key)).ToList();
+            return default;
         }
 
         private static IEnumerable<Tuple<T, T>> Tupelize<T>(this IEnumerable<T> source)

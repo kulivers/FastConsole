@@ -11,7 +11,7 @@ public class Program
     public static void Main()
     {
         // var model = PlatformYmlSerializer.ReadContent<PlatformInstanceModel>(File.ReadAllText(ymlPath));
-        var platformInstanceModel = new PlatformInstanceModel() { ConfigName = "322", Mq = new PlatformMessageQueueModel(){Server = "LIL UZI XYEVERT"}};
+        var platformInstanceModel = new PlatformInstanceModel() { ConfigName = "322", Mq = new PlatformMessageQueueModel(){Server = "LIL UZI XYEVERT", Name = "XYEYM"}};
         var model2 = PlatformYmlSerializer.ChangeValues<PlatformInstanceModel>(File.ReadAllText(ymlPath), platformInstanceModel);
         // PlatformYmlSerializer.WriteToFile(ymlPath2, model);
         Console.WriteLine(File.ReadAllText(ymlPath2));
