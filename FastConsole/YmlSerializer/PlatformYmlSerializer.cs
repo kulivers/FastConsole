@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
@@ -100,136 +99,7 @@ namespace Comindware.Configs.Core
 
         public static string ChangeValues<T>(string content, T obj)
         {
-            var contentEvents = GetContentYmlEvents(content);
-            var modelEvents = GetModelEvents(obj);
-            var modelKeyValuePairs = modelEvents.Where(@event => @event is Scalar).Cast<Scalar>().Select(scalar => scalar.Value)
-                                                .Tupelize().ToDictionary(pair => pair.Item1, pair => pair.Item2);
-
-            var changedFields = GetChangedFields(contentEvents, modelKeyValuePairs);
-            var addedFields = modelKeyValuePairs.Where(pair => !changedFields.ContainsKey(pair.Key)).ToDictionary(p => p.Key, p => p.Value);
-            content = ApplyToContent(content, changedFields, addedFields);
-            return content;
-        }
-
-        private static string ApplyToContent(string content, Dictionary<string,string> changedFields, Dictionary<string,string> addedFields)
-        {
-            var stringBuilder = new StringBuilder();
-            using (var reader = new StringReader(content))
-            {
-                var line = reader.ReadLine();
-                while (line != null)
-                {
-                    var key = GetKey(line);
-                    if (changedFields.TryGetValue(key, out var newValue))
-                    {
-                        var comment = GetComment(line);
-                        line = comment == null ? $"{key}: {newValue}" : $"{key}: {newValue} #{comment}";
-                    }
-
-                    stringBuilder.AppendLine(line);
-                    line = reader.ReadLine();
-                }
-                foreach (var (key, value) in addedFields)
-                {
-                    stringBuilder.AppendLine($"{key}: {value}");
-                }
-            }
-
-            return stringBuilder.ToString();
-        }
-
-        static string GetKey(string line)
-        {
-            if (string.IsNullOrEmpty(line))
-            {
-                return line;
-            }
-
-            var separatorIndex = line.IndexOf(":", StringComparison.Ordinal);
-            if (separatorIndex == -1)
-            {
-                return line;
-            }
-
-            var key = line.Substring(0, separatorIndex);
-            return key;
-        }
-
-        static string? GetComment(string line)
-        {
-            var commentIndex = line.IndexOf("#", StringComparison.Ordinal);
-            if (commentIndex == -1)
-            {
-                return null;
-            }
-
-            var commentValue = line.Substring(commentIndex+1, line.Length - commentIndex - 1);
-            return commentValue;
-        }
-
-        private static Dictionary<string, string> GetChangedFields(IEnumerable<ParsingEvent> contentEvents, Dictionary<string, string> modelKeyValuePairs)
-        {
-            var changedFields = new Dictionary<string, string>();
-            Scalar lastKey = null;
-            foreach (var ev in contentEvents)
-            {
-                if (!(ev is Scalar scalar))
-                {
-                    continue;
-                }
-
-                if (scalar.IsKey)
-                {
-                    lastKey = scalar;
-                    continue;
-                }
-
-
-                var key = lastKey;
-                if (modelKeyValuePairs.TryGetValue(key.Value, out var newValue))
-                {
-                    changedFields.Add(key.Value, newValue);
-                }
-            }
-
-            return changedFields;
-        }
-
-        private static IEnumerable<ParsingEvent> GetModelEvents<T>(T obj)
-        {
-            var emitter = new DotMappingEmitter(new ParsingEventsConverter());
-            Serializer.Serialize(emitter, obj);
-            var modelEvents = emitter.GetConvertedEvents();
-            return modelEvents;
-        }
-
-        private static IEnumerable<ParsingEvent> GetContentYmlEvents(string content)
-        {
-            var stream = new YamlStream();
-            stream.Load(new StringReader(content));
-
-            var parsingEvents = YamlStreamConverter.ConvertFromDotMapping(stream);
-            var converter = new ParsingEventsConverter(false);
-            var contentEvents = converter.ConvertToDotMapping(parsingEvents);
-            return contentEvents;
-        }
-
-        private static IEnumerable<Tuple<T, T>> Tupelize<T>(this IEnumerable<T> source)
-        {
-            using (var enumerator = source.GetEnumerator())
-            {
-                while (enumerator.MoveNext())
-                {
-                    var item1 = enumerator.Current;
-
-                    if (!enumerator.MoveNext())
-                        throw new ArgumentException();
-
-                    var item2 = enumerator.Current;
-
-                    yield return new Tuple<T, T>(item1, item2);
-                }
-            }
+            return ConfigContentChanger.ChangeValues(content, obj);
         }
 
         private static void PrepareFilePath(string path)
@@ -251,6 +121,142 @@ namespace Comindware.Configs.Core
             }
 
             File.Create(fileInfo.FullName).Dispose();
+        }
+
+        static class ConfigContentChanger
+        {
+            public static string ChangeValues<T>(string content, T obj)
+            {
+                var contentEvents = GetContentYmlEvents(content);
+                var modelEvents = GetModelEvents(obj);
+                var modelKeyValuePairs = modelEvents.Where(@event => @event is Scalar).Cast<Scalar>().Select(scalar => scalar.Value)
+                                                    .Tupelize().ToDictionary(pair => pair.Item1, pair => pair.Item2);
+
+                var changedFields = GetChangedFields(contentEvents, modelKeyValuePairs);
+                var addedFields = modelKeyValuePairs.Where(pair => !changedFields.ContainsKey(pair.Key)).ToDictionary(p => p.Key, p => p.Value);
+                content = ApplyToContent(content, changedFields, addedFields);
+                return content;
+            }
+
+            private static string ApplyToContent(string content, Dictionary<string, string> changedFields, Dictionary<string, string> addedFields)
+            {
+                var stringBuilder = new StringBuilder();
+                using (var reader = new StringReader(content))
+                {
+                    var line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        var key = GetKey(line);
+                        if (changedFields.TryGetValue(key, out var newValue))
+                        {
+                            var comment = GetComment(line);
+                            line = comment == null ? $"{key}: {newValue}" : $"{key}: {newValue} #{comment}";
+                        }
+
+                        stringBuilder.AppendLine(line);
+                        line = reader.ReadLine();
+                    }
+
+                    foreach (var (key, value) in addedFields)
+                    {
+                        stringBuilder.AppendLine($"{key}: {value}");
+                    }
+                }
+
+                return stringBuilder.ToString();
+            }
+
+            static string GetKey(string line)
+            {
+                if (string.IsNullOrEmpty(line))
+                {
+                    return line;
+                }
+
+                var separatorIndex = line.IndexOf(":", StringComparison.Ordinal);
+                if (separatorIndex == -1)
+                {
+                    return line;
+                }
+
+                var key = line.Substring(0, separatorIndex);
+                return key;
+            }
+
+            static string? GetComment(string line)
+            {
+                var commentIndex = line.IndexOf("#", StringComparison.Ordinal);
+                if (commentIndex == -1)
+                {
+                    return null;
+                }
+
+                var commentValue = line.Substring(commentIndex + 1, line.Length - commentIndex - 1);
+                return commentValue;
+            }
+
+            private static Dictionary<string, string> GetChangedFields(IEnumerable<ParsingEvent> contentEvents, Dictionary<string, string> modelKeyValuePairs)
+            {
+                var changedFields = new Dictionary<string, string>();
+                Scalar lastKey = null;
+                foreach (var ev in contentEvents)
+                {
+                    if (!(ev is Scalar scalar))
+                    {
+                        continue;
+                    }
+
+                    if (scalar.IsKey)
+                    {
+                        lastKey = scalar;
+                        continue;
+                    }
+
+                    var key = lastKey;
+                    if (modelKeyValuePairs.TryGetValue(key.Value, out var newValue))
+                    {
+                        changedFields.Add(key.Value, newValue);
+                    }
+                }
+
+                return changedFields;
+            }
+
+            private static IEnumerable<ParsingEvent> GetModelEvents<T>(T obj)
+            {
+                var emitter = new DotMappingEmitter(new ParsingEventsConverter());
+                Serializer.Serialize(emitter, obj);
+                var modelEvents = emitter.GetConvertedEvents();
+                return modelEvents;
+            }
+
+            private static IEnumerable<ParsingEvent> GetContentYmlEvents(string content)
+            {
+                var stream = new YamlStream();
+                stream.Load(new StringReader(content));
+
+                var parsingEvents = YamlStreamConverter.ConvertFromDotMapping(stream);
+                var converter = new ParsingEventsConverter(false);
+                var contentEvents = converter.ConvertToDotMapping(parsingEvents);
+                return contentEvents;
+            }
+        }
+        private static IEnumerable<Tuple<T, T>> Tupelize<T>(this IEnumerable<T> source)
+        {
+            using (var enumerator = source.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    var item1 = enumerator.Current;
+
+                    if (!enumerator.MoveNext())
+                        throw new ArgumentException();
+
+                    var item2 = enumerator.Current;
+
+                    yield return new Tuple<T, T>(item1, item2);
+                }
+            }
         }
     }
 }
