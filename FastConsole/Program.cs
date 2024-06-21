@@ -3,7 +3,7 @@ using Comindware.Configs.Core;
 
 public class Program
 {
-    private const string YmlPath = @"C:\Users\kulivers\AppData\Roaming\JetBrains\Rider2023.3\scratches\mock.yml";
+    private const string YmlPath = @"C:\Users\kulivers\AppData\Roaming\JetBrains\Rider2023.3\scratches\instanceConfig.yml";
 
     public static void Main()
     {

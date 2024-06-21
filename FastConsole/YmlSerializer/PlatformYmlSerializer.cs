@@ -100,7 +100,7 @@ namespace Comindware.Configs.Core
 
         public static string ChangeValues<T>(string content, T obj)
         {
-            var contentEvents = GetContentYmlEvents<T>(content);
+            var contentEvents = GetContentYmlEvents(content);
             var modelEvents = GetModelEvents(obj);
             var modelKeyValuePairs = modelEvents.Where(@event => @event is Scalar).Cast<Scalar>().Select(scalar => scalar.Value)
                                                 .Tupelize().ToDictionary(pair => pair.Item1, pair => pair.Item2);
@@ -203,7 +203,7 @@ namespace Comindware.Configs.Core
             return modelEvents;
         }
 
-        private static IEnumerable<ParsingEvent> GetContentYmlEvents<T>(string content)
+        private static IEnumerable<ParsingEvent> GetContentYmlEvents(string content)
         {
             var stream = new YamlStream();
             stream.Load(new StringReader(content));
