@@ -1,4 +1,6 @@
-﻿using YamlDotNet.Core.Events;
+﻿using System.Text;
+using YamlDotNet.Core;
+using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -13,17 +15,17 @@ namespace Comindware.Configs.Core
         static PlatformYmlSerializer()
         {
             Deserializer = new DeserializerBuilder()
-                            .WithTypeConverter(new VersionYamlConverter())
-                            .WithTypeConverter(new TimeSpanYamlConverter())
-                            .WithTypeConverter(new TimeOfDayYamlConverter())
-                            .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                            .Build();
+                           .WithTypeConverter(new VersionYamlConverter())
+                           .WithTypeConverter(new TimeSpanYamlConverter())
+                           .WithTypeConverter(new TimeOfDayYamlConverter())
+                           .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                           .Build();
             Serializer = new SerializerBuilder()
-                            .WithTypeConverter(new VersionYamlConverter())
-                            .WithTypeConverter(new TimeSpanYamlConverter())
-                            .WithTypeConverter(new TimeOfDayYamlConverter())
-                            .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                            .Build();
+                         .WithTypeConverter(new VersionYamlConverter())
+                         .WithTypeConverter(new TimeSpanYamlConverter())
+                         .WithTypeConverter(new TimeOfDayYamlConverter())
+                         .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                         .Build();
         }
 
         public static string Serialize(object obj)
@@ -58,7 +60,6 @@ namespace Comindware.Configs.Core
                 return WriteToFile(path, model);
             }
 
-            
             return true;
         }
 
@@ -67,7 +68,6 @@ namespace Comindware.Configs.Core
             // source.
             throw new NotImplementedException();
         }
-
 
         public static bool WriteToFile(string path, string content)
         {
@@ -98,7 +98,7 @@ namespace Comindware.Configs.Core
             return Deserializer.Deserialize<T>(parser);
         }
 
-        public static T ChangeValues<T>(string content, T obj)
+        public static string ChangeValues<T>(string content, T obj)
         {
             var stream = new YamlStream();
             stream.Load(new StringReader(content));
@@ -106,29 +106,61 @@ namespace Comindware.Configs.Core
             //content events reading
             var parsingEvents = YamlStreamConverter.ConvertFromDotMapping(stream);
             var converter = new ParsingEventsConverter(false);
-            var contentEvents = converter.ConvertToDotMapping(parsingEvents);
+            var contentEvents = converter.ConvertToDotMapping(parsingEvents).ToList();
 
             //model events reading
             var emitter = new DotMappingEmitter(new ParsingEventsConverter());
             Serializer.Serialize(emitter, obj);
             var modelEvents = emitter.GetConvertedEvents();
-            var keyValueModelPairs = new Dictionary<Scalar, Scalar>();
-            var enumerable = modelEvents.Where(@event => @event is Scalar).Tupelize();
-            bool isKey = true;
-            foreach (var modelEvent in modelEvents.Where(@event => @event is Scalar))
+            var keyValueModelPairs = modelEvents.Where(@event => @event is Scalar).Cast<Scalar>().Select(scalar=>scalar.Value).Tupelize().ToDictionary(pair => pair.Item1, pair => pair.Item2);
+
+
+            //override content 
+            var overridenContentEvents = new List<ParsingEvent>();
+            foreach (var ev in contentEvents)
             {
-                if (isKey)
+                if (!(ev is Scalar scalar))
                 {
-                    // keyValueModelPairs.Add();
+                    overridenContentEvents.Add(ev);
+                    continue;
                 }
-                    
-                isKey = !isKey;
+
+                if (scalar.IsKey)
+                {
+                    overridenContentEvents.Add(scalar);
+                    continue;
+                }
+
+                
+                var key = (Scalar)overridenContentEvents.Last(); //last value is key of this value
+                var value = (Scalar)ev;
+                if (keyValueModelPairs.TryGetValue(key.Value, out var newValue))
+                {
+                    var changedValue = new Scalar(value.Anchor, value.Tag, newValue, value.Style, value.IsPlainImplicit, value.IsQuotedImplicit, value.Start, value.End, value.IsKey);
+                    overridenContentEvents.Add(changedValue);
+                }
+                else
+                {
+                    overridenContentEvents.Add(scalar);
+                }
             }
-            return default;
+            
+            //write to file
+            var sb = new StringBuilder();
+            var resEvent = new Emitter(new StringWriter(sb));
+            foreach (var parsingEvent in overridenContentEvents)
+            {
+                resEvent.Emit(parsingEvent);
+            }
+
+            var s = sb.ToString();
+            return s;
         }
-        public static IEnumerable<Tuple<T, T>> Tupelize<T>(this IEnumerable<T> source)
+
+        private static IEnumerable<Tuple<T, T>> Tupelize<T>(this IEnumerable<T> source)
         {
             using (var enumerator = source.GetEnumerator())
+            {
                 while (enumerator.MoveNext())
                 {
                     var item1 = enumerator.Current;
@@ -140,6 +172,7 @@ namespace Comindware.Configs.Core
 
                     yield return new Tuple<T, T>(item1, item2);
                 }
+            }
         }
 
         private static void PrepareFilePath(string path)
