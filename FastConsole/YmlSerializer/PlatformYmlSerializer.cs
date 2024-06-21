@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
@@ -165,16 +169,16 @@ namespace Comindware.Configs.Core
                         line = reader.ReadLine();
                     }
 
-                    foreach (var (key, value) in addedFields)
+                    foreach (var field in addedFields)
                     {
-                        stringBuilder.AppendLine($"{key}: {value}");
+                        stringBuilder.AppendLine($"{field.Key}: {field.Value}");
                     }
                 }
 
                 return stringBuilder.ToString();
             }
 
-            static string GetKey(string line)
+            private static string GetKey(string line)
             {
                 if (string.IsNullOrEmpty(line))
                 {
@@ -191,7 +195,7 @@ namespace Comindware.Configs.Core
                 return key;
             }
 
-            static string? GetComment(string line)
+            private static string GetComment(string line)
             {
                 var commentIndex = line.IndexOf("#", StringComparison.Ordinal);
                 if (commentIndex == -1)
@@ -206,7 +210,7 @@ namespace Comindware.Configs.Core
             private static Dictionary<string, string> GetChangedFields(IEnumerable<ParsingEvent> contentEvents, Dictionary<string, string> modelKeyValuePairs)
             {
                 var changedFields = new Dictionary<string, string>();
-                Scalar lastKey = null;
+                Scalar previousScalarAsKey = null;
                 foreach (var ev in contentEvents)
                 {
                     if (!(ev is Scalar scalar))
@@ -214,17 +218,18 @@ namespace Comindware.Configs.Core
                         continue;
                     }
 
-                    if (scalar.IsKey)
+                    if (previousScalarAsKey == null) //true if previous was value
                     {
-                        lastKey = scalar;
+                        previousScalarAsKey = scalar; //if previous = null => so current is key
                         continue;
                     }
 
-                    var key = lastKey;
-                    if (modelKeyValuePairs.TryGetValue(key.Value, out var newValue))
+                    if (modelKeyValuePairs.TryGetValue(previousScalarAsKey.Value, out var newValue)) //if current is not key + changed, we adding the pair to result 
                     {
-                        changedFields.Add(key.Value, newValue);
+                        changedFields.Add(previousScalarAsKey.Value, newValue);
                     }
+
+                    previousScalarAsKey = null; //value is not key so null
                 }
 
                 return changedFields;
@@ -234,7 +239,7 @@ namespace Comindware.Configs.Core
             {
                 var emitter = new DotMappingEmitter();
                 Serializer.Serialize(emitter, obj);
-                var emitterEvents = emitter.GetEvents();
+                var emitterEvents = emitter.OriginEvents;
                 var converter = new ParsingEventsConverter();
                 var modelEvents = converter.ConvertToDotMapping(emitterEvents);
                 return modelEvents;
@@ -251,6 +256,7 @@ namespace Comindware.Configs.Core
                 return contentEvents;
             }
         }
+
         private static IEnumerable<Tuple<T, T>> Tupelize<T>(this IEnumerable<T> source)
         {
             using (var enumerator = source.GetEnumerator())

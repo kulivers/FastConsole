@@ -8,7 +8,7 @@ namespace Comindware.Configs.Core
 {
     internal class DotMappingEmitter : IEmitter
     {
-        private readonly List<ParsingEvent> _originEvents = new List<ParsingEvent>();
+        public readonly List<ParsingEvent> OriginEvents = new List<ParsingEvent>();
         private readonly Emitter _innerEmitter;
         private readonly StringBuilder _stringBuilder;
 
@@ -20,18 +20,13 @@ namespace Comindware.Configs.Core
 
         public void Emit(ParsingEvent parsingEvent)
         {
-            _originEvents.Add(parsingEvent);
-        }
-
-        internal IEnumerable<ParsingEvent> GetEvents()
-        {
-            return _originEvents;
+            OriginEvents.Add(parsingEvent);
         }
 
         public string GetSerializedObject()
         {
             var converter = new ParsingEventsConverter();
-            var convertedEvents = converter.ConvertToDotMapping(_originEvents);
+            var convertedEvents = converter.ConvertToDotMapping(OriginEvents);
             foreach (var parsingEvent in convertedEvents)
             {
                 _innerEmitter.Emit(parsingEvent);

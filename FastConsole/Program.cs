@@ -8,10 +8,11 @@ public class Program
 
     public static void Main()
     {
-        var platformInstanceModel = new PlatformInstanceModel() { ConfigName = "322", ElasticsearchUri = "1", Mq = new PlatformMessageQueueModel(){Server = "LIL UZI XYEVERT", Name = "XYEYM"}};
-        var content = PlatformYmlSerializer.ApplyModelToContent(File.ReadAllText(YmlPath), platformInstanceModel);
+        var platformInstanceModel = new PlatformInstanceModel()
+            { ConfigName = "322", Array = new[] { 1, 2, 3 }, ElasticsearchUri = "1", Mq = new PlatformMessageQueueModel() { Server = "LIL UZI XYEVERT", Name = "XYEYM" } };
+        var serialize = PlatformYmlSerializer.Serialize(YmlPath2);
+        Console.WriteLine(File.ReadAllText(YmlPath2));
         // var changedContent = PlatformYmlSerializer.ChangeValues(File.ReadAllText(YmlPath), platformInstanceModel);
         // Console.WriteLine(changedContent);
-        Console.WriteLine(content);
     }
 }

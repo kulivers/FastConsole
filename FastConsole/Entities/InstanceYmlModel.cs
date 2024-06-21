@@ -9,6 +9,7 @@ public class PlatformInstanceModel
     
     public string ConfigName;
     public string ElasticsearchUri;
+    public int[] Array;
     public MessageQueueModel Mq { get; set; }
 }
 public class PlatformInstanceModel2

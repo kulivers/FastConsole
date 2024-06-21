@@ -107,15 +107,14 @@ namespace Comindware.Configs.Core
         {
             if (IsScalar(out var scalar))
             {
-                var stringKey = BuildKey();
+                var key = BuildKey();
                 RemoveLastKeyFromContext();
-                if (_skipEmptyValues && (string.IsNullOrEmpty(stringKey) || string.IsNullOrEmpty(scalar.Value)))
+                if (_skipEmptyValues && (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(scalar.Value)))
                 {
                     return;
                 }
 
-                var key = new Scalar(scalar.Anchor, scalar.Tag, stringKey, scalar.Style, scalar.IsPlainImplicit, scalar.IsQuotedImplicit, Mark.Empty, Mark.Empty, true);
-                _events.Add(key);
+                _events.Add(new Scalar(scalar.Anchor, scalar.Tag, key, scalar.Style, scalar.IsPlainImplicit, scalar.IsQuotedImplicit));
                 _events.Add(scalar);
             }
         }
