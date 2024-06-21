@@ -12,9 +12,7 @@ public class Program
     {
         // var model = PlatformYmlSerializer.ReadContent<PlatformInstanceModel>(File.ReadAllText(ymlPath));
         var platformInstanceModel = new PlatformInstanceModel() { ConfigName = "322", Mq = new PlatformMessageQueueModel(){Server = "LIL UZI XYEVERT", Name = "XYEYM"}};
-        var model2 = PlatformYmlSerializer.ChangeValues<PlatformInstanceModel>(File.ReadAllText(ymlPath), platformInstanceModel);
-        // PlatformYmlSerializer.WriteToFile(ymlPath2, model);
-        Console.WriteLine(File.ReadAllText(ymlPath2));
-        return;
+        var changedContent = PlatformYmlSerializer.ChangeValues(File.ReadAllText(ymlPath), platformInstanceModel);
+        Console.WriteLine(changedContent);
     }
 }
