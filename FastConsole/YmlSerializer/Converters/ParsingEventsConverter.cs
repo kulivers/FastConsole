@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 
 namespace Comindware.Configs.Core
@@ -8,13 +9,19 @@ namespace Comindware.Configs.Core
     {
         private const char AttributesSeparatorChar = '.';
 
-        private IEnumerator<ParsingEvent> _enumerator;
-        private ParsingStatus _status;
+        private IEnumerator<ParsingEvent> _originEventsEnumerator;
+        private ParsingStatus _status { get; set; }
         private Action _action;
         private Stack<Scalar> _currentKeys;
         private List<ParsingEvent> _events;
-        private ParsingEvent _current => _enumerator.Current;
+        private ParsingEvent _current => _originEventsEnumerator.Current;
         private int _nestedLevel;
+        private bool _skipNulls;
+
+        public ParsingEventsConverter(bool skipNulls = true)
+        {
+            _skipNulls = skipNulls;
+        }
 
         public IEnumerable<ParsingEvent> ConvertToDotMapping(IEnumerable<ParsingEvent> originEvents)
         {
@@ -30,12 +37,12 @@ namespace Comindware.Configs.Core
 
         private bool MoveNext()
         {
-            return _enumerator.MoveNext();
+            return _originEventsEnumerator.MoveNext();
         }
 
         private void Reset(IEnumerable<ParsingEvent> events)
         {
-            _enumerator = events.GetEnumerator();
+            _originEventsEnumerator = events.GetEnumerator();
             _events = new List<ParsingEvent>();
             if (_currentKeys != null)
             {
@@ -100,14 +107,15 @@ namespace Comindware.Configs.Core
         {
             if (IsScalar(out var scalar))
             {
-                var key = BuildKey();
+                var stringKey = BuildKey();
                 RemoveLastKeyFromContext();
-                if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(scalar.Value))
+                if (_skipNulls && (string.IsNullOrEmpty(stringKey) || string.IsNullOrEmpty(scalar.Value)))
                 {
                     return;
                 }
 
-                _events.Add(new Scalar(scalar.Anchor, scalar.Tag, key, scalar.Style, scalar.IsPlainImplicit, scalar.IsQuotedImplicit));
+                var key = new Scalar(scalar.Anchor, scalar.Tag, stringKey, scalar.Style, scalar.IsPlainImplicit, scalar.IsQuotedImplicit, Mark.Empty, Mark.Empty, true);
+                _events.Add(key);
                 _events.Add(scalar);
             }
         }

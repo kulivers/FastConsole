@@ -6,6 +6,13 @@ public class PlatformInstanceModel
     {
     }
     
+    
+    public string ConfigName;
+    public string ElasticsearchUri;
+    public MessageQueueModel Mq { get; set; }
+}
+public class PlatformInstanceModel2
+{
     public string DatabaseName;
     public string ConfigName;
     public bool? IsWindowsAuthorization;

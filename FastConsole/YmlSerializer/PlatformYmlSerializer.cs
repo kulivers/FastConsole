@@ -1,4 +1,6 @@
-﻿using YamlDotNet.Serialization;
+﻿using YamlDotNet.Core.Events;
+using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
 namespace Comindware.Configs.Core
@@ -26,7 +28,7 @@ namespace Comindware.Configs.Core
 
         public static string Serialize(object obj)
         {
-            var emitter = new DotMappingEmitter();
+            var emitter = new DotMappingEmitter(new ParsingEventsConverter());
             Serializer.Serialize(emitter, obj);
             return emitter.GetSerializedObject();
         }
@@ -94,6 +96,50 @@ namespace Comindware.Configs.Core
         {
             var parser = new DotMappingParser(content);
             return Deserializer.Deserialize<T>(parser);
+        }
+
+        public static T ChangeValues<T>(string content, T obj)
+        {
+            var stream = new YamlStream();
+            stream.Load(new StringReader(content));
+
+            //content events reading
+            var parsingEvents = YamlStreamConverter.ConvertFromDotMapping(stream);
+            var converter = new ParsingEventsConverter(false);
+            var contentEvents = converter.ConvertToDotMapping(parsingEvents);
+
+            //model events reading
+            var emitter = new DotMappingEmitter(new ParsingEventsConverter());
+            Serializer.Serialize(emitter, obj);
+            var modelEvents = emitter.GetConvertedEvents();
+            var keyValueModelPairs = new Dictionary<Scalar, Scalar>();
+            var enumerable = modelEvents.Where(@event => @event is Scalar).Tupelize();
+            bool isKey = true;
+            foreach (var modelEvent in modelEvents.Where(@event => @event is Scalar))
+            {
+                if (isKey)
+                {
+                    // keyValueModelPairs.Add();
+                }
+                    
+                isKey = !isKey;
+            }
+            return default;
+        }
+        public static IEnumerable<Tuple<T, T>> Tupelize<T>(this IEnumerable<T> source)
+        {
+            using (var enumerator = source.GetEnumerator())
+                while (enumerator.MoveNext())
+                {
+                    var item1 = enumerator.Current;
+
+                    if (!enumerator.MoveNext())
+                        throw new ArgumentException();
+
+                    var item2 = enumerator.Current;
+
+                    yield return new Tuple<T, T>(item1, item2);
+                }
         }
 
         private static void PrepareFilePath(string path)
