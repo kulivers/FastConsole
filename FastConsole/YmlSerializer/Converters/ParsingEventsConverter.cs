@@ -16,11 +16,11 @@ namespace Comindware.Configs.Core
         private List<ParsingEvent> _events;
         private ParsingEvent _current => _originEventsEnumerator.Current;
         private int _nestedLevel;
-        private bool _skipNulls;
+        private readonly bool _skipEmptyValues;
 
-        public ParsingEventsConverter(bool skipNulls = true)
+        public ParsingEventsConverter(bool skipEmptyValues = true)
         {
-            _skipNulls = skipNulls;
+            _skipEmptyValues = skipEmptyValues;
         }
 
         public IEnumerable<ParsingEvent> ConvertToDotMapping(IEnumerable<ParsingEvent> originEvents)
@@ -109,7 +109,7 @@ namespace Comindware.Configs.Core
             {
                 var stringKey = BuildKey();
                 RemoveLastKeyFromContext();
-                if (_skipNulls && (string.IsNullOrEmpty(stringKey) || string.IsNullOrEmpty(scalar.Value)))
+                if (_skipEmptyValues && (string.IsNullOrEmpty(stringKey) || string.IsNullOrEmpty(scalar.Value)))
                 {
                     return;
                 }
