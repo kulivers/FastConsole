@@ -10,8 +10,7 @@ public class Program
 
     public static void Main()
     {
-        // var model = PlatformYmlSerializer.ReadContent<PlatformInstanceModel>(File.ReadAllText(ymlPath));
-        var platformInstanceModel = new PlatformInstanceModel() { ConfigName = "322", Mq = new PlatformMessageQueueModel(){Server = "LIL UZI XYEVERT", Name = "XYEYM"}};
+        var platformInstanceModel = new PlatformInstanceModel() { ConfigName = "322", ElasticsearchUri = "1", Mq = new PlatformMessageQueueModel(){Server = "LIL UZI XYEVERT", Name = "XYEYM"}};
         var changedContent = PlatformYmlSerializer.ChangeValues(File.ReadAllText(ymlPath), platformInstanceModel);
         Console.WriteLine(changedContent);
     }

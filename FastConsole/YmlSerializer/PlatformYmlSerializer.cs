@@ -145,7 +145,7 @@ namespace Comindware.Configs.Core
                 return line;
             }
 
-            var separatorIndex = line.IndexOf(": ", StringComparison.Ordinal);
+            var separatorIndex = line.IndexOf(":", StringComparison.Ordinal);
             if (separatorIndex == -1)
             {
                 return line;
@@ -163,7 +163,7 @@ namespace Comindware.Configs.Core
                 return null;
             }
 
-            var commentValue = line.Substring(commentIndex+1, line.Length - commentIndex - 2);
+            var commentValue = line.Substring(commentIndex+1, line.Length - commentIndex - 1);
             return commentValue;
         }
 
