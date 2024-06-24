@@ -1,9 +1,267 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using YamlDotNet.RepresentationModel;
 
 namespace Runner
 {
+    public class YamlFieldCollection : Dictionary<string, ComplexYamlField>
+    {
+        public bool TrySetValue(string key, string value)
+        {
+            if (!this.TryGetValue(key, out var field))
+            {
+                return false;
+            }
+
+            field.Value = value;
+            return true;
+        }
+
+        public bool TrySetValue(string[] propertyPath, string value)
+        {
+            var field = default(ComplexYamlField);
+            var fields = this;
+            foreach (var prop in propertyPath)
+            {
+                if (fields != null && !fields.TryGetValue(prop, out field))
+                {
+                    return false;
+                }
+
+                fields = field.Fields;
+            }
+
+            field.Value = value;
+            return true;
+        }
+
+        public bool TryAddField(ComplexYamlField field)
+        {
+            if (this.ContainsKey(field.Name))
+            {
+                return false;
+            }
+
+            this.Add(field.Name, field);
+            return true;
+        }
+
+        public ComplexYamlField CreateField(string[] propertyPath)
+        {
+            var collection = this;
+            var field = default(ComplexYamlField);
+            foreach (var prop in propertyPath)
+            {
+                if (collection.TryGetValue(prop, out field))
+                {
+                    collection = field.Fields;
+                }
+                else
+                {
+                    field = new ComplexYamlField(prop);
+                    collection.Add(prop, field);
+                    collection = field.Fields;
+                }
+            }
+
+            return field;
+        }
+
+        public bool TryAddField(string[] propertyPath, ComplexYamlField field)
+        {
+            if (!TryFindField(propertyPath, out var existingField))
+            {
+                return false;
+            }
+
+            if (existingField.Fields != null && !existingField.Fields.ContainsKey(field.Name))
+            {
+                existingField.Fields.Add(field.Name, field);
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool TryFindField(string[] propertyPath, out ComplexYamlField field)
+        {
+            field = default(ComplexYamlField);
+            var collection = this;
+            foreach (var prop in propertyPath)
+            {
+                if (collection != null && !collection.TryGetValue(prop, out field))
+                {
+                    return false;
+                }
+
+                collection = field.Fields;
+            }
+
+            return true;
+        }
+    }
+
+    public class YamlField
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+
+        public YamlField()
+        {
+        }
+
+        public YamlField(string name)
+        {
+            Name = name;
+        }
+
+        public YamlField(string name, string value)
+        {
+            Name = name;
+            Value = value;
+        }
+    }
+
+    public class ComplexYamlField : YamlField
+    {
+        public YamlFieldCollection Fields { get; set; } = new YamlFieldCollection();
+
+        public ComplexYamlField() : base()
+        {
+        }
+
+        public ComplexYamlField(string name) : base(name)
+        {
+        }
+
+        public ComplexYamlField(string name, string value) : base(name, value)
+        {
+        }
+
+        public ComplexYamlField(string name, IEnumerable<ComplexYamlField> fields) : base(name)
+        {
+            Fields = ToDictionary(fields);
+        }
+
+        private YamlFieldCollection ToDictionary(IEnumerable<ComplexYamlField> fields)
+        {
+            var result = new YamlFieldCollection();
+            foreach (var field in fields)
+            {
+                if (!result.TryGetValue(field.Name, out var dictField))
+                {
+                    result.Add(field.Name, field);
+                }
+            }
+
+            return result;
+        }
+    }
+
+    public class MyVisitor : IYamlVisitor
+    {
+        private List<YamlField> _add = new List<YamlField>();
+        private List<YamlLineChange> _edit = new List<YamlLineChange>();
+
+        private Dictionary<string, ComplexYamlField> _fields;
+
+        private ComplexYamlField _currentField;
+        private Dictionary<string, ComplexYamlField> _currentFieldsCollection;
+
+        public MyVisitor(Dictionary<string, ComplexYamlField> changes)
+        {
+            _fields = changes;
+        }
+
+        public void Visit(YamlStream stream)
+        {
+            foreach (var doc in stream.Documents)
+            {
+                doc.Accept(this);
+            }
+        }
+
+        public void Visit(YamlDocument document)
+        {
+            document.RootNode.Accept(this);
+        }
+
+        public void Visit(YamlScalarNode scalar)
+        {
+            _edit.Add(new YamlLineChange(scalar.Start.Line, _currentField.Value));
+        }
+
+        public void Visit(YamlSequenceNode sequence)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        public void Visit(YamlMappingNode mapping)
+        {
+            var lastCollection = _currentFieldsCollection;
+            foreach (var pair in mapping)
+            {
+                var scalarNode = pair.Key as YamlScalarNode;
+                var keys = scalarNode.Value.Split('.');
+
+                var hasKey = true;
+                var currentField = default(ComplexYamlField);
+                var currentFields = _currentFieldsCollection ?? _fields;
+                foreach (var key in keys)
+                {
+                    if (!currentFields.TryGetValue(key, out var field))
+                    {
+                        hasKey = false;
+                        break;
+                    }
+
+                    currentField = field;
+                    currentFields = field.Fields;
+                }
+
+                if (!hasKey)
+                {
+                    continue;
+                }
+
+                _currentField = currentField;
+                _currentFieldsCollection = currentFields;
+                pair.Value.Accept(this);
+                _currentFieldsCollection = lastCollection;
+            }
+
+            _currentField = null;
+            _currentFieldsCollection = null;
+        }
+
+        public YamlConfigChanges GetResult() => new YamlConfigChanges() { Add = _add, Edit = _edit };
+    }
+
+    public class YamlConfigChanges
+    {
+        public IEnumerable<YamlField> Add { get; set; }
+        public IEnumerable<YamlLineChange> Edit { get; set; }
+    }
+
+    public class YamlLineChange
+    {
+        public int Line { get; set; }
+        public string Value { get; set; }
+
+        public YamlLineChange()
+        {
+        }
+
+        public YamlLineChange(int line, string value)
+        {
+            Line = line;
+            Value = value;
+        }
+    }
+
     public class ConfigChanger
     {
         public void RewriteFile(string path, YamlFieldCollection changes)
@@ -42,6 +300,7 @@ namespace Runner
                 writer.Write(stringBuilder.ToString());
             }
         }
+
         public string RewriteContent(string content, YamlFieldCollection changes)
         {
             var yamlStream = new YamlStream();

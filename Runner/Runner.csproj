@@ -38,6 +38,9 @@
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
+        <Reference Include="YamlDotNet">
+          <HintPath>C:\Users\ekul\.nuget\packages\yamldotnet\11.2.1\lib\netstandard2.1\YamlDotNet.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="changer.cs" />
