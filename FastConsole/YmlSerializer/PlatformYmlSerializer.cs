@@ -148,7 +148,7 @@ namespace Comindware.Configs.Core
 
                 var changedFields = GetChangedFields(contentEvents, modelKeyValuePairs);
                 var addedFields = modelKeyValuePairs.Where(pair => !changedFields.ContainsKey(pair.Key)).ToDictionary(p => p.Key, p => p.Value);
-                return content;
+                return ApplyToContent(content, changedFields, addedFields);
             }
 
             private static string ApplyToContent(string content, Dictionary<string, string> changedFields, Dictionary<string, string> addedFields)
@@ -181,15 +181,15 @@ namespace Comindware.Configs.Core
 
             private static string GetKey(string line)
             {
-                if (string.IsNullOrEmpty(line))
+                if (string.IsNullOrEmpty(line) || line.TrimStart().StartsWith('#'))
                 {
-                    return line;
+                    return null;
                 }
 
                 var separatorIndex = line.IndexOf(":", StringComparison.Ordinal);
                 if (separatorIndex == -1)
                 {
-                    return line;
+                    return null;
                 }
 
                 var key = line.Substring(0, separatorIndex);

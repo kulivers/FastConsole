@@ -1,0 +1,12 @@
+#useDataBusNumbers1:
+#useDataBusNumbers2:
+#configName: configName1 #com1\
+#enabled: false
+#array:
+#  - 4
+#  - 5
+#mq.server: mqServer1       #com1
+#mq.name: XYEYM
+mq.array:
+  - 99
+  - 21

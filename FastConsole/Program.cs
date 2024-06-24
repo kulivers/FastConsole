@@ -1,20 +1,20 @@
-﻿using Comindware.Bootloading.Core.Configuration;
-using Comindware.Bootloading.Core.Configuration.Entities;
+﻿using Comindware.Bootloading.Core.Configuration.Entities;
 using Comindware.Configs.Core;
 using YamlDotNet.RepresentationModel;
 
 public class Program
 {
-    private const string YmlPath = @"C:\Users\ekul\AppData\Roaming\JetBrains\Rider2023.3\scratches\mock.yml";
+    private const string YmlPath = @"D:\dev\other\FastConsole\FastConsole\mock.yml";
     private const string YmlPath2 = @"C:\Users\kulivers\AppData\Roaming\JetBrains\Rider2023.3\scratches\instanceConfig2.yml";
 
     public static void Main()
     {
         var content = File.ReadAllText(YmlPath);
-        var yamlStream = new YamlStream();
-        yamlStream.Load(new StringReader(content));
-        var visitor = new ChangesCollectingVisitor();
-        yamlStream.Accept(visitor);
+        var platformInstanceModel = new PlatformInstanceModel() {
+            // ConfigName = "322",
+            ElasticsearchUri = "1", Mq = new PlatformMessageQueueModel() { Server = "LIL UZI XYEVERT", Name = "XYEYM" } };
+        var newContent = PlatformYmlSerializer.ApplyModelToContent(content, platformInstanceModel);
+        File.WriteAllText(@"D:\dev\other\FastConsole\FastConsole\a.yml", newContent);
     }
 }
 
@@ -40,7 +40,8 @@ public class ChangesCollectingVisitor : YamlVisitorBase
         base.Visit(sequence);
     }
 
-    public YamlMappingNode Mapping;    
+    public YamlMappingNode Mapping;
+
     public override void Visit(YamlMappingNode mapping)
     {
         Mapping = mapping;

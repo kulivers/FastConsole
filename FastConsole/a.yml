@@ -1,0 +1,8 @@
+#useDataBusNumbers1:
+    #useDataBusNumbers2:
+configName: configName1 #com1\
+mq.server: LIL UZI XYEVERT #com1
+mq.name: XYEYM
+enabled: false
+array.1: 0
+elasticsearchUri: 1
