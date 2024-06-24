@@ -43,6 +43,38 @@ namespace Comindware.Bootloading.Core.Configuration
                 writer.Write(stringBuilder.ToString());
             }
         }
+        public string RewriteContent(string content, YamlFieldCollection changes)
+        {
+            var yamlStream = new YamlStream();
+            yamlStream.Load(new StringReader(content));
+            var visitor = new MyVisitor(changes);
+            yamlStream.Accept(visitor);
+
+            var marks = visitor.GetResult();
+            var edits = marks.Edit.ToDictionary(edit => edit.Line, change => change.Value);
+
+            var stringBuilder = new StringBuilder();
+            using (var reader = new StringReader(content))
+            {
+                var line = reader.ReadLine();
+                var lineNum = 1;
+                while (line != null)
+                {
+                    if (edits.TryGetValue(lineNum, out var newValue))
+                    {
+                        var key = GetKey(line);
+                        var comment = GetComment(line);
+                        line = comment == null ? $"{key}: {newValue}" : $"{key}: {newValue} #{comment}";
+                    }
+
+                    stringBuilder.AppendLine(line);
+                    line = reader.ReadLine();
+                    lineNum++;
+                }
+            }
+
+            return stringBuilder.ToString();
+        }
 
         private string GetKey(string line)
         {

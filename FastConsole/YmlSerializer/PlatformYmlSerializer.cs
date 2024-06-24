@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Comindware.Bootloading.Core.Configuration;
+using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
@@ -146,7 +148,6 @@ namespace Comindware.Configs.Core
 
                 var changedFields = GetChangedFields(contentEvents, modelKeyValuePairs);
                 var addedFields = modelKeyValuePairs.Where(pair => !changedFields.ContainsKey(pair.Key)).ToDictionary(p => p.Key, p => p.Value);
-                content = ApplyToContent(content, changedFields, addedFields);
                 return content;
             }
 
