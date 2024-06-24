@@ -3,7 +3,7 @@ using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
 
-namespace Comindware.Configs.Core
+namespace Comindware.Bootloading.Core.Configuration.Utils
 {
     public class TimeSpanYamlConverter : IYamlTypeConverter
     {

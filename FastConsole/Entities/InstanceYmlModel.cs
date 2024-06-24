@@ -11,8 +11,9 @@ public class PlatformInstanceModel
     public string ElasticsearchUri;
     public int[] Array;
     public MessageQueueModel Mq { get; set; }
+    public int[] UseDataBusNumbers;
 }
-public class PlatformInstanceModel2
+public class PlatformInstanceModelFull
 {
     public string DatabaseName;
     public string ConfigName;

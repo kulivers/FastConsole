@@ -1,4 +1,4 @@
-using Comindware.Configs.Core;
+using Comindware.Bootloading.Core.Configuration.Utils;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;

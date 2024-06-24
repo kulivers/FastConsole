@@ -4,7 +4,7 @@ using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
 using Version = System.Version;
 
-namespace Comindware.Configs.Core
+namespace Comindware.Bootloading.Core.Configuration.Utils
 {
     public class VersionYamlConverter : IYamlTypeConverter
     {

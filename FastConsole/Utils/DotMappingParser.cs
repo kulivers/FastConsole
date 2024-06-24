@@ -4,7 +4,7 @@ using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;
 
-namespace Comindware.Configs.Core
+namespace Comindware.Bootloading.Core.Configuration.Utils
 {
     internal class DotMappingParser : IParser
     {

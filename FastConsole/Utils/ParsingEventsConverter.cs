@@ -1,27 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 
-namespace Comindware.Configs.Core
+namespace Comindware.Bootloading.Core.Configuration.Utils
 {
     internal class ParsingEventsConverter
     {
         private const char AttributesSeparatorChar = '.';
 
-        private IEnumerator<ParsingEvent> _originEventsEnumerator;
-        private ParsingStatus _status { get; set; }
+        private IEnumerator<ParsingEvent> _enumerator;
+        private ParsingStatus _status;
         private Action _action;
         private Stack<Scalar> _currentKeys;
         private List<ParsingEvent> _events;
-        private ParsingEvent _current => _originEventsEnumerator.Current;
+        private ParsingEvent _current => _enumerator.Current;
         private int _nestedLevel;
-        private readonly bool _skipEmptyValues;
-
-        public ParsingEventsConverter(bool skipEmptyValues = true)
-        {
-            _skipEmptyValues = skipEmptyValues;
-        }
 
         public IEnumerable<ParsingEvent> ConvertToDotMapping(IEnumerable<ParsingEvent> originEvents)
         {
@@ -37,12 +30,12 @@ namespace Comindware.Configs.Core
 
         private bool MoveNext()
         {
-            return _originEventsEnumerator.MoveNext();
+            return _enumerator.MoveNext();
         }
 
         private void Reset(IEnumerable<ParsingEvent> events)
         {
-            _originEventsEnumerator = events.GetEnumerator();
+            _enumerator = events.GetEnumerator();
             _events = new List<ParsingEvent>();
             if (_currentKeys != null)
             {
@@ -109,7 +102,7 @@ namespace Comindware.Configs.Core
             {
                 var key = BuildKey();
                 RemoveLastKeyFromContext();
-                if (_skipEmptyValues && (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(scalar.Value)))
+                if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(scalar.Value))
                 {
                     return;
                 }

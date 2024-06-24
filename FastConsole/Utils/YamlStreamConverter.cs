@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;
 
-namespace Comindware.Configs.Core
+
+namespace Comindware.Bootloading.Core.Configuration.Utils
 {
     internal static class YamlStreamConverter
     {
@@ -38,17 +38,21 @@ namespace Comindware.Configs.Core
 
         private static IEnumerable<ParsingEvent> ConvertNode(YamlNode node)
         {
-            if (node is YamlScalarNode scalar)
+            var scalar = node as YamlScalarNode;
+            if (scalar != null)
             {
                 return ConvertScalarNode(scalar);
             }
 
-            if (node is YamlSequenceNode sequence)
+            var sequence = node as YamlSequenceNode;
+            if (sequence != null)
             {
                 return ConvertSequenceNode(sequence);
             }
 
-            if (node is YamlMappingNode mapping)
+            var mapping = node as YamlMappingNode;
+
+            if (mapping != null)
             {
                 var newMap = RebuildMappingNode(mapping);
                 return ConvertMappingNode(newMap);
@@ -132,27 +136,5 @@ namespace Comindware.Configs.Core
                 }
             }
         }
-    }
-}
-
-internal static class YamlMappingNodeExtension
-{
-    public static YamlMappingNode GetOrAdd(this YamlMappingNode node, YamlNode key)
-    {
-        var mappingNode = default(YamlMappingNode);
-        if (node.Children.TryGetValue(key, out var value))
-        {
-            if (value is YamlMappingNode valueMappingNode)
-            {
-                mappingNode = valueMappingNode;
-            }
-        }
-        else
-        {
-            mappingNode = new YamlMappingNode();
-            node.Add(key, mappingNode);
-        }
-
-        return mappingNode;
     }
 }
